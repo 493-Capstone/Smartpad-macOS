@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		973F64D527D798A70045571F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64D427D798A70045571F /* AppDelegate.swift */; };
+		973F64D727D798A70045571F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64D627D798A70045571F /* ViewController.swift */; };
+		973F64D927D798A70045571F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973F64D827D798A70045571F /* Assets.xcassets */; };
+		973F64DC27D798A70045571F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 973F64DA27D798A70045571F /* Main.storyboard */; };
+		973F64E727D798A70045571F /* Smartpad_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64E627D798A70045571F /* Smartpad_macOSTests.swift */; };
+		973F64F127D798A70045571F /* Smartpad_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F027D798A70045571F /* Smartpad_macOSUITests.swift */; };
+		973F64F327D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */; };
+		973F650327D7998C0045571F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F650227D7998C0045571F /* ConnectionManager.swift */; };
+		97621F1427DD43C50022588D /* UnpairedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F1327DD43C50022588D /* UnpairedView.swift */; };
+		97621F1627DD43F30022588D /* SearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F1527DD43F30022588D /* SearchingView.swift */; };
+		97621F1827DD44180022588D /* PairedAndConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F1727DD44180022588D /* PairedAndConnectedView.swift */; };
+		97621F1A27DD443E0022588D /* PairedAndDisconnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F1927DD443E0022588D /* PairedAndDisconnectedView.swift */; };
+		97621F1C27DD445F0022588D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F1B27DD445F0022588D /* SettingsView.swift */; };
+		97621F1E27DD45BC0022588D /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F1D27DD45BC0022588D /* InitialView.swift */; };
+		97621F2027DD4FEC0022588D /* DevicesFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F1F27DD4FEC0022588D /* DevicesFoundView.swift */; };
+		97621F2227DDB3370022588D /* ConnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2127DDB3370022588D /* ConnStatus.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		973F64E327D798A70045571F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 973F64C927D798A60045571F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 973F64D027D798A70045571F;
+			remoteInfo = "Smartpad-macOS";
+		};
+		973F64ED27D798A70045571F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 973F64C927D798A60045571F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 973F64D027D798A70045571F;
+			remoteInfo = "Smartpad-macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		973F64D127D798A70045571F /* Smartpad-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smartpad-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		973F64D427D798A70045571F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		973F64D627D798A70045571F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		973F64D827D798A70045571F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		973F64DB27D798A70045571F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		973F64DD27D798A70045571F /* Smartpad_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smartpad_macOS.entitlements; sourceTree = "<group>"; };
+		973F64E227D798A70045571F /* Smartpad-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smartpad-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		973F64E627D798A70045571F /* Smartpad_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSTests.swift; sourceTree = "<group>"; };
+		973F64EC27D798A70045571F /* Smartpad-macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smartpad-macOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		973F64F027D798A70045571F /* Smartpad_macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSUITests.swift; sourceTree = "<group>"; };
+		973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		973F650227D7998C0045571F /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		973F650427D79B970045571F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		97621F1327DD43C50022588D /* UnpairedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpairedView.swift; sourceTree = "<group>"; };
+		97621F1527DD43F30022588D /* SearchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingView.swift; sourceTree = "<group>"; };
+		97621F1727DD44180022588D /* PairedAndConnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedAndConnectedView.swift; sourceTree = "<group>"; };
+		97621F1927DD443E0022588D /* PairedAndDisconnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedAndDisconnectedView.swift; sourceTree = "<group>"; };
+		97621F1B27DD445F0022588D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		97621F1D27DD45BC0022588D /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		97621F1F27DD4FEC0022588D /* DevicesFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesFoundView.swift; sourceTree = "<group>"; };
+		97621F2127DDB3370022588D /* ConnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnStatus.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		973F64CE27D798A70045571F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973F64DF27D798A70045571F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973F64E927D798A70045571F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		973F64C827D798A60045571F = {
+			isa = PBXGroup;
+			children = (
+				973F64D327D798A70045571F /* Smartpad-macOS */,
+				973F64E527D798A70045571F /* Smartpad-macOSTests */,
+				973F64EF27D798A70045571F /* Smartpad-macOSUITests */,
+				973F64D227D798A70045571F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		973F64D227D798A70045571F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				973F64D127D798A70045571F /* Smartpad-macOS.app */,
+				973F64E227D798A70045571F /* Smartpad-macOSTests.xctest */,
+				973F64EC27D798A70045571F /* Smartpad-macOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		973F64D327D798A70045571F /* Smartpad-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				973F650427D79B970045571F /* Info.plist */,
+				973F650127D798E30045571F /* Logic */,
+				973F650027D798D30045571F /* Controller */,
+				973F64FF27D798C60045571F /* View */,
+				973F64D427D798A70045571F /* AppDelegate.swift */,
+				973F64D827D798A70045571F /* Assets.xcassets */,
+				973F64DD27D798A70045571F /* Smartpad_macOS.entitlements */,
+			);
+			path = "Smartpad-macOS";
+			sourceTree = "<group>";
+		};
+		973F64E527D798A70045571F /* Smartpad-macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				973F64E627D798A70045571F /* Smartpad_macOSTests.swift */,
+			);
+			path = "Smartpad-macOSTests";
+			sourceTree = "<group>";
+		};
+		973F64EF27D798A70045571F /* Smartpad-macOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				973F64F027D798A70045571F /* Smartpad_macOSUITests.swift */,
+				973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */,
+			);
+			path = "Smartpad-macOSUITests";
+			sourceTree = "<group>";
+		};
+		973F64FF27D798C60045571F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				973F64DA27D798A70045571F /* Main.storyboard */,
+				97621F1327DD43C50022588D /* UnpairedView.swift */,
+				97621F1527DD43F30022588D /* SearchingView.swift */,
+				97621F1727DD44180022588D /* PairedAndConnectedView.swift */,
+				97621F1927DD443E0022588D /* PairedAndDisconnectedView.swift */,
+				97621F1B27DD445F0022588D /* SettingsView.swift */,
+				97621F1D27DD45BC0022588D /* InitialView.swift */,
+				97621F1F27DD4FEC0022588D /* DevicesFoundView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		973F650027D798D30045571F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				973F64D627D798A70045571F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		973F650127D798E30045571F /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				973F650227D7998C0045571F /* ConnectionManager.swift */,
+				97621F2127DDB3370022588D /* ConnStatus.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		973F64D027D798A70045571F /* Smartpad-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 973F64F627D798A70045571F /* Build configuration list for PBXNativeTarget "Smartpad-macOS" */;
+			buildPhases = (
+				973F64CD27D798A70045571F /* Sources */,
+				973F64CE27D798A70045571F /* Frameworks */,
+				973F64CF27D798A70045571F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smartpad-macOS";
+			productName = "Smartpad-macOS";
+			productReference = 973F64D127D798A70045571F /* Smartpad-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		973F64E127D798A70045571F /* Smartpad-macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 973F64F927D798A70045571F /* Build configuration list for PBXNativeTarget "Smartpad-macOSTests" */;
+			buildPhases = (
+				973F64DE27D798A70045571F /* Sources */,
+				973F64DF27D798A70045571F /* Frameworks */,
+				973F64E027D798A70045571F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				973F64E427D798A70045571F /* PBXTargetDependency */,
+			);
+			name = "Smartpad-macOSTests";
+			productName = "Smartpad-macOSTests";
+			productReference = 973F64E227D798A70045571F /* Smartpad-macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		973F64EB27D798A70045571F /* Smartpad-macOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 973F64FC27D798A70045571F /* Build configuration list for PBXNativeTarget "Smartpad-macOSUITests" */;
+			buildPhases = (
+				973F64E827D798A70045571F /* Sources */,
+				973F64E927D798A70045571F /* Frameworks */,
+				973F64EA27D798A70045571F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				973F64EE27D798A70045571F /* PBXTargetDependency */,
+			);
+			name = "Smartpad-macOSUITests";
+			productName = "Smartpad-macOSUITests";
+			productReference = 973F64EC27D798A70045571F /* Smartpad-macOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		973F64C927D798A60045571F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					973F64D027D798A70045571F = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					973F64E127D798A70045571F = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 973F64D027D798A70045571F;
+					};
+					973F64EB27D798A70045571F = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 973F64D027D798A70045571F;
+					};
+				};
+			};
+			buildConfigurationList = 973F64CC27D798A60045571F /* Build configuration list for PBXProject "Smartpad-macOS" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 973F64C827D798A60045571F;
+			productRefGroup = 973F64D227D798A70045571F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				973F64D027D798A70045571F /* Smartpad-macOS */,
+				973F64E127D798A70045571F /* Smartpad-macOSTests */,
+				973F64EB27D798A70045571F /* Smartpad-macOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		973F64CF27D798A70045571F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973F64D927D798A70045571F /* Assets.xcassets in Resources */,
+				973F64DC27D798A70045571F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973F64E027D798A70045571F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973F64EA27D798A70045571F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		973F64CD27D798A70045571F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97621F1427DD43C50022588D /* UnpairedView.swift in Sources */,
+				97621F2227DDB3370022588D /* ConnStatus.swift in Sources */,
+				97621F1C27DD445F0022588D /* SettingsView.swift in Sources */,
+				97621F1827DD44180022588D /* PairedAndConnectedView.swift in Sources */,
+				97621F2027DD4FEC0022588D /* DevicesFoundView.swift in Sources */,
+				973F64D727D798A70045571F /* ViewController.swift in Sources */,
+				973F650327D7998C0045571F /* ConnectionManager.swift in Sources */,
+				97621F1A27DD443E0022588D /* PairedAndDisconnectedView.swift in Sources */,
+				97621F1E27DD45BC0022588D /* InitialView.swift in Sources */,
+				973F64D527D798A70045571F /* AppDelegate.swift in Sources */,
+				97621F1627DD43F30022588D /* SearchingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973F64DE27D798A70045571F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973F64E727D798A70045571F /* Smartpad_macOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973F64E827D798A70045571F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973F64F327D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift in Sources */,
+				973F64F127D798A70045571F /* Smartpad_macOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		973F64E427D798A70045571F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 973F64D027D798A70045571F /* Smartpad-macOS */;
+			targetProxy = 973F64E327D798A70045571F /* PBXContainerItemProxy */;
+		};
+		973F64EE27D798A70045571F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 973F64D027D798A70045571F /* Smartpad-macOS */;
+			targetProxy = 973F64ED27D798A70045571F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		973F64DA27D798A70045571F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				973F64DB27D798A70045571F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		973F64F427D798A70045571F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		973F64F527D798A70045571F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		973F64F727D798A70045571F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Smartpad-macOS/Smartpad_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		973F64F827D798A70045571F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Smartpad-macOS/Smartpad_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		973F64FA27D798A70045571F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8T46R4T879;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smartpad-macOS.app/Contents/MacOS/Smartpad-macOS";
+			};
+			name = Debug;
+		};
+		973F64FB27D798A70045571F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8T46R4T879;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smartpad-macOS.app/Contents/MacOS/Smartpad-macOS";
+			};
+			name = Release;
+		};
+		973F64FD27D798A70045571F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8T46R4T879;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Smartpad-macOS";
+			};
+			name = Debug;
+		};
+		973F64FE27D798A70045571F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8T46R4T879;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Smartpad-macOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		973F64CC27D798A60045571F /* Build configuration list for PBXProject "Smartpad-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973F64F427D798A70045571F /* Debug */,
+				973F64F527D798A70045571F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		973F64F627D798A70045571F /* Build configuration list for PBXNativeTarget "Smartpad-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973F64F727D798A70045571F /* Debug */,
+				973F64F827D798A70045571F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		973F64F927D798A70045571F /* Build configuration list for PBXNativeTarget "Smartpad-macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973F64FA27D798A70045571F /* Debug */,
+				973F64FB27D798A70045571F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		973F64FC27D798A70045571F /* Build configuration list for PBXNativeTarget "Smartpad-macOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973F64FD27D798A70045571F /* Debug */,
+				973F64FE27D798A70045571F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 973F64C927D798A60045571F /* Project object */;
+}
