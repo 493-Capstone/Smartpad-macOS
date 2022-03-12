@@ -8,8 +8,8 @@ jobs:
     runs-on: macos-latest
 
   steps:
-      - uses: actions/checkout@v2
-      - name: Build
-        run: xcodebuild clean build -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS
-      - name: Test
-        run: xcodebuild clean test -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS
+    - uses: actions/checkout@v2
+    - name: Build
+      run: xcodebuild clean build -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS
+    - name: Test
+      run: xcodebuild clean test -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS
