@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build
-        run: xcodebuild clean build -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS
+        run: xcodebuild clean build -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS CODE_SIGN_IDENTITY=-
       - name: Test
-        run: xcodebuild clean test -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS
+        run: xcodebuild clean test -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS CODE_SIGN_IDENTITY=-
