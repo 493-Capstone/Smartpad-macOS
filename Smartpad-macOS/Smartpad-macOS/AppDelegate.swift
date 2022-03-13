@@ -18,9 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusItem.button {
-            let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed)
-            button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: "connStatus: unpaired")
-            button.image = button.image?.withSymbolConfiguration(config)
+    //          TODO: Only supported on MacOS 12, but CI uses MacOS 11
+    //            let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed) SMAR-69
+                button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: "connStatus: unpaired")
+    //            button.image = button.image?.withSymbolConfiguration(config)
         }
         
         setupMenus()
