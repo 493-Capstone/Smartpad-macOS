@@ -15,6 +15,14 @@
 		973F64F127D798A70045571F /* Smartpad_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F027D798A70045571F /* Smartpad_macOSUITests.swift */; };
 		973F64F327D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */; };
 		973F650327D7998C0045571F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F650227D7998C0045571F /* ConnectionManager.swift */; };
+		97621F2427DE4C1C0022588D /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2327DE4C1C0022588D /* InitialView.swift */; };
+		97621F2627DE4C3D0022588D /* UnpairedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2527DE4C3C0022588D /* UnpairedView.swift */; };
+		97621F2827DE4C590022588D /* SearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2727DE4C590022588D /* SearchingView.swift */; };
+		97621F2A27DE4C880022588D /* PairedAndConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2927DE4C880022588D /* PairedAndConnectedView.swift */; };
+		97621F2C27DE4CA20022588D /* PairedAndDisconnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2B27DE4CA20022588D /* PairedAndDisconnectedView.swift */; };
+		97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2D27DE4CC90022588D /* DevicesFoundView.swift */; };
+		97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2F27DE4CDE0022588D /* SettingsView.swift */; };
+		97621F3227DE4E060022588D /* ConnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3127DE4E060022588D /* ConnStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +56,14 @@
 		973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		973F650227D7998C0045571F /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		973F650427D79B970045571F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		97621F2327DE4C1C0022588D /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		97621F2527DE4C3C0022588D /* UnpairedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpairedView.swift; sourceTree = "<group>"; };
+		97621F2727DE4C590022588D /* SearchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingView.swift; sourceTree = "<group>"; };
+		97621F2927DE4C880022588D /* PairedAndConnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedAndConnectedView.swift; sourceTree = "<group>"; };
+		97621F2B27DE4CA20022588D /* PairedAndDisconnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedAndDisconnectedView.swift; sourceTree = "<group>"; };
+		97621F2D27DE4CC90022588D /* DevicesFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesFoundView.swift; sourceTree = "<group>"; };
+		97621F2F27DE4CDE0022588D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		97621F3127DE4E060022588D /* ConnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +146,13 @@
 			isa = PBXGroup;
 			children = (
 				973F64DA27D798A70045571F /* Main.storyboard */,
+				97621F2327DE4C1C0022588D /* InitialView.swift */,
+				97621F2527DE4C3C0022588D /* UnpairedView.swift */,
+				97621F2727DE4C590022588D /* SearchingView.swift */,
+				97621F2927DE4C880022588D /* PairedAndConnectedView.swift */,
+				97621F2B27DE4CA20022588D /* PairedAndDisconnectedView.swift */,
+				97621F2D27DE4CC90022588D /* DevicesFoundView.swift */,
+				97621F2F27DE4CDE0022588D /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				973F650227D7998C0045571F /* ConnectionManager.swift */,
+				97621F3127DE4E060022588D /* ConnStatus.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -280,8 +304,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97621F2C27DE4CA20022588D /* PairedAndDisconnectedView.swift in Sources */,
+				97621F3227DE4E060022588D /* ConnStatus.swift in Sources */,
+				97621F2627DE4C3D0022588D /* UnpairedView.swift in Sources */,
+				97621F2827DE4C590022588D /* SearchingView.swift in Sources */,
 				973F64D727D798A70045571F /* ViewController.swift in Sources */,
+				97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */,
+				97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */,
+				97621F2427DE4C1C0022588D /* InitialView.swift in Sources */,
 				973F650327D7998C0045571F /* ConnectionManager.swift in Sources */,
+				97621F2A27DE4C880022588D /* PairedAndConnectedView.swift in Sources */,
 				973F64D527D798A70045571F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
