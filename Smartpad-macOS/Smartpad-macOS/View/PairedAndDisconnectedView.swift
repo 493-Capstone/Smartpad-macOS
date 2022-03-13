@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Reference for spinner:
+// https://medium.com/swlh/swiftui-animations-loading-spinner-2e01a3d8e9c0
 struct PairedAndDisconnectedView: View {
     
     let rotationTime: Double = 2
