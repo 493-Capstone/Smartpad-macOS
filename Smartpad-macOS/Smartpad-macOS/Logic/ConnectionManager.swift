@@ -15,9 +15,7 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
     var p2pSession: MCSession!
     var advertisingSignal: MCNearbyServiceAdvertiser!
     var displayWidth: CGFloat = 0
-    var displayHeight: CGFloat = 0
-    let defaults = UserDefaults.standard
-    
+    var displayHeight: CGFloat = 0    
     override init(){
         super.init()
         let screens = NSScreen.screens
@@ -75,13 +73,5 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
         event?.post(tap: .cghidEventTap)
     }
     
-    func setDeviceUUID(uuid: String){
-        defaults.set(String, forKey: ConnectionData.deviceUUID)
-    }
-    
-    func getDeviceUUID(uuid: String) -> String{
-        if let deviceUUID = defaults.string(forKey: ConnectionData.deviceUUID) {
-           return deviceUUID
-        }
-    }
+
 }
