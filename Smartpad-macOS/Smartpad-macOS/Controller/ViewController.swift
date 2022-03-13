@@ -11,6 +11,7 @@ import CoreGraphics
 
 class ViewController: NSViewController{
     var connectionManager: ConnectionManager?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
