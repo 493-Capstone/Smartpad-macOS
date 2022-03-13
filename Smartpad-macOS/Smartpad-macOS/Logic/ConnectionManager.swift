@@ -16,6 +16,7 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
     var advertisingSignal: MCNearbyServiceAdvertiser!
     var displayWidth: CGFloat = 0
     var displayHeight: CGFloat = 0
+    let defaults = UserDefaults.standard
     
     override init(){
         super.init()
@@ -72,5 +73,15 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
         let source = CGEventSource(stateID: .hidSystemState)
         let event = CGEvent.init(mouseEventSource: source, mouseType: .mouseMoved, mouseCursorPosition: mouseLocation, mouseButton: .left)
         event?.post(tap: .cghidEventTap)
+    }
+    
+    func setDeviceUUID(uuid: String){
+        defaults.set(String, forKey: ConnectionData.deviceUUID)
+    }
+    
+    func getDeviceUUID(uuid: String) -> String{
+        if let deviceUUID = defaults.string(forKey: ConnectionData.deviceUUID) {
+           return deviceUUID
+        }
     }
 }
