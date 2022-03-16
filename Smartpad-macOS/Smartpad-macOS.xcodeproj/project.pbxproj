@@ -23,6 +23,8 @@
 		97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2D27DE4CC90022588D /* DevicesFoundView.swift */; };
 		97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2F27DE4CDE0022588D /* SettingsView.swift */; };
 		97621F3227DE4E060022588D /* ConnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3127DE4E060022588D /* ConnStatus.swift */; };
+		97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461427DDB5A500242B36 /* ConnectionData.swift */; };
+		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		97621F2D27DE4CC90022588D /* DevicesFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesFoundView.swift; sourceTree = "<group>"; };
 		97621F2F27DE4CDE0022588D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		97621F3127DE4E060022588D /* ConnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnStatus.swift; sourceTree = "<group>"; };
+		97DC461427DDB5A500242B36 /* ConnectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionData.swift; sourceTree = "<group>"; };
+		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 		973F64D327D798A70045571F /* Smartpad-macOS */ = {
 			isa = PBXGroup;
 			children = (
+				97DC461327DDB50A00242B36 /* Model */,
 				973F650427D79B970045571F /* Info.plist */,
 				973F650127D798E30045571F /* Logic */,
 				973F650027D798D30045571F /* Controller */,
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				973F64E627D798A70045571F /* Smartpad_macOSTests.swift */,
+				97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */,
 			);
 			path = "Smartpad-macOSTests";
 			sourceTree = "<group>";
@@ -172,6 +178,14 @@
 				97621F3127DE4E060022588D /* ConnStatus.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		97DC461327DDB50A00242B36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97DC461427DDB5A500242B36 /* ConnectionData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +323,7 @@
 				97621F2627DE4C3D0022588D /* UnpairedView.swift in Sources */,
 				97621F2827DE4C590022588D /* SearchingView.swift in Sources */,
 				973F64D727D798A70045571F /* ViewController.swift in Sources */,
+				97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */,
 				97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */,
 				97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */,
 				97621F2427DE4C1C0022588D /* InitialView.swift in Sources */,
@@ -323,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				973F64E727D798A70045571F /* Smartpad_macOSTests.swift in Sources */,
+				97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,8 +15,7 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
     var p2pSession: MCSession!
     var advertisingSignal: MCNearbyServiceAdvertiser!
     var displayWidth: CGFloat = 0
-    var displayHeight: CGFloat = 0
-    
+    var displayHeight: CGFloat = 0    
     override init(){
         super.init()
         let screens = NSScreen.screens
@@ -73,4 +72,6 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
         let event = CGEvent.init(mouseEventSource: source, mouseType: .mouseMoved, mouseCursorPosition: mouseLocation, mouseButton: .left)
         event?.post(tap: .cghidEventTap)
     }
+    
+
 }
