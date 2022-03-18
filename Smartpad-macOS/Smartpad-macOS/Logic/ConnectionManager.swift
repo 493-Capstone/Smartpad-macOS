@@ -44,12 +44,22 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        let str: String = String.init(data: data, encoding: .utf8)!
-        let array = str.components(separatedBy: " ")
-        let dx = CGFloat((array[0] as NSString).floatValue)
-        let dy = CGFloat((array[1] as NSString).floatValue)
+        let decoder = JSONDecoder()
+        guard let packet = try? decoder.decode(GesturePacket.self, from: data)
+        else {
+            print("[ConnectionManager] Failed to decode packet!")
+            return
+        }
 
-        handleCursorMove(dx: dx, dy: dy)
+//          UNCOMMENT TO SEE ENCODED PACKET AS STRING :-)
+//            print(String(data: command, encoding: String.Encoding.utf8))
+
+        print("Packet - Type: ", packet.touchType!)
+
+//      TODO: HACK UNTIL ALI GETS CONNECTION IN. (normally we would just call some
+//            callback here)
+        GestureGenerator.getGesture(type: packet.touchType)
+                        .performGesture(packet: packet)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
