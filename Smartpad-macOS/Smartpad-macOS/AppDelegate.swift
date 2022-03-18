@@ -8,6 +8,7 @@
 import Cocoa
 import SwiftUI
 
+@available(macOS 12.0, *)
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -19,9 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusItem.button {
     //          TODO: Only supported on MacOS 12, but CI uses MacOS 11
-    //            let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed) SMAR-69
+                let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed)
                 button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: "connStatus: unpaired")
-    //            button.image = button.image?.withSymbolConfiguration(config)
+                button.image = button.image?.withSymbolConfiguration(config)
         }
         
         setupMenus()

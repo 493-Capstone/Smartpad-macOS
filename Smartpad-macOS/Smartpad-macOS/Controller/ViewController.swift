@@ -8,6 +8,7 @@
 import Cocoa
 import MultipeerConnectivity
 import CoreGraphics
+import SwiftUI
 
 class ViewController: NSViewController{
     var connectionManager: ConnectionManager?
@@ -15,6 +16,12 @@ class ViewController: NSViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         connectionManager = ConnectionManager()
+        let myView = NSHostingView(rootView: InitialView())
+            myView.translatesAutoresizingMaskIntoConstraints = false
+
+            self.view.addSubview(myView)
+            myView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            myView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
 
 

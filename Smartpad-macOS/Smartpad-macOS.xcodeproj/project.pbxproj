@@ -28,6 +28,8 @@
 		9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3227E54380004D5DBE /* GestureGenerator.swift */; };
 		9B211C3527E543A5004D5DBE /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3427E543A5004D5DBE /* Gesture.swift */; };
 		9B211C3727E54481004D5DBE /* ZoomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3627E54481004D5DBE /* ZoomGesture.swift */; };
+		97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461427DDB5A500242B36 /* ConnectionData.swift */; };
+		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		9B211C3227E54380004D5DBE /* GestureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureGenerator.swift; sourceTree = "<group>"; };
 		9B211C3427E543A5004D5DBE /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		9B211C3627E54481004D5DBE /* ZoomGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomGesture.swift; sourceTree = "<group>"; };
+		97DC461427DDB5A500242B36 /* ConnectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionData.swift; sourceTree = "<group>"; };
+		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		973F64D327D798A70045571F /* Smartpad-macOS */ = {
 			isa = PBXGroup;
 			children = (
+				97DC461327DDB50A00242B36 /* Model */,
 				973F650427D79B970045571F /* Info.plist */,
 				973F650127D798E30045571F /* Logic */,
 				973F650027D798D30045571F /* Controller */,
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				973F64E627D798A70045571F /* Smartpad_macOSTests.swift */,
+				97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */,
 			);
 			path = "Smartpad-macOSTests";
 			sourceTree = "<group>";
@@ -195,6 +201,12 @@
 				9B211C3627E54481004D5DBE /* ZoomGesture.swift */,
 			);
 			path = GestureRecognition;
+		97DC461327DDB50A00242B36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97DC461427DDB5A500242B36 /* ConnectionData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +348,7 @@
 				97621F2827DE4C590022588D /* SearchingView.swift in Sources */,
 				973F64D727D798A70045571F /* ViewController.swift in Sources */,
 				9B211C2F27E538A6004D5DBE /* GestureType.swift in Sources */,
+				97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */,
 				97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */,
 				97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */,
 				97621F2427DE4C1C0022588D /* InitialView.swift in Sources */,
@@ -351,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				973F64E727D798A70045571F /* Smartpad_macOSTests.swift in Sources */,
+				97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +557,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
