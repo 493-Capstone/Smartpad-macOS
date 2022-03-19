@@ -5,7 +5,9 @@
 //  Created by Arthur Chan on 2022-03-19.
 //
 
+import Cocoa
 import Foundation
+import CoreGraphics
 
 class DoubleTapGesture : Gesture {
     static let decoder = JSONDecoder()
@@ -13,12 +15,6 @@ class DoubleTapGesture : Gesture {
 
     static func performGesture(packet: GesturePacket) {
         assert(packet.touchType == type)
-
-        guard let payload = try? decoder.decode(DoubleTapPayload.self, from: packet.payload)
-        else {
-            print("[ZoomGesture] Failed to decode payload!")
-            return
-        }
 
         print("DoubleTap")
     }
