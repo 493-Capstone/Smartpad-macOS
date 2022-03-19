@@ -23,6 +23,8 @@
 		97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2D27DE4CC90022588D /* DevicesFoundView.swift */; };
 		97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2F27DE4CDE0022588D /* SettingsView.swift */; };
 		97621F3227DE4E060022588D /* ConnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3127DE4E060022588D /* ConnStatus.swift */; };
+		97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3B27E584590022588D /* SingleTapGesture.swift */; };
+		97621F3E27E663DA0022588D /* DoubleTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3D27E663DA0022588D /* DoubleTapGesture.swift */; };
 		97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461427DDB5A500242B36 /* ConnectionData.swift */; };
 		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
 		9B211C2D27E5389B004D5DBE /* GesturePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C2C27E5389B004D5DBE /* GesturePacket.swift */; };
@@ -71,6 +73,8 @@
 		97621F2D27DE4CC90022588D /* DevicesFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesFoundView.swift; sourceTree = "<group>"; };
 		97621F2F27DE4CDE0022588D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		97621F3127DE4E060022588D /* ConnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnStatus.swift; sourceTree = "<group>"; };
+		97621F3B27E584590022588D /* SingleTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTapGesture.swift; sourceTree = "<group>"; };
+		97621F3D27E663DA0022588D /* DoubleTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapGesture.swift; sourceTree = "<group>"; };
 		97DC461427DDB5A500242B36 /* ConnectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionData.swift; sourceTree = "<group>"; };
 		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
 		9B211C2C27E5389B004D5DBE /* GesturePacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePacket.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				9B211C3227E54380004D5DBE /* GestureGenerator.swift */,
 				9B211C3427E543A5004D5DBE /* Gesture.swift */,
 				9B211C3627E54481004D5DBE /* ZoomGesture.swift */,
+				97621F3B27E584590022588D /* SingleTapGesture.swift */,
+				97621F3D27E663DA0022588D /* DoubleTapGesture.swift */,
 			);
 			path = GestureRecognition;
 			sourceTree = "<group>";
@@ -344,12 +350,14 @@
 				9B211C3727E54481004D5DBE /* ZoomGesture.swift in Sources */,
 				97621F2C27DE4CA20022588D /* PairedAndDisconnectedView.swift in Sources */,
 				9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */,
+				97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */,
 				97621F3227DE4E060022588D /* ConnStatus.swift in Sources */,
 				97621F2627DE4C3D0022588D /* UnpairedView.swift in Sources */,
 				9B211C2D27E5389B004D5DBE /* GesturePacket.swift in Sources */,
 				97621F2827DE4C590022588D /* SearchingView.swift in Sources */,
 				973F64D727D798A70045571F /* ViewController.swift in Sources */,
 				97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */,
+				97621F3E27E663DA0022588D /* DoubleTapGesture.swift in Sources */,
 				9B211C2F27E538A6004D5DBE /* GestureType.swift in Sources */,
 				97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */,
 				97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */,
