@@ -17,11 +17,6 @@ class SingleTapGesture : Gesture {
         assert(packet.touchType == type)
 
         print("SingleTap")
-        
-        let mouseLocation = NSEvent.mouseLocation
-        let source = CGEventSource(stateID: .hidSystemState)
-        let event = CGEvent.init(mouseEventSource: source, mouseType: .leftMouseDown, mouseCursorPosition: mouseLocation, mouseButton: .left)
-        event?.post(tap: .cghidEventTap)
     }
 
     static func getGesture() -> GestureType {
