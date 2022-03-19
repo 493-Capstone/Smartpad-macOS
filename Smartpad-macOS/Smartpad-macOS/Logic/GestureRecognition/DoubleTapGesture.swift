@@ -17,11 +17,6 @@ class DoubleTapGesture : Gesture {
         assert(packet.touchType == type)
 
         print("DoubleTap")
-        
-        let mouseLocation = NSEvent.mouseLocation
-        let source = CGEventSource(stateID: .hidSystemState)
-        let event = CGEvent.init(mouseEventSource: source, mouseType: .rightMouseDown, mouseCursorPosition: mouseLocation, mouseButton: .right)
-        event?.post(tap: .cghidEventTap)
     }
 
     static func getGesture() -> GestureType {
