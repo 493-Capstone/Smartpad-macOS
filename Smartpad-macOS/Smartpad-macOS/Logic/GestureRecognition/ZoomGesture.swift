@@ -41,13 +41,13 @@ class ZoomGesture : Gesture {
 
         // Check the upper and lower threshold for zoom in/out
         if (currentScale! <= -threshold) {
-            zoomIn()
+            zoomOut()
 
             // Reset scale for next time
             currentScale = 0.0
         }
         else if (currentScale! >= threshold) {
-            zoomOut()
+            zoomIn()
 
             // Reset scale for next time
             currentScale = 0.0
