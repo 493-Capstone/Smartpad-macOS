@@ -53,7 +53,8 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
 //          UNCOMMENT TO SEE ENCODED PACKET AS STRING :-)
 //            print(String(data: command, encoding: String.Encoding.utf8))
 
-        print("Packet - Type: ", packet.touchType!)
+//        UNCOMMENT TO SEE PACKET TYPE
+//        print("Packet - Type: ", packet.touchType!)
 
 //      TODO: HACK UNTIL ALI GETS CONNECTION IN. (normally we would just call some
 //            callback here)
