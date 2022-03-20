@@ -105,4 +105,5 @@ class ZoomGesture : Gesture {
         // Release CMD-
         cmdUp?.post(tap: .cghidEventTap)
         minusUp?.post(tap: .cghidEventTap)
+    }
 }
