@@ -19,7 +19,7 @@ class SingleTapGesture : Gesture {
         print("SingleTap")
     }
 
-    static func getGesture() -> GestureType {
-        return type
+    static func handlesGesture(gestureType: GestureType) -> Bool {
+        return (type == gestureType)
     }
 }

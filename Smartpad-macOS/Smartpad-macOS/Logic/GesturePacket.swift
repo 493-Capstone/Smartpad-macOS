@@ -22,3 +22,9 @@ struct SingleTapPayload: Codable {
 
 struct DoubleTapPayload: Codable {
 }
+
+
+struct PanPayload: Codable {
+    var xTranslation: Float!
+    var yTranslation: Float!
+}
