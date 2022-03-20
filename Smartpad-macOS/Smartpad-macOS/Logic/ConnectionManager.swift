@@ -10,12 +10,15 @@ import MultipeerConnectivity
 
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate{
+    weak var listVC: NSViewController?
     var peerName = ""
     var peerID: MCPeerID!
     var p2pSession: MCSession!
     var advertisingSignal: MCNearbyServiceAdvertiser!
     var displayWidth: CGFloat = 0
-    var displayHeight: CGFloat = 0    
+    var displayHeight: CGFloat = 0
+    var peerList: [MCPeerID] = []
+    var invitations: [(Bool, MCSession?) -> Void] = []
     override init(){
         super.init()
         let screens = NSScreen.screens
@@ -28,6 +31,14 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+        print(peerID.displayName)
+        if(!peerList.contains(peerID)){
+            peerList.append(peerID)
+            (listVC as? DeviceSelectionViewController)?.deviceList = peerList.map({(i: MCPeerID) -> String in return i.displayName })
+            (listVC as? DeviceSelectionViewController)?.deviceListView.reloadData()
+        }
+        invitations.append(invitationHandler)
+        // TODO: Should be removed once pairing is complete
         invitationHandler(true, p2pSession)
     }
     func startP2PSession(){
@@ -37,6 +48,24 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDe
         advertisingSignal = MCNearbyServiceAdvertiser.init(peer: peerID, discoveryInfo: nil, serviceType: "smartpad")
         advertisingSignal.delegate = self
         advertisingSignal.startAdvertisingPeer()
+    }
+    
+    func requestPairingForDevice(peerName: String){
+        guard let peerIndex = peerList.firstIndex(where: {$0.displayName == peerName}) else { return }
+        print(peerIndex)
+        print("request pairing")
+        // TODO: Only accept request peer's invitation
+//        invitations[peerIndex](true, p2pSession) // accept invite
+        DispatchQueue.main.async {
+            let encoder = JSONEncoder()
+            guard let command = try? encoder.encode("invite")
+            else {
+                print("[ConnectionManager] Failed to encode packet!")
+                return
+            }
+            try? self.p2pSession.send(command, toPeers: self.p2pSession.connectedPeers, with: MCSessionSendDataMode.unreliable)
+        }
+        
     }
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         
