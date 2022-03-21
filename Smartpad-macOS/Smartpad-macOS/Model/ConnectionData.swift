@@ -20,26 +20,29 @@ class ConnectionData {
     
     func setSelectedDeviceUUID(uuid: String){
         defaults.set(uuid, forKey: ConnectionKeys.connDeviceUUID)
+        defaults.synchronize()
     }
     
-    func getSelectedDeviceUUID() throws -> String {
+    func getSelectedDeviceUUID() -> String {
         if let deviceUUID = defaults.string(forKey: ConnectionKeys.connDeviceUUID) {
            return deviceUUID
         } else {
-            throw StorageError.ValueNotFoundError
+            return ""
         }
         
     }
     
-    func getDeviceName() throws-> String{
+    func getDeviceName() -> String{
         if let deviceName = defaults.string(forKey: ConnectionKeys.currDeviceName) {
            return deviceName
         } else {
-            throw StorageError.ValueNotFoundError
+   
+           return ""
         }
     }
     
     func setDeviceName(name: String){
         defaults.set(name, forKey: ConnectionKeys.currDeviceName)
+        defaults.synchronize()
     }
 }
