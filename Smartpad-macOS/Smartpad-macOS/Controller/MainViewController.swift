@@ -15,6 +15,9 @@ class ViewController: NSViewController{
    
     @IBOutlet weak var deviceName: NSTextField!
     var connData: ConnectionData!
+    var peerID: MCPeerID!
+    var p2pSession: MCSession?
+    var mcAdvertiserAssistant: MCAdvertiserAssistant?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,7 @@ class ViewController: NSViewController{
         if (connData.getDeviceName() != ""){
             print("get device name")
             print(connData.getDeviceName())
-            if let controller = self.storyboard?.instantiateController(withIdentifier: "DeviceListView") as? DeviceSelectionViewController {
+            if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? PairViewController {
                 print("transit")
                 self.view.window?.contentViewController = controller
             }
@@ -39,7 +42,7 @@ class ViewController: NSViewController{
         print(val)
         if val != ""{
             self.connData.setDeviceName(name: val)
-            if let controller = self.storyboard?.instantiateController(withIdentifier: "DeviceListView") as? DeviceSelectionViewController {
+            if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? PairViewController {
         self.view.window?.contentViewController = controller
         }
         } else {

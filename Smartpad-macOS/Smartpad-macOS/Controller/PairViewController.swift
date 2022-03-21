@@ -13,17 +13,27 @@ class PairViewController: NSViewController{
 
     
     @IBOutlet weak var pairingLabel: NSTextField!
+    var connectionManager: ConnectionManager!
+    var deviceList: [String] = []
+    var selectedDevice = ""
     var connData: ConnectionData!
-    var connectionManager: ConnectionManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        connData = ConnectionData()
-        pairingLabel.stringValue = "Pairing with "
-        + connData.getSelectedDeviceUUID()
         connectionManager = ConnectionManager()
-        connectionManager?.requestPairingForDevice(peerName: connData.getSelectedDeviceUUID())
+        connData = ConnectionData()
+        connectionManager.pairVC = self
+
+    }
+    func setPairLabel(label: String){
+        pairingLabel.stringValue = label
+    }
+    
+    @IBAction func pairButtonSelected(_ sender: NSButton) {
+        connectionManager.startJoining()
         
     }
+    
 
     
 }
