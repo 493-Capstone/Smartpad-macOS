@@ -709,11 +709,141 @@
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dle-vm-AWx">
+                                <rect key="frame" x="170" y="166" width="141" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Welcome To Smartpad" id="fHv-eF-edg">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6HV-0g-cAo">
+                                <rect key="frame" x="116" y="114" width="249" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter Device Name" drawsBackground="YES" id="YlZ-ed-U8F">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UaT-BK-tIi">
+                                <rect key="frame" x="203" y="47" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uja-8x-weJ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="submitDeviceName:" target="XfG-lQ-9wD" id="Jsc-vX-GGR"/>
+                                </connections>
+                            </button>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="deviceName" destination="6HV-0g-cAo" id="NCg-y2-gMz"/>
+                        <outlet property="submitButton" destination="UaT-BK-tIi" id="aL9-yQ-ioh"/>
+                        <segue destination="Jhh-Bn-vsO" kind="show" id="5d3-bR-6i5"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="79" y="706"/>
+        </scene>
+        <!--Pair View Controller-->
+        <scene sceneID="JBB-E2-0d5">
+            <objects>
+                <viewController storyboardIdentifier="PairView" id="Jhh-Bn-vsO" customClass="PairViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="R7h-bM-Wyo">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="298"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BsF-N6-EbN">
+                                <rect key="frame" x="242" y="13" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qvx-IH-yDz">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="8Ug-Lx-ZmC" kind="show" id="Z9d-Mp-jnz"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CkE-Te-BLp">
+                                <rect key="frame" x="133" y="13" width="58" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Pair" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1Bc-yl-WYQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pairButtonSelected:" target="Jhh-Bn-vsO" id="IMu-Zd-hw4"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-JH-whY">
+                                <rect key="frame" x="106" y="255" width="238" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="No device connected" id="DXT-JC-yfi">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="pairingLabel" destination="0Vb-JH-whY" id="9pa-t6-aay"/>
+                    </connections>
+                </viewController>
+                <customObject id="AdW-iu-Qva" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79" y="1153"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OAF-7x-MCB">
+            <objects>
+                <viewController id="8Ug-Lx-ZmC" sceneMemberID="viewController">
+                    <view key="view" id="jJ7-TO-OPt">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-19-c3J">
+                                <rect key="frame" x="207" y="264" width="37" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BAv-8P-BGh">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J1m-E0-pJj">
+                                <rect key="frame" x="188" y="208" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="unpair" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q4Q-GE-ZgM">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TsJ-RS-x0X">
+                                <rect key="frame" x="170" y="117" width="108" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="reverse scroll" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qSO-Tl-lZj">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-X3-Z8D">
+                                <rect key="frame" x="119" y="33" width="226" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="5" sliderType="linear" id="i21-ir-YR3"/>
+                            </slider>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="SWa-S4-IDK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79" y="1669"/>
         </scene>
     </scenes>
 </document>

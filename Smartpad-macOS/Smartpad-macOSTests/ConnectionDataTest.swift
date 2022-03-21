@@ -47,17 +47,9 @@ class ConnectionDataTest: XCTestCase {
         let uuidValue = "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
         data.setSelectedDeviceUUID(uuid: uuidValue)
         //Assert
-        XCTAssertEqual(try data.getSelectedDeviceUUID(), "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
+        XCTAssertEqual(data.getSelectedDeviceUUID(), "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
     }
     
-    func testGetExceptionThrown() throws {
-        // Arrange
-        let data = ConnectionData()
-        // Act & Assert
-        XCTAssertThrowsError(try data.getSelectedDeviceUUID()) { error in
-            XCTAssertEqual(error as! StorageError, StorageError.ValueNotFoundError)
-        }
-    }
     
     func testSetName() {
         // Arrange
@@ -77,7 +69,7 @@ class ConnectionDataTest: XCTestCase {
         let name = "my macbook"
         data.setDeviceName(name: name)
         //Assert
-        XCTAssertEqual(try data.getDeviceName(), "my macbook")
+        XCTAssertEqual(data.getDeviceName(), "my macbook")
         
     }
 
