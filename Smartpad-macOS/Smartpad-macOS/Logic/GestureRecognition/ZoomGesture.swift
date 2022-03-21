@@ -37,8 +37,6 @@ class ZoomGesture : Gesture {
         // Update the scale incrementally
         currentScale! += (payload.scale - 1.0)
 
-        print("Pinch currentScale: ", currentScale!)
-
         // Check the upper and lower threshold for zoom in/out
         if (currentScale! <= -threshold) {
             zoomOut()
@@ -64,46 +62,34 @@ class ZoomGesture : Gesture {
     }
 
     static private func zoomIn() {
-        let cmdDown = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .privateState),
-                                   virtualKey: CGKeyCode(kVK_Command), keyDown: true)
-        let cmdUp = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
-                                 virtualKey: CGKeyCode(kVK_Command), keyDown: false)
         let plusDown = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
                                     virtualKey: CGKeyCode(kVK_ANSI_KeypadPlus), keyDown: true)
         let plusUp = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
-                                    virtualKey: CGKeyCode(kVK_ANSI_KeypadPlus), keyDown: true)
+                                    virtualKey: CGKeyCode(kVK_ANSI_KeypadPlus), keyDown: false)
 
         // Indicates that the command key is down when we press or release +
         plusDown?.flags = CGEventFlags.maskCommand
         plusUp?.flags = CGEventFlags.maskCommand
 
         // Press CMD+
-        cmdDown?.post(tap: .cghidEventTap)
         plusDown?.post(tap: .cghidEventTap)
         // Release CMD+
-        cmdUp?.post(tap: .cghidEventTap)
         plusUp?.post(tap: .cghidEventTap)
     }
 
     static private func zoomOut() {
-        let cmdDown = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .privateState),
-                                   virtualKey: CGKeyCode(kVK_Command), keyDown: true)
-        let cmdUp = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
-                                 virtualKey: CGKeyCode(kVK_Command), keyDown: false)
         let minusDown = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
                                     virtualKey: CGKeyCode(kVK_ANSI_KeypadMinus), keyDown: true)
         let minusUp = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
-                                    virtualKey: CGKeyCode(kVK_ANSI_KeypadMinus), keyDown: true)
+                                    virtualKey: CGKeyCode(kVK_ANSI_KeypadMinus), keyDown: false)
 
         // Indicates that the command key is down when we press or release -
         minusDown?.flags = CGEventFlags.maskCommand
         minusUp?.flags = CGEventFlags.maskCommand
 
         // Press CMD-
-        cmdDown?.post(tap: .cghidEventTap)
         minusDown?.post(tap: .cghidEventTap)
         // Release CMD-
-        cmdUp?.post(tap: .cghidEventTap)
         minusUp?.post(tap: .cghidEventTap)
     }
 }
