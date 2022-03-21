@@ -1,21 +1,21 @@
 //
-//  ViewController.swift
-//  desktop-client-mac
+//  SettingsViewController.swift
+//  Smartpad-macOS
 //
-//  Created by alireza azimi on 2022-01-14.
+//  Created by Alireza Azimi on 2022-03-20.
 //
 
+import Foundation
 import Cocoa
 import MultipeerConnectivity
 import CoreGraphics
 import SwiftUI
 
-class ViewController: NSViewController{
-    var connectionManager: ConnectionManager?
+class SettingsViewController: NSViewController{
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectionManager = ConnectionManager()
     }
 
 
@@ -27,4 +27,3 @@ class ViewController: NSViewController{
 
 
 }
-
