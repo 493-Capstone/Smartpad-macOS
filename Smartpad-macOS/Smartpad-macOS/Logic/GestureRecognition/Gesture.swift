@@ -15,7 +15,7 @@ protocol Gesture {
     static func performGesture(packet: GesturePacket) -> Void
 
     /**
-     * @brief Get the gesture's type
+     * @brief Check if the gesture can handle a given GestureType
      */
-    static func getGesture() -> GestureType
+    static func handlesGesture(gestureType: GestureType) -> Bool
 }
