@@ -16,3 +16,15 @@ struct PinchPayload: Codable {
     var xScale: Float!
     var yScale: Float!
 }
+
+struct SingleTapPayload: Codable {
+}
+
+struct DoubleTapPayload: Codable {
+}
+
+
+struct PanPayload: Codable {
+    var xTranslation: Float!
+    var yTranslation: Float!
+}

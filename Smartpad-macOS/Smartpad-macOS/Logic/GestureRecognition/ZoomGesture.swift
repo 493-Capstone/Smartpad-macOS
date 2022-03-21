@@ -24,7 +24,7 @@ class ZoomGesture : Gesture {
         // TODO: Actually pinch (How to do this??)
     }
 
-    static func getGesture() -> GestureType {
-        return type
+    static func handlesGesture(gestureType: GestureType) -> Bool {
+        return (type == gestureType)
     }
 }
