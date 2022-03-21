@@ -32,7 +32,8 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDele
     
 
     func startP2PSession(){
-        peerID = MCPeerID.init(displayName: Host.current().name!)
+        let connData = ConnectionData()
+        peerID = MCPeerID.init(displayName: connData.getDeviceName())
         p2pSession = MCSession.init(peer: peerID!, securityIdentity: nil, encryptionPreference: .required)
         p2pSession?.delegate = self
     }
