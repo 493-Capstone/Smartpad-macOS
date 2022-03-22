@@ -42,24 +42,11 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDele
         guard let p2pSession = p2pSession else {return}
         p2pSession.disconnect()
     }
-
-
-    func handleCursorMove(dx: CGFloat, dy: CGFloat) {
-        let gain = CGFloat(2.0)
-        var mouseLocation = NSEvent.mouseLocation
-        mouseLocation = CGPoint(x: mouseLocation.x + dx * gain, y: displayHeight - mouseLocation.y + dy * gain)
-        mouseLocation.x = min(max(0, mouseLocation.x), displayWidth)
-        mouseLocation.y = min(max(0, mouseLocation.y), displayHeight)
-        let source = CGEventSource(stateID: .hidSystemState)
-        let event = CGEvent.init(mouseEventSource: source, mouseType: .mouseMoved, mouseCursorPosition: mouseLocation, mouseButton: .left)
-        event?.post(tap: .cghidEventTap)
-    }
     
     func startJoining(){
         guard let p2pSession = p2pSession else {return}
         guard let listVC = pairVC else {return}
         let mcBrowser = MCBrowserViewController(serviceType: "smartpad", session: p2pSession)
-        
 
         mcBrowser.delegate = self
         mcBrowser.maximumNumberOfPeers = 1
@@ -119,7 +106,7 @@ extension ConnectionManager{
     //          UNCOMMENT TO SEE ENCODED PACKET AS STRING :-)
     //            print(String(data: command, encoding: String.Encoding.utf8))
     
-            print("Packet - Type: ", packet.touchType!)
+//             print("Packet - Type: ", packet.touchType!)
     
     //      TODO: HACK UNTIL ALI GETS CONNECTION IN. (normally we would just call some
     //            callback here)

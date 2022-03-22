@@ -20,7 +20,7 @@ class ZoomGesture : Gesture {
             return
         }
 
-        print("Pinch - xScale: ", payload.xScale!, "yScale: ", payload.yScale!)
+//        print("Pinch - xScale: ", payload.xScale!, "yScale: ", payload.yScale!)
         // TODO: Actually pinch (How to do this??)
     }
 

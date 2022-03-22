@@ -16,7 +16,7 @@ class SingleTapGesture : Gesture {
     static func performGesture(packet: GesturePacket) {
         assert(packet.touchType == type)
 
-        print("SingleTap")
+//        print("SingleTap")
         
         if let screen = NSScreen.main {
             let rect = screen.frame

@@ -16,7 +16,7 @@ class DoubleTapGesture : Gesture {
     static func performGesture(packet: GesturePacket) {
         assert(packet.touchType == type)
 
-        print("DoubleTap")
+//        print("DoubleTap")
         
         if let screen = NSScreen.main {
             let rect = screen.frame

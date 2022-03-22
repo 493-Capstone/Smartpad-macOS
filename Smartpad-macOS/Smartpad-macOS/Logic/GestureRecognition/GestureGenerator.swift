@@ -9,7 +9,7 @@ import Foundation
 
 class GestureGenerator {
     // Array of all classes that implement Gesture
-    static let gestures: [Gesture.Type] = [ZoomGesture.self, SingleTapGesture.self, DoubleTapGesture.self, PanGesture.self]
+    static let gestures: [Gesture.Type] = [ZoomGesture.self, SingleTapGesture.self, DoubleTapGesture.self, SinglePanGesture.self, DoublePanGesture.self]
 
     static func getGesture(type: GestureType) -> Gesture.Type {
         for gesture in gestures {
