@@ -96,7 +96,7 @@ extension ConnectionManager{
     //          UNCOMMENT TO SEE ENCODED PACKET AS STRING :-)
     //            print(String(data: command, encoding: String.Encoding.utf8))
     
-            print("Packet - Type: ", packet.touchType!)
+//             print("Packet - Type: ", packet.touchType!)
     
     //      TODO: HACK UNTIL ALI GETS CONNECTION IN. (normally we would just call some
     //            callback here)

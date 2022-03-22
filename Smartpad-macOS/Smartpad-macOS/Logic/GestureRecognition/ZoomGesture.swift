@@ -30,7 +30,7 @@ class ZoomGesture : Gesture {
         // The conditions for starting zooming are:
         // 1. We get a start packet
         // 2. We get a non-stat packet, but missed the start packet
-        if (packet.touchType == GestureType.PanStarted || currentScale == nil) {
+        if (packet.touchType == GestureType.PinchStarted || currentScale == nil) {
             currentScale = 0.0
         }
 

@@ -1,5 +1,5 @@
 //
-//  PanGesture.swift
+//  SinglePanGesture.swift
 //  Smartpad-macOS
 //
 //  Created by Hudson Shykowski on 2022-03-19.
@@ -8,9 +8,11 @@
 import Foundation
 import AppKit
 
-class PanGesture : Gesture {
+class SinglePanGesture : Gesture {
     static let decoder = JSONDecoder()
-    static let types = [GestureType.PanStarted, GestureType.PanChanged, GestureType.PanEnded]
+    static let types = [GestureType.SinglePanStarted,
+                        GestureType.SinglePanChanged,
+                        GestureType.SinglePanEnded]
     // Initial position when the "Started" packet is received
     static var initialPos: NSPoint?
 
@@ -21,17 +23,17 @@ class PanGesture : Gesture {
 
         guard let payload = try? decoder.decode(PanPayload.self, from: packet.payload)
         else {
-            print("[PanGesture] Failed to decode payload!")
+            print("[SinglePanGesture] Failed to decode payload!")
             return
         }
 
-        print(packet.touchType!, " - xTrans: ", payload.xTranslation!, " yTrans: ", payload.yTranslation!)
+//        print(packet.touchType!, " - xTrans: ", payload.xTranslation!, " yTrans: ", payload.yTranslation!)
 
         // Store the initial mouse position when we start panning
         // The conditions for starting panning are:
         // 1. We get a start packet
         // 2. We get a non-stat packet, but missed the start packet
-        if (packet.touchType == GestureType.PanStarted || initialPos == nil) {
+        if (packet.touchType == GestureType.SinglePanStarted || initialPos == nil) {
             initialPos = NSEvent.mouseLocation
         }
 
@@ -42,7 +44,7 @@ class PanGesture : Gesture {
         CGDisplayMoveCursorToPoint(CGMainDisplayID(), newPos)
 
         // Reset the initialPos to nil when ending a pan
-        if (packet.touchType == GestureType.PanEnded) {
+        if (packet.touchType == GestureType.SinglePanEnded) {
             initialPos = nil
         }
     }
