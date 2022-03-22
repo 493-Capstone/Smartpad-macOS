@@ -8,25 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		973F64D527D798A70045571F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64D427D798A70045571F /* AppDelegate.swift */; };
-		973F64D727D798A70045571F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64D627D798A70045571F /* ViewController.swift */; };
+		973F64D727D798A70045571F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64D627D798A70045571F /* MainViewController.swift */; };
 		973F64D927D798A70045571F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973F64D827D798A70045571F /* Assets.xcassets */; };
 		973F64DC27D798A70045571F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 973F64DA27D798A70045571F /* Main.storyboard */; };
 		973F64E727D798A70045571F /* Smartpad_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64E627D798A70045571F /* Smartpad_macOSTests.swift */; };
 		973F64F127D798A70045571F /* Smartpad_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F027D798A70045571F /* Smartpad_macOSUITests.swift */; };
 		973F64F327D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */; };
 		973F650327D7998C0045571F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F650227D7998C0045571F /* ConnectionManager.swift */; };
-		97621F2427DE4C1C0022588D /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2327DE4C1C0022588D /* InitialView.swift */; };
-		97621F2627DE4C3D0022588D /* UnpairedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2527DE4C3C0022588D /* UnpairedView.swift */; };
-		97621F2827DE4C590022588D /* SearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2727DE4C590022588D /* SearchingView.swift */; };
-		97621F2A27DE4C880022588D /* PairedAndConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2927DE4C880022588D /* PairedAndConnectedView.swift */; };
-		97621F2C27DE4CA20022588D /* PairedAndDisconnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2B27DE4CA20022588D /* PairedAndDisconnectedView.swift */; };
-		97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2D27DE4CC90022588D /* DevicesFoundView.swift */; };
-		97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F2F27DE4CDE0022588D /* SettingsView.swift */; };
 		97621F3227DE4E060022588D /* ConnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3127DE4E060022588D /* ConnStatus.swift */; };
 		97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3B27E584590022588D /* SingleTapGesture.swift */; };
 		97621F3E27E663DA0022588D /* DoubleTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3D27E663DA0022588D /* DoubleTapGesture.swift */; };
 		97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461427DDB5A500242B36 /* ConnectionData.swift */; };
 		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
+		97DC466427E6F02B00242B36 /* PairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC466327E6F02B00242B36 /* PairViewController.swift */; };
 		9B211C2D27E5389B004D5DBE /* GesturePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C2C27E5389B004D5DBE /* GesturePacket.swift */; };
 		9B211C2F27E538A6004D5DBE /* GestureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C2E27E538A6004D5DBE /* GestureType.swift */; };
 		9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3227E54380004D5DBE /* GestureGenerator.swift */; };
@@ -56,7 +50,7 @@
 /* Begin PBXFileReference section */
 		973F64D127D798A70045571F /* Smartpad-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smartpad-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		973F64D427D798A70045571F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		973F64D627D798A70045571F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		973F64D627D798A70045571F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		973F64D827D798A70045571F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		973F64DB27D798A70045571F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		973F64DD27D798A70045571F /* Smartpad_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smartpad_macOS.entitlements; sourceTree = "<group>"; };
@@ -67,18 +61,12 @@
 		973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		973F650227D7998C0045571F /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		973F650427D79B970045571F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		97621F2327DE4C1C0022588D /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
-		97621F2527DE4C3C0022588D /* UnpairedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpairedView.swift; sourceTree = "<group>"; };
-		97621F2727DE4C590022588D /* SearchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingView.swift; sourceTree = "<group>"; };
-		97621F2927DE4C880022588D /* PairedAndConnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedAndConnectedView.swift; sourceTree = "<group>"; };
-		97621F2B27DE4CA20022588D /* PairedAndDisconnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedAndDisconnectedView.swift; sourceTree = "<group>"; };
-		97621F2D27DE4CC90022588D /* DevicesFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesFoundView.swift; sourceTree = "<group>"; };
-		97621F2F27DE4CDE0022588D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		97621F3127DE4E060022588D /* ConnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnStatus.swift; sourceTree = "<group>"; };
 		97621F3B27E584590022588D /* SingleTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTapGesture.swift; sourceTree = "<group>"; };
 		97621F3D27E663DA0022588D /* DoubleTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapGesture.swift; sourceTree = "<group>"; };
 		97DC461427DDB5A500242B36 /* ConnectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionData.swift; sourceTree = "<group>"; };
 		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
+		97DC466327E6F02B00242B36 /* PairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairViewController.swift; sourceTree = "<group>"; };
 		9B211C2C27E5389B004D5DBE /* GesturePacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePacket.swift; sourceTree = "<group>"; };
 		9B211C2E27E538A6004D5DBE /* GestureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureType.swift; sourceTree = "<group>"; };
 		9B211C3227E54380004D5DBE /* GestureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureGenerator.swift; sourceTree = "<group>"; };
@@ -170,13 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				973F64DA27D798A70045571F /* Main.storyboard */,
-				97621F2327DE4C1C0022588D /* InitialView.swift */,
-				97621F2527DE4C3C0022588D /* UnpairedView.swift */,
-				97621F2727DE4C590022588D /* SearchingView.swift */,
-				97621F2927DE4C880022588D /* PairedAndConnectedView.swift */,
-				97621F2B27DE4CA20022588D /* PairedAndDisconnectedView.swift */,
-				97621F2D27DE4CC90022588D /* DevicesFoundView.swift */,
-				97621F2F27DE4CDE0022588D /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,7 +165,8 @@
 		973F650027D798D30045571F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				973F64D627D798A70045571F /* ViewController.swift */,
+				973F64D627D798A70045571F /* MainViewController.swift */,
+				97DC466327E6F02B00242B36 /* PairViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -356,23 +338,19 @@
 				9B211C3727E54481004D5DBE /* ZoomGesture.swift in Sources */,
 				9B211C3927E66121004D5DBE /* SinglePanGesture.swift in Sources */,
 				97621F2C27DE4CA20022588D /* PairedAndDisconnectedView.swift in Sources */,
+
 				9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */,
 				97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */,
 				97621F3227DE4E060022588D /* ConnStatus.swift in Sources */,
-				97621F2627DE4C3D0022588D /* UnpairedView.swift in Sources */,
 				9B211C2D27E5389B004D5DBE /* GesturePacket.swift in Sources */,
-				97621F2827DE4C590022588D /* SearchingView.swift in Sources */,
-				973F64D727D798A70045571F /* ViewController.swift in Sources */,
+				973F64D727D798A70045571F /* MainViewController.swift in Sources */,
 				97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */,
 				97621F3E27E663DA0022588D /* DoubleTapGesture.swift in Sources */,
 				9B211C3B27E6D127004D5DBE /* DoublePanGesture.swift in Sources */,
 				9B211C2F27E538A6004D5DBE /* GestureType.swift in Sources */,
-				97621F2E27DE4CC90022588D /* DevicesFoundView.swift in Sources */,
-				97621F3027DE4CDE0022588D /* SettingsView.swift in Sources */,
-				97621F2427DE4C1C0022588D /* InitialView.swift in Sources */,
 				973F650327D7998C0045571F /* ConnectionManager.swift in Sources */,
 				9B211C3527E543A5004D5DBE /* Gesture.swift in Sources */,
-				97621F2A27DE4C880022588D /* PairedAndConnectedView.swift in Sources */,
+				97DC466427E6F02B00242B36 /* PairViewController.swift in Sources */,
 				973F64D527D798A70045571F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 39Q7V34K3W;
+				DEVELOPMENT_TEAM = 8T46R4T879;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
@@ -575,7 +553,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 39Q7V34K3W;
+				DEVELOPMENT_TEAM = 8T46R4T879;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
