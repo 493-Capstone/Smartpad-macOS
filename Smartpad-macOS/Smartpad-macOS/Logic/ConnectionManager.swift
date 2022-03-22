@@ -11,25 +11,15 @@ import MultipeerConnectivity
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDelegate{
     weak var pairVC: PairViewController?
-    var peerName = ""
     var peerID: MCPeerID!
     var p2pSession: MCSession?
-    var displayWidth: CGFloat = 0
-    var displayHeight: CGFloat = 0
     var peerList: [MCPeerID] = []
 
     override init(){
-        super.init()
-        let screens = NSScreen.screens
-        for screen in screens {
-            displayWidth = max(NSWidth(screen.frame), displayWidth)
-            displayHeight = max(NSHeight(screen.frame), displayHeight)
-        }
-        
-        
+        super.init()        
+      
         startP2PSession()
     }
-    
 
     func startP2PSession(){
         let connData = ConnectionData()
@@ -122,8 +112,4 @@ extension ConnectionManager{
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
         pairVC!.dismiss(browserViewController)
     }
-
-    
-    
-    
 }

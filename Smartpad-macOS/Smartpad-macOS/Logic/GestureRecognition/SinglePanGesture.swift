@@ -19,7 +19,7 @@ class SinglePanGesture : Gesture {
     static let gain = Float(2.0) // TODO: Use settings class
 
     static func performGesture(packet: GesturePacket) {
-        assert(types.contains(packet.touchType))
+        assert(handlesGesture(gestureType: packet.touchType))
 
         guard let payload = try? decoder.decode(PanPayload.self, from: packet.payload)
         else {
