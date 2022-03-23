@@ -23,10 +23,12 @@ class SingleTapGesture : Gesture {
             let height = rect.size.height
             let mouseLocation = CGPoint(x: NSEvent.mouseLocation.x, y: height - NSEvent.mouseLocation.y)
             let source = CGEventSource(stateID: .hidSystemState)
+
             let leftMouseDownEvent = CGEvent(mouseEventSource: source, mouseType: .leftMouseDown, mouseCursorPosition: mouseLocation, mouseButton: .left)
             leftMouseDownEvent?.post(tap: .cghidEventTap)
-            let leftMouseUpvent = CGEvent(mouseEventSource: source, mouseType: .leftMouseUp, mouseCursorPosition: mouseLocation, mouseButton: .left)
-            leftMouseUpvent?.post(tap: .cghidEventTap)
+
+            let leftMouseUpEvent = CGEvent(mouseEventSource: source, mouseType: .leftMouseUp, mouseCursorPosition: mouseLocation, mouseButton: .left)
+            leftMouseUpEvent?.post(tap: .cghidEventTap)
         }
     }
 
