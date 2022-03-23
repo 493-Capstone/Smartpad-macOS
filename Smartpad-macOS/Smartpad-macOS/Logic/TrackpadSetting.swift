@@ -13,12 +13,10 @@ class TrackpadSetting {
     
     static public func enableTrackpadSetting() {
         TrackpadSetting.reverseScrollingEnabled = true
-        print("enable reverse scrolling")
     }
     
     static public func disableTrackpadSetting() {
         TrackpadSetting.reverseScrollingEnabled = false
-        print("disable reverse scrolling")
     }
     
     static public func isReverseScrollingEnabled() -> Bool {
@@ -31,6 +29,5 @@ class TrackpadSetting {
     
     static public func setTrackingSpeed(speed: Float) {
         TrackpadSetting.trackingSpeed = speed / 50.0 + 1.0
-        print("set tracking speed to \(TrackpadSetting.trackingSpeed)")
     }
 }
