@@ -30,6 +30,7 @@
 		9B211C3727E54481004D5DBE /* ZoomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3627E54481004D5DBE /* ZoomGesture.swift */; };
 		9B211C3927E66121004D5DBE /* SinglePanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3827E66121004D5DBE /* SinglePanGesture.swift */; };
 		9B211C3B27E6D127004D5DBE /* DoublePanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3A27E6D127004D5DBE /* DoublePanGesture.swift */; };
+		9B8F2AC227EA9A95009CDDF4 /* DragPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F2AC127EA9A95009CDDF4 /* DragPanGesture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		9B211C3627E54481004D5DBE /* ZoomGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomGesture.swift; sourceTree = "<group>"; };
 		9B211C3827E66121004D5DBE /* SinglePanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePanGesture.swift; sourceTree = "<group>"; };
 		9B211C3A27E6D127004D5DBE /* DoublePanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublePanGesture.swift; sourceTree = "<group>"; };
+		9B8F2AC127EA9A95009CDDF4 /* DragPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragPanGesture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				97621F3D27E663DA0022588D /* DoubleTapGesture.swift */,
 				9B211C3827E66121004D5DBE /* SinglePanGesture.swift */,
 				9B211C3A27E6D127004D5DBE /* DoublePanGesture.swift */,
+				9B8F2AC127EA9A95009CDDF4 /* DragPanGesture.swift */,
 			);
 			path = GestureRecognition;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				97621F3E27E663DA0022588D /* DoubleTapGesture.swift in Sources */,
 				9B211C3B27E6D127004D5DBE /* DoublePanGesture.swift in Sources */,
 				9B211C2F27E538A6004D5DBE /* GestureType.swift in Sources */,
+				9B8F2AC227EA9A95009CDDF4 /* DragPanGesture.swift in Sources */,
 				973F650327D7998C0045571F /* ConnectionManager.swift in Sources */,
 				9B211C3527E543A5004D5DBE /* Gesture.swift in Sources */,
 				97DC466427E6F02B00242B36 /* PairViewController.swift in Sources */,
