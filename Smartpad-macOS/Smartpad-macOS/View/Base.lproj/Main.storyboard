@@ -800,10 +800,10 @@
             </objects>
             <point key="canvasLocation" x="79" y="1153"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="OAF-7x-MCB">
             <objects>
-                <viewController id="8Ug-Lx-ZmC" sceneMemberID="viewController">
+                <viewController title="Setting View Controller" id="8Ug-Lx-ZmC" customClass="SettingViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jJ7-TO-OPt">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -832,6 +832,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="reverseScrollingSelected:" target="8Ug-Lx-ZmC" id="hH4-uh-GDj"/>
+                                </connections>
                             </button>
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-X3-Z8D">
                                 <rect key="frame" x="119" y="33" width="226" height="28"/>

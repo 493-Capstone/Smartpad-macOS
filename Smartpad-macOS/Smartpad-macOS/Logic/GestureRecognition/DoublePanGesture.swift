@@ -21,7 +21,6 @@ class DoublePanGesture : Gesture {
     static var lastPos: CGPoint?
 
     static let gain = Float(2.0) // TODO: Use settings class
-    static let inverted = true // TODO: User settings class
 
     static func performGesture(packet: GesturePacket) {
         assert(types.contains(packet.touchType))
@@ -47,7 +46,7 @@ class DoublePanGesture : Gesture {
             var xPixels = Int32(floor(((payload.xTranslation!) - Float(lastPos!.x)) * gain))
             var yPixels = Int32(floor(((payload.yTranslation!) - Float(lastPos!.y)) * gain))
 
-            if (inverted) {
+            if (TrackpadSetting.isReverseScrollingEnabled()) {
                 xPixels = -xPixels
                 yPixels = -yPixels
             }
