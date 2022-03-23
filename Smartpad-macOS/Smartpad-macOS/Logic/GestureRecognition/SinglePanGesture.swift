@@ -16,8 +16,6 @@ class SinglePanGesture : Gesture {
     // Initial position when the "Started" packet is received
     static var initialPos: NSPoint?
 
-    static let gain = Float(2.0) // TODO: Use settings class
-
     static func performGesture(packet: GesturePacket) {
         assert(handlesGesture(gestureType: packet.touchType))
 
@@ -39,8 +37,8 @@ class SinglePanGesture : Gesture {
 
         // Calculate the new mouse position (from the original position)
         // TODO: A bit janky on a secondary screen, but works fine on primary screen
-        let newPos = CGPoint(x: initialPos!.x + CGFloat(payload.xTranslation * gain),
-                             y: NSScreen.main!.frame.height - initialPos!.y + CGFloat(payload.yTranslation * gain))
+        let newPos = CGPoint(x: initialPos!.x + CGFloat(payload.xTranslation * TrackpadSetting.getTrackingSpeed()),
+                             y: NSScreen.main!.frame.height - initialPos!.y + CGFloat(payload.yTranslation * TrackpadSetting.getTrackingSpeed()))
         CGDisplayMoveCursorToPoint(CGMainDisplayID(), newPos)
 
         // Reset the initialPos to nil when ending a pan

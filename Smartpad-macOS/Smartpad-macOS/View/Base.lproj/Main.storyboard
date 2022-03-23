@@ -840,6 +840,9 @@
                                 <rect key="frame" x="119" y="33" width="226" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="5" sliderType="linear" id="i21-ir-YR3"/>
+                                <connections>
+                                    <action selector="trackSpeedChanged:" target="8Ug-Lx-ZmC" id="a4A-3I-Z3P"/>
+                                </connections>
                             </slider>
                         </subviews>
                     </view>

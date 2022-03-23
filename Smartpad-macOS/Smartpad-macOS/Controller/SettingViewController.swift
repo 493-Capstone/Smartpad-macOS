@@ -22,5 +22,9 @@ class SettingViewController: NSViewController{
             TrackpadSetting.disableTrackpadSetting()
         }
     }
+    
+    @IBAction func trackSpeedChanged(_ sender: NSSlider) {
+        TrackpadSetting.setTrackingSpeed(speed: sender.floatValue)
+    }
 }
 
