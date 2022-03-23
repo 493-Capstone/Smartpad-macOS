@@ -40,8 +40,10 @@ class DoublePanGesture : Gesture {
         }
         else if (packet.touchType == GestureType.DoublePanChanged) {
             /* Calculate the difference between the last and current position */
-            var xPixels = Int32(floor(((payload.xTranslation!) - Float(lastPos!.x)) * TrackpadSetting.getTrackingSpeed()))
-            var yPixels = Int32(floor(((payload.yTranslation!) - Float(lastPos!.y)) * TrackpadSetting.getTrackingSpeed()))
+            var xPixels = Int32(floor(((payload.xTranslation!)
+                                       - Float(lastPos!.x)) * TrackpadSetting.getTrackingSpeed()))
+            var yPixels = Int32(floor(((payload.yTranslation!)
+                                       - Float(lastPos!.y)) * TrackpadSetting.getTrackingSpeed()))
 
             if (TrackpadSetting.isReverseScrollingEnabled()) {
                 xPixels = -xPixels
