@@ -18,6 +18,8 @@
 		97621F3227DE4E060022588D /* ConnStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3127DE4E060022588D /* ConnStatus.swift */; };
 		97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3B27E584590022588D /* SingleTapGesture.swift */; };
 		97621F3E27E663DA0022588D /* DoubleTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3D27E663DA0022588D /* DoubleTapGesture.swift */; };
+		97621F4027EAC0950022588D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3F27EAC0950022588D /* SettingViewController.swift */; };
+		97621F4227EAC3CD0022588D /* TrackpadSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F4127EAC3CD0022588D /* TrackpadSetting.swift */; };
 		97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461427DDB5A500242B36 /* ConnectionData.swift */; };
 		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
 		97DC466427E6F02B00242B36 /* PairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC466327E6F02B00242B36 /* PairViewController.swift */; };
@@ -65,6 +67,8 @@
 		97621F3127DE4E060022588D /* ConnStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnStatus.swift; sourceTree = "<group>"; };
 		97621F3B27E584590022588D /* SingleTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTapGesture.swift; sourceTree = "<group>"; };
 		97621F3D27E663DA0022588D /* DoubleTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapGesture.swift; sourceTree = "<group>"; };
+		97621F3F27EAC0950022588D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		97621F4127EAC3CD0022588D /* TrackpadSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadSetting.swift; sourceTree = "<group>"; };
 		97DC461427DDB5A500242B36 /* ConnectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionData.swift; sourceTree = "<group>"; };
 		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
 		97DC466327E6F02B00242B36 /* PairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 			children = (
 				973F64D627D798A70045571F /* MainViewController.swift */,
 				97DC466327E6F02B00242B36 /* PairViewController.swift */,
+				97621F3F27EAC0950022588D /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				97621F3127DE4E060022588D /* ConnStatus.swift */,
 				9B211C2C27E5389B004D5DBE /* GesturePacket.swift */,
 				9B211C2E27E538A6004D5DBE /* GestureType.swift */,
+				97621F4127EAC3CD0022588D /* TrackpadSetting.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -341,8 +347,10 @@
 				9B211C3727E54481004D5DBE /* ZoomGesture.swift in Sources */,
 				9B211C3927E66121004D5DBE /* SinglePanGesture.swift in Sources */,
 				9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */,
+				97621F4027EAC0950022588D /* SettingViewController.swift in Sources */,
 				97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */,
 				97621F3227DE4E060022588D /* ConnStatus.swift in Sources */,
+				97621F4227EAC3CD0022588D /* TrackpadSetting.swift in Sources */,
 				9B211C2D27E5389B004D5DBE /* GesturePacket.swift in Sources */,
 				973F64D727D798A70045571F /* MainViewController.swift in Sources */,
 				97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */,
@@ -526,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
@@ -555,7 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
