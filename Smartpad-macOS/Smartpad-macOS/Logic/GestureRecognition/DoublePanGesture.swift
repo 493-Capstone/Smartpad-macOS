@@ -19,9 +19,6 @@ class DoublePanGesture : Gesture {
     /* Last position received */
     static var lastPos: CGPoint?
 
-    static let gain = Float(2.0) // TODO: Use settings class
-    static let inverted = true // TODO: User settings class
-
     static func performGesture(packet: GesturePacket) {
         assert(types.contains(packet.touchType))
 
@@ -43,10 +40,12 @@ class DoublePanGesture : Gesture {
         }
         else if (packet.touchType == GestureType.DoublePanChanged) {
             /* Calculate the difference between the last and current position */
-            var xPixels = Int32(floor(((payload.xTranslation!) - Float(lastPos!.x)) * gain))
-            var yPixels = Int32(floor(((payload.yTranslation!) - Float(lastPos!.y)) * gain))
+            var xPixels = Int32(floor(((payload.xTranslation!)
+                                       - Float(lastPos!.x)) * TrackpadSetting.getTrackingSpeed()))
+            var yPixels = Int32(floor(((payload.yTranslation!)
+                                       - Float(lastPos!.y)) * TrackpadSetting.getTrackingSpeed()))
 
-            if (inverted) {
+            if (TrackpadSetting.isReverseScrollingEnabled()) {
                 xPixels = -xPixels
                 yPixels = -yPixels
             }
