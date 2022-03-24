@@ -29,6 +29,11 @@ class PairViewController: NSViewController{
         pairingLabel.stringValue = label
     }
     
+    func updateConnectionView(status: ConnStatus){
+        (self.view as! MainView).status = status
+        self.view.setNeedsDisplay(NSRect(x: 0,y: 0,width: 500,height: 500))
+    }
+    
     @IBAction func pairButtonSelected(_ sender: NSButton) {
         connectionManager.startJoining()
         
