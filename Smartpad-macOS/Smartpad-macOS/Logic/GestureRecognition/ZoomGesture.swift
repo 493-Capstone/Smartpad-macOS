@@ -14,8 +14,8 @@ class ZoomGesture : Gesture {
     static let types = [GestureType.PinchStarted, GestureType.PinchChanged, GestureType.PinchEnded]
     static var currentScale: Float?
 
-    /* Absolute scale threshold. If less than -threshold, scale out. If greater than threshold, scale in. */
-    static let threshold = Float(0.3) // TODO: Use settings class
+    /* Absolute zoom threshold. If less than -threshold, scale out. If greater than threshold, scale in. */
+    static let threshold = Float(0.3)
 
     static func performGesture(packet: GesturePacket) {
         assert(handlesGesture(gestureType: packet.touchType))
