@@ -21,8 +21,12 @@
 		97621F4027EAC0950022588D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3F27EAC0950022588D /* SettingViewController.swift */; };
 		97621F4227EAC3CD0022588D /* TrackpadSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F4127EAC3CD0022588D /* TrackpadSetting.swift */; };
 		97621F4627EBE53C0022588D /* SingleTapDoubleClickGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F4527EBE53C0022588D /* SingleTapDoubleClickGesture.swift */; };
+		97DC461527DDB5A500242B36 /* ConnectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461427DDB5A500242B36 /* ConnectionData.swift */; };
 		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
 		97DC466427E6F02B00242B36 /* PairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC466327E6F02B00242B36 /* PairViewController.swift */; };
+		97DC46A427ECF24D00242B36 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC46A327ECF24D00242B36 /* MainView.swift */; };
+		9B211C2D27E5389B004D5DBE /* GesturePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C2C27E5389B004D5DBE /* GesturePacket.swift */; };
+		9B211C2F27E538A6004D5DBE /* GestureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C2E27E538A6004D5DBE /* GestureType.swift */; };
 		9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3227E54380004D5DBE /* GestureGenerator.swift */; };
 		9B211C3527E543A5004D5DBE /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3427E543A5004D5DBE /* Gesture.swift */; };
 		9B211C3727E54481004D5DBE /* ZoomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3627E54481004D5DBE /* ZoomGesture.swift */; };
@@ -72,8 +76,12 @@
 		97621F3F27EAC0950022588D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		97621F4127EAC3CD0022588D /* TrackpadSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadSetting.swift; sourceTree = "<group>"; };
 		97621F4527EBE53C0022588D /* SingleTapDoubleClickGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTapDoubleClickGesture.swift; sourceTree = "<group>"; };
+		97DC461427DDB5A500242B36 /* ConnectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionData.swift; sourceTree = "<group>"; };
 		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
 		97DC466327E6F02B00242B36 /* PairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairViewController.swift; sourceTree = "<group>"; };
+		97DC46A327ECF24D00242B36 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9B211C2C27E5389B004D5DBE /* GesturePacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePacket.swift; sourceTree = "<group>"; };
+		9B211C2E27E538A6004D5DBE /* GestureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureType.swift; sourceTree = "<group>"; };
 		9B211C3227E54380004D5DBE /* GestureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureGenerator.swift; sourceTree = "<group>"; };
 		9B211C3427E543A5004D5DBE /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		9B211C3627E54481004D5DBE /* ZoomGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomGesture.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				973F64DA27D798A70045571F /* Main.storyboard */,
+				97DC46A327ECF24D00242B36 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 				9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */,
 				97621F4027EAC0950022588D /* SettingViewController.swift in Sources */,
 				97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */,
+				97DC46A427ECF24D00242B36 /* MainView.swift in Sources */,
 				97621F3227DE4E060022588D /* ConnStatus.swift in Sources */,
 				97621F4227EAC3CD0022588D /* TrackpadSetting.swift in Sources */,
 				973F64D727D798A70045571F /* MainViewController.swift in Sources */,
@@ -542,7 +552,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 39Q7V34K3W;
+				DEVELOPMENT_TEAM = 8T46R4T879;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
@@ -571,7 +581,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 39Q7V34K3W;
+				DEVELOPMENT_TEAM = 8T46R4T879;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";

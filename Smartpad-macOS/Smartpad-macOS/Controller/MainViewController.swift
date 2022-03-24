@@ -21,8 +21,7 @@ class ViewController: NSViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connData = ConnectionData()
-        
+        connData = ConnectionData()        
     }
     
     override func viewDidAppear() {

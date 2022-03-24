@@ -66,17 +66,21 @@ extension ConnectionManager{
                 print("Connected: \(peerID.displayName)")
                 DispatchQueue.main.async {
                     self.pairVC?.setPairLabel(label: "Connected: \(peerID.displayName)")
+                    self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndConnected)
                 }
             
             case .connecting:
                 print("Connecting: \(peerID.displayName)")
                 DispatchQueue.main.async {
                     self.pairVC?.setPairLabel(label: "Connecting: \(peerID.displayName)")
+                    self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndDisconnected)
+                    
                 }
             case .notConnected:
                 print("notConnected: \(peerID.displayName)")
                 DispatchQueue.main.async {
                     self.pairVC?.setPairLabel(label: "Disconnected: \(peerID.displayName)")
+                    self.pairVC?.updateConnectionView(status: ConnStatus.Unpaired)
                 }
         @unknown default:
             print("unknown state")
