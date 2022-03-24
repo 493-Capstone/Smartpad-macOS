@@ -9,6 +9,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
       - name: Build
         run: xcodebuild clean build -workspace Smartpad-macOS/Smartpad-macOS.xcodeproj/project.xcworkspace -scheme Smartpad-macOS CODE_SIGN_IDENTITY=-
       - name: Test
