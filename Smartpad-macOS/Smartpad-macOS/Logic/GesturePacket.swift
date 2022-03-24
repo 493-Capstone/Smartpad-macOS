@@ -19,6 +19,9 @@ struct PinchPayload: Codable {
 struct SingleTapPayload: Codable {
 }
 
+struct SingleTapDoubleClickPayload: Codable {
+}
+
 struct DoubleTapPayload: Codable {
 }
 
