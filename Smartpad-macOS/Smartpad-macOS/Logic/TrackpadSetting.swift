@@ -8,15 +8,19 @@
 import Foundation
 
 class TrackpadSetting {
-    static private var reverseScrollingEnabled: Bool = true
-    static private var trackingSpeed: Float = 2.0;
+    static private var reverseScrollingEnabled: Bool! = UserDefaults.standard.bool(forKey: "reverseScrollingEnabled")
+    static private var trackingSpeed: Float! = UserDefaults.standard.float(forKey: "trackingSpeed")
     
     static public func enableTrackpadSetting() {
         TrackpadSetting.reverseScrollingEnabled = true
+        UserDefaults.standard.set(true, forKey: "reverseScrollingEnabled")
+        UserDefaults.standard.synchronize()
     }
     
     static public func disableTrackpadSetting() {
         TrackpadSetting.reverseScrollingEnabled = false
+        UserDefaults.standard.set(false, forKey: "reverseScrollingEnabled")
+        UserDefaults.standard.synchronize()
     }
     
     static public func isReverseScrollingEnabled() -> Bool {
@@ -24,10 +28,15 @@ class TrackpadSetting {
     }
     
     static public func getTrackingSpeed() -> Float {
+        if (TrackpadSetting.trackingSpeed == nil) {
+            return 2.0 // default trackingspeed
+        }
         return TrackpadSetting.trackingSpeed
     }
     
     static public func setTrackingSpeed(speed: Float) {
         TrackpadSetting.trackingSpeed = speed / 50.0 + 1.0
+        UserDefaults.standard.set(TrackpadSetting.trackingSpeed, forKey: "trackingSpeed")
+        UserDefaults.standard.synchronize()
     }
 }

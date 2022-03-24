@@ -846,6 +846,10 @@
                             </slider>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="reverseScrollingCheckbox" destination="TsJ-RS-x0X" id="rtT-Xz-99W"/>
+                        <outlet property="trackingSpeedSlider" destination="SGu-X3-Z8D" id="nAy-Ql-9cu"/>
+                    </connections>
                 </viewController>
                 <customObject id="SWa-S4-IDK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
