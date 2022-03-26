@@ -1,0 +1,3 @@
+[submodule "Smartpad-macOS/Smartpad-macOS/common"]
+	path = Smartpad-macOS/Smartpad-macOS/common
+	url = https://github.com/493-Capstone/common
