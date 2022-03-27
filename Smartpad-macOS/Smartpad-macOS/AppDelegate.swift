@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var statusItem: NSStatusItem!
     @State private var connStatus: ConnStatus = ConnStatus.Unpaired
-
+    var mainWindowController: MainWindowController? = nil
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -60,5 +60,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("open setting button from the menu bar")
     }
 
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        for window in NSApplication.shared.windows {
+            window.makeKeyAndOrderFront(self)
+        }
+        return true
+    }
+
+}
+
+@available(macOS 12.0, *)
+class MainWindowController: NSWindowController {
+    override func windowDidLoad() {
+        super.windowDidLoad()
+        // ...initialisation...
+        // Register the controller in the app delegate
+        let appDelegate = NSApp.delegate as! AppDelegate
+        appDelegate.mainWindowController = self
+    }
 }
 
