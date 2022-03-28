@@ -26,13 +26,10 @@ class ViewController: NSViewController{
     
     override func viewDidAppear() {
         if (connData.getDeviceName() != ""){
-            print("get device name")
-            print(connData.getDeviceName())
+            print("Device name: ", connData.getDeviceName())
             if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? PairViewController {
-                print("transit")
                 self.view.window?.contentViewController = controller
             }
-            
         }
     }
     

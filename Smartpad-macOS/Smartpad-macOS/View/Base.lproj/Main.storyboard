@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -767,7 +767,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="8Ug-Lx-ZmC" kind="show" id="Z9d-Mp-jnz"/>
+                                    <segue destination="8Ug-Lx-ZmC" kind="sheet" id="9hw-eP-yLA"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CkE-Te-BLp">
@@ -844,6 +844,17 @@
                                     <action selector="trackSpeedChanged:" target="8Ug-Lx-ZmC" id="a4A-3I-Z3P"/>
                                 </connections>
                             </slider>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oum-bb-PHy">
+                                <rect key="frame" x="16" y="255" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cqR-kf-7Lj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeButtonClicked:" target="8Ug-Lx-ZmC" id="ycr-fT-U23"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -852,6 +863,10 @@
                     </connections>
                 </viewController>
                 <customObject id="SWa-S4-IDK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <buttonCell type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GGy-wU-2uf">
+                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                    <font key="font" metaFont="system"/>
+                </buttonCell>
             </objects>
             <point key="canvasLocation" x="79" y="1669"/>
         </scene>

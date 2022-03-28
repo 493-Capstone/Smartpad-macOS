@@ -40,5 +40,9 @@ class SettingViewController: NSViewController{
     @IBAction func trackSpeedChanged(_ sender: NSSlider) {
         TrackpadSetting.setTrackingSpeed(speed: sender.floatValue)
     }
+
+    @IBAction func closeButtonClicked(_ sender: NSButton) {
+        dismiss(true)
+    }
 }
 

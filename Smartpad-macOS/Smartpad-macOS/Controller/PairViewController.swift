@@ -36,10 +36,6 @@ class PairViewController: NSViewController{
     
     @IBAction func pairButtonSelected(_ sender: NSButton) {
         connectionManager.startJoining()
-        
     }
-    
-
-    
 }
 
