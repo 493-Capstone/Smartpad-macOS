@@ -12,19 +12,19 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    private var statusItem: NSStatusItem!
+    /* The status image (red, yellow, green circle) */
+    private var statusItem: NSStatusItem?
+
+    /* The status menu text (i.e. Status: Unpaired) */
+    private var statusText = NSMenuItem(title: "Status: Unpaired", action: nil, keyEquivalent: "1")
     private var settingsButton = NSMenuItem(title: "Settings", action: #selector(openSettings), keyEquivalent: "2")
     @State private var connStatus: ConnStatus = ConnStatus.Unpaired
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        if let button = statusItem.button {
-            /* Note: This is only supported on MacOS 12, but CI uses MacOS 11 */
-            let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed)
-            button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: "connStatus: unpaired")
-            button.image = button.image?.withSymbolConfiguration(config)
-        }
+        /* Set the status to initially unpaired: We will update whenever a message is recevied from MainView */
+        updateConnMenuStatus(status: .Unpaired)
+
+        initConnMenuStatus()
         
         setupMenus()
     }
@@ -41,18 +41,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let menu = NSMenu()
         menu.autoenablesItems = false
 
-        let status = NSMenuItem(title: "Status: unpaired", action: nil, keyEquivalent: "1")
         /* Clicking the status should never be enabled */
-        status.isEnabled = false
-        menu.addItem(status)
+        statusText.isEnabled = false
 
+        menu.addItem(statusText)
         menu.addItem(settingsButton)
-
         menu.addItem(NSMenuItem.separator())
-
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
-        statusItem.menu = menu
+        statusItem?.menu = menu
     }
 
     @objc func openSettings() {
@@ -72,5 +69,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /* Enabled/disables the settings menu item */
     func setSettingsEnabled(isEnabled: Bool) {
         settingsButton.isEnabled = isEnabled
+    }
+
+    /* Initial the connection status circle */
+    func initConnMenuStatus() {
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+
+        if let button = statusItem?.button {
+            let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed)
+            button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: "Status: Unpaired")
+            button.image = button.image?.withSymbolConfiguration(config)
+        }
+    }
+
+    /* Update the menu items related to connection status */
+    func updateConnMenuStatus(status: ConnStatus) {
+        var newImageConfig: NSImage.SymbolConfiguration
+        var newStatus: String
+
+        switch status {
+            case .PairedAndConnected:
+                newImageConfig = NSImage.SymbolConfiguration(hierarchicalColor: .systemGreen)
+                newStatus = "Status: Paired and Connected"
+
+            case .PairedAndDisconnected:
+                newImageConfig = NSImage.SymbolConfiguration(hierarchicalColor: .systemYellow)
+                newStatus = "Status: Paired and Disconnected"
+
+            case .Unpaired:
+                newImageConfig = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed)
+                newStatus = "Status: Paired and Disconnected"
+        }
+
+        if let button = statusItem?.button {
+            button.image = button.image?.withSymbolConfiguration(newImageConfig)
+            button.image?.accessibilityDescription = newStatus
+            statusText.title = newStatus
+        }
     }
 }

@@ -9,7 +9,8 @@ import Foundation
 import Cocoa
 import CoreGraphics
 
-class MainViewController: NSViewController {    
+class MainViewController: NSViewController {
+
     @IBOutlet weak var pairingLabel: NSTextField!
     var connectionManager: ConnectionManager!
     var deviceList: [String] = []
@@ -18,9 +19,8 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectionManager = ConnectionManager()
+        connectionManager = ConnectionManager(mainVC: self)
         connData = ConnectionData()
-        connectionManager.pairVC = self
 
         /* Now that we are in the main view controller, the settings button should be enabled */
         if #available(macOS 12.0, *) {
@@ -30,8 +30,27 @@ class MainViewController: NSViewController {
     func setPairLabel(label: String){
         pairingLabel.stringValue = label
     }
-    
-    func updateConnectionView(status: ConnStatus){
+
+    /**
+     * @brief Called by ConnectionManager whenever the ConnStatus changes. This updates all UI elements to reflect
+     *        the current connection status.
+     */
+    func updateConnStatus(status: ConnStatus, peerName: String) {
+        switch status {
+            case .PairedAndConnected:
+                setPairLabel(label: "Connected: \(peerName)")
+
+            case .PairedAndDisconnected:
+                setPairLabel(label: "Disconnected, attempting to reconnect...")
+
+            case .Unpaired:
+                setPairLabel(label: "No device connected")
+        }
+
+        if #available(macOS 12.0, *) {
+            (NSApp.delegate as! AppDelegate).updateConnMenuStatus(status: status)
+        }
+
         (self.view as! MainView).status = status
         self.view.setNeedsDisplay(NSRect(x: 0,y: 0,width: 500,height: 500))
     }

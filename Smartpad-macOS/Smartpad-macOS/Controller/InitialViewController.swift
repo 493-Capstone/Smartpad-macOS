@@ -18,12 +18,12 @@ class InitialViewController: NSViewController{
     var peerID: MCPeerID!
     var p2pSession: MCSession?
     var mcAdvertiserAssistant: MCAdvertiserAssistant?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         connData = ConnectionData()        
     }
-    
+
     override func viewDidAppear() {
         self.view.window?.title = "Smartpad"
 
@@ -43,7 +43,7 @@ class InitialViewController: NSViewController{
             }
         }
     }
-    
+
     @IBAction func submitDeviceName(_ sender: NSButton) {
         let val = deviceName.stringValue
         print(val)
@@ -63,7 +63,6 @@ class InitialViewController: NSViewController{
         }
         
     }
-    
 
     override var representedObject: Any? {
         didSet {
