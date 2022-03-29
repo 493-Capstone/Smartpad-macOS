@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="InitialViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="481" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="79" y="706"/>
         </scene>
-        <!--Pair View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="JBB-E2-0d5">
             <objects>
-                <viewController storyboardIdentifier="PairView" id="Jhh-Bn-vsO" customClass="PairViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PairView" id="Jhh-Bn-vsO" customClass="MainViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="R7h-bM-Wyo" customClass="MainView" customModule="Smartpad_macOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="298"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,7 +198,7 @@
         <!--Setting View Controller-->
         <scene sceneID="OAF-7x-MCB">
             <objects>
-                <viewController title="Setting View Controller" storyboardIdentifier="settings" id="8Ug-Lx-ZmC" customClass="SettingViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Setting View Controller" storyboardIdentifier="settings" id="8Ug-Lx-ZmC" customClass="SettingsViewController" customModule="Smartpad_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jJ7-TO-OPt">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

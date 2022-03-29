@@ -59,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /* Show settings page */
         let mainWindow = NSApplication.shared.orderedWindows.first!
 
-        (mainWindow.contentViewController as? PairViewController)?.showSettingsPage()
+        (mainWindow.contentViewController as? MainViewController)?.showSettingsPage()
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {

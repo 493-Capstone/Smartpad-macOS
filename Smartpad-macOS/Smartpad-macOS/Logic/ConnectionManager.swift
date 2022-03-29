@@ -9,7 +9,7 @@ import Foundation
 import MultipeerConnectivity
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDelegate{
-    weak var pairVC: PairViewController?
+    weak var pairVC: MainViewController?
     var peerID: MCPeerID!
     var p2pSession: MCSession?
     var peerList: [MCPeerID] = []
