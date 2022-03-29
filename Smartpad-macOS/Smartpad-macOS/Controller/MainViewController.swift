@@ -25,11 +25,15 @@ class ViewController: NSViewController{
     }
     
     override func viewDidAppear() {
-
         self.view.window?.title = "Smartpad"
 
         /* Don't allow resizing the window */
         super.view.window?.styleMask.remove(.resizable)
+
+        /* The settings menu itme should be disabled until the initial setup is complete */
+        if #available(macOS 12.0, *) {
+            (NSApp.delegate as! AppDelegate).setSettingsEnabled(isEnabled: false)
+        }
 
         /* If an identifier was already set, transition to the main view */
         if (connData.getDeviceName() != "") {
@@ -66,7 +70,5 @@ class ViewController: NSViewController{
         // Update the view, if already loaded.
         }
     }
-
-
 }
 

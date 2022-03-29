@@ -13,16 +13,17 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var statusItem: NSStatusItem!
+    private var settingsButton = NSMenuItem(title: "Settings", action: #selector(openSettings), keyEquivalent: "2")
     @State private var connStatus: ConnStatus = ConnStatus.Unpaired
-    var mainWindowController: MainWindowController? = nil
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusItem.button {
-    //          TODO: Only supported on MacOS 12, but CI uses MacOS 11
-                let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed)
-                button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: "connStatus: unpaired")
-                button.image = button.image?.withSymbolConfiguration(config)
+            /* Note: This is only supported on MacOS 12, but CI uses MacOS 11 */
+            let config = NSImage.SymbolConfiguration(hierarchicalColor: .systemRed)
+            button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: "connStatus: unpaired")
+            button.image = button.image?.withSymbolConfiguration(config)
         }
         
         setupMenus()
@@ -38,12 +39,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func setupMenus() {
         let menu = NSMenu()
+        menu.autoenablesItems = false
 
-        let status = NSMenuItem(title: "Status: unpaired", action: #selector(statusSelect), keyEquivalent: "1")
+        let status = NSMenuItem(title: "Status: unpaired", action: nil, keyEquivalent: "1")
+        /* Clicking the status should never be enabled */
+        status.isEnabled = false
         menu.addItem(status)
 
-        let settings = NSMenuItem(title: "Settings", action: #selector(openSettings), keyEquivalent: "2")
-        menu.addItem(settings)
+        menu.addItem(settingsButton)
 
         menu.addItem(NSMenuItem.separator())
 
@@ -52,12 +55,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
     }
 
-    @objc func statusSelect() {
-        
-    }
-
     @objc func openSettings() {
-        print("open setting button from the menu bar")
+        /* Show settings page */
+        let mainWindow = NSApplication.shared.orderedWindows.first!
+
+        (mainWindow.contentViewController as? PairViewController)?.showSettingsPage()
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -67,16 +69,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-}
-
-@available(macOS 12.0, *)
-class MainWindowController: NSWindowController {
-    override func windowDidLoad() {
-        super.windowDidLoad()
-        // ...initialisation...
-        // Register the controller in the app delegate
-        let appDelegate = NSApp.delegate as! AppDelegate
-        appDelegate.mainWindowController = self
+    /* Enabled/disables the settings menu item */
+    func setSettingsEnabled(isEnabled: Bool) {
+        settingsButton.isEnabled = isEnabled
     }
 }
-

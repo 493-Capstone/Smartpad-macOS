@@ -24,6 +24,10 @@ class PairViewController: NSViewController{
         connData = ConnectionData()
         connectionManager.pairVC = self
 
+        /* Now that we are in the main view controller, the settings button should be enabled */
+        if #available(macOS 12.0, *) {
+            (NSApp.delegate as! AppDelegate).setSettingsEnabled(isEnabled: true)
+        }
     }
     func setPairLabel(label: String){
         pairingLabel.stringValue = label
@@ -35,7 +39,20 @@ class PairViewController: NSViewController{
     }
     
     @IBAction func pairButtonSelected(_ sender: NSButton) {
+        /* The "pair" button was pressed */
         connectionManager.startJoining()
+    }
+
+    @IBAction func settingsButtonSelected(_ sender: NSButton) {
+        /* The "settings" button was pressed */
+        showSettingsPage()
+    }
+
+    func showSettingsPage() {
+        /* This is triggered either by the settings button or through the settings menu option in the Mac menu bar */
+        let settingsVc = storyboard?.instantiateController(withIdentifier: "settings") as! SettingViewController
+
+        self.presentAsSheet(settingsVc)
     }
 }
 
