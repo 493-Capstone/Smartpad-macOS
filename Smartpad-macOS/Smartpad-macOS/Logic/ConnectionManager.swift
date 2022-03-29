@@ -8,7 +8,6 @@
 import Foundation
 import MultipeerConnectivity
 
-
 class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDelegate{
     weak var pairVC: PairViewController?
     var peerID: MCPeerID!
@@ -40,11 +39,8 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDele
 
         mcBrowser.delegate = self
         mcBrowser.maximumNumberOfPeers = 1
-        listVC.presentAsModalWindow(mcBrowser)
-        
+        listVC.presentAsSheet(mcBrowser)
     }
-    
-
 }
 
 extension ConnectionManager{
@@ -74,7 +70,6 @@ extension ConnectionManager{
                 DispatchQueue.main.async {
                     self.pairVC?.setPairLabel(label: "Connecting: \(peerID.displayName)")
                     self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndDisconnected)
-                    
                 }
             case .notConnected:
                 print("notConnected: \(peerID.displayName)")
@@ -84,7 +79,6 @@ extension ConnectionManager{
                 }
         @unknown default:
             print("unknown state")
-            
         }
     }
     
@@ -101,16 +95,13 @@ extension ConnectionManager{
     //            print(String(data: command, encoding: String.Encoding.utf8))
     
 //             print("Packet - Type: ", packet.touchType!)
-    
-    //      TODO: HACK UNTIL ALI GETS CONNECTION IN. (normally we would just call some
-    //            callback here)
+
             GestureGenerator.getGesture(type: packet.touchType)
                             .performGesture(packet: packet)
     }
     
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
         pairVC!.dismiss(browserViewController)
-        
     }
     
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {

@@ -25,6 +25,7 @@ class ViewController: NSViewController{
     }
     
     override func viewDidAppear() {
+
         self.view.window?.title = "Smartpad"
 
         /* Don't allow resizing the window */
@@ -36,7 +37,6 @@ class ViewController: NSViewController{
             if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? PairViewController {
                 self.view.window?.contentViewController = controller
             }
-            
         }
     }
     
