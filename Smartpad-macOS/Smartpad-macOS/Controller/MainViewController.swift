@@ -25,7 +25,14 @@ class ViewController: NSViewController{
     }
     
     override func viewDidAppear() {
-        if (connData.getDeviceName() != ""){
+
+        self.view.window?.title = "Smartpad"
+
+        /* Don't allow resizing the window */
+        super.view.window?.styleMask.remove(.resizable)
+
+        /* If an identifier was already set, transition to the main view */
+        if (connData.getDeviceName() != "") {
             print("Device name: ", connData.getDeviceName())
             if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? PairViewController {
                 self.view.window?.contentViewController = controller

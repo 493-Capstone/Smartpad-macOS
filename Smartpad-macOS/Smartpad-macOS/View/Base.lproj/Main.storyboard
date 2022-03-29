@@ -743,7 +743,6 @@
                     </view>
                     <connections>
                         <outlet property="deviceName" destination="6HV-0g-cAo" id="NCg-y2-gMz"/>
-                        <outlet property="submitButton" destination="UaT-BK-tIi" id="aL9-yQ-ioh"/>
                         <segue destination="Jhh-Bn-vsO" kind="show" id="5d3-bR-6i5"/>
                     </connections>
                 </viewController>
