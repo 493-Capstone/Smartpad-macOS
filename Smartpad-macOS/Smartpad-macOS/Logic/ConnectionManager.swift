@@ -62,22 +62,18 @@ extension ConnectionManager{
         switch state {
             case .connected:
 //                print("Connected: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: peerID.displayName)
-                }
+                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: peerID.displayName)
             
             case .connecting:
+                break
                 // Just stay in the same state, UI will be hidden while we are connected anyways.
 //                print("Connecting: \(peerID.displayName)")
-                DispatchQueue.main.async {
-//                    self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
-                }
+//                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
+
             case .notConnected:
 //                print("notConnected: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    /* We are still paired, just lost connection. Update the UI to indicate that we are attempting to reconnect */
-                    self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
-                }
+                /* We are still paired, just lost connection. Update the UI to indicate that we are attempting to reconnect */
+                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
         @unknown default:
             print("unknown state")
         }

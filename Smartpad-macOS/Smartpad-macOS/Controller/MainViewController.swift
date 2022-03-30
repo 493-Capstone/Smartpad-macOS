@@ -36,23 +36,25 @@ class MainViewController: NSViewController {
      *        the current connection status.
      */
     func updateConnStatus(status: ConnStatus, peerName: String) {
-        switch status {
-            case .PairedAndConnected:
-                setPairLabel(label: "Connected: \(peerName)")
+        DispatchQueue.main.async {
+            switch status {
+                case .PairedAndConnected:
+                    self.setPairLabel(label: "Connected: \(peerName)")
 
-            case .PairedAndDisconnected:
-                setPairLabel(label: "Disconnected, attempting to reconnect...")
+                case .PairedAndDisconnected:
+                    self.setPairLabel(label: "Disconnected, attempting to reconnect...")
 
-            case .Unpaired:
-                setPairLabel(label: "No device connected")
+                case .Unpaired:
+                    self.setPairLabel(label: "No device connected")
+            }
+
+            if #available(macOS 12.0, *) {
+                (NSApp.delegate as! AppDelegate).updateConnMenuStatus(status: status)
+            }
+
+            (self.view as! MainView).status = status
+            self.view.setNeedsDisplay(NSRect(x: 0,y: 0,width: 500,height: 500))
         }
-
-        if #available(macOS 12.0, *) {
-            (NSApp.delegate as! AppDelegate).updateConnMenuStatus(status: status)
-        }
-
-        (self.view as! MainView).status = status
-        self.view.setNeedsDisplay(NSRect(x: 0,y: 0,width: 500,height: 500))
     }
     
     @IBAction func pairButtonSelected(_ sender: NSButton) {
