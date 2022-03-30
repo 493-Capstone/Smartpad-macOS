@@ -9,6 +9,8 @@ import Foundation
 import MultipeerConnectivity
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate{
+
+    
     weak var pairVC: PairViewController?
     weak var listVC: DeviceListViewController?
     var peerID: MCPeerID!
@@ -174,6 +176,17 @@ extension ConnectionManager{
         // update view with new list
         guard let listVC = self.listVC else {return}
         listVC.updateTable()
+    }
+    
+    
+    
+    @available(*, deprecated, message: "No longer in use")
+    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
+        
+    }
+    @available(*, deprecated, message: "No longer in use")
+    func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
+        
     }
     
     

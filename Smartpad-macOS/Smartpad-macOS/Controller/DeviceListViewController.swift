@@ -47,6 +47,7 @@ class DeviceListViewController: NSViewController {
             ac.messageText = "No device selected"
             ac.alertStyle = .warning
             ac.addButton(withTitle: "OK")
+            ac.runModal()
             
         } else{
             connectionManager?.sendInviteToPeer(index: selectedIndex)
