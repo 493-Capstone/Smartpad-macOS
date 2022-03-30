@@ -19,7 +19,8 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectionManager = ConnectionManager(mainVC: self)
+        connectionManager = ConnectionManagerAccess.connectionManager
+        connectionManager.mainVC = self
         connData = ConnectionData()
 
         /* Now that we are in the main view controller, the settings button should be enabled */
@@ -57,10 +58,6 @@ class MainViewController: NSViewController {
         }
     }
     
-    @IBAction func pairButtonSelected(_ sender: NSButton) {
-        /* The "pair" button was pressed */
-        connectionManager.startJoining()
-    }
 
     @IBAction func settingsButtonSelected(_ sender: NSButton) {
         /* The "settings" button was pressed */
