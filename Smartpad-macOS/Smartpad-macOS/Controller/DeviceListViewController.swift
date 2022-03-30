@@ -27,7 +27,6 @@ class DeviceListViewController: NSViewController {
     }
     
     @objc private func onItemClicked() {
-        print("row \(tableView.clickedRow), col \(tableView.clickedColumn) clicked")
         selectedIndex = tableView.clickedRow
     }
     
@@ -69,7 +68,7 @@ extension DeviceListViewController: NSTableViewDataSource, NSTableViewDelegate {
       guard let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
       print(row)
       if row <= (connectionManager?.peerList.count)! - 1 {
-          print(connectionManager?.peerList[row])
+          
           let device = connectionManager?.peerList[row]
           if (tableColumn?.identifier)!.rawValue == "deviceName" {
               cell.textField?.stringValue = device!.displayName

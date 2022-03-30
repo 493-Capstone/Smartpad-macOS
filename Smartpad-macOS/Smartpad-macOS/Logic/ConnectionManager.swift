@@ -71,8 +71,6 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
 //        print("stop browsing for peers")
         clearPeerList()
         listVC!.dismiss(true)
-        
-        
     }
     
     
@@ -161,20 +159,19 @@ extension ConnectionManager{
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
 
-        peerList.append(peerID)
-
         // update view with new peer
         guard let listVC = self.listVC else {return}
+        peerList.append(peerID)
         
         listVC.updateTable()
     }
 
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer lostPeerID: MCPeerID) {
         
-        peerList = peerList.filter {$0.displayName != lostPeerID.displayName}
-        
+        self.peerList = peerList.filter {$0.displayName != lostPeerID.displayName}
         // update view with new list
         guard let listVC = self.listVC else {return}
+     
         listVC.updateTable()
     }
     
