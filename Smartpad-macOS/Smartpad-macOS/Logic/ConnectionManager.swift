@@ -10,7 +10,6 @@ import MultipeerConnectivity
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate{
 
-
     weak var listVC: DeviceListViewController?
     var peerID: MCPeerID!
     var p2pSession: MCSession?
@@ -24,7 +23,6 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
     }
 
     func startP2PSession(){
-        print("start p2p session")
         let connData = ConnectionData()
         peerID = MCPeerID.init(displayName: connData.getDeviceName())
         p2pSession = MCSession.init(peer: peerID!, securityIdentity: nil, encryptionPreference: .required)
@@ -55,7 +53,6 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
      Method beings browsing for other peers
      */
     func searchForDevices(){
-        guard let p2pSession = p2pSession else {return}
         browser = MCNearbyServiceBrowser(peer: peerID, serviceType: "smartpad")
 //        print("start browsing for peers")
         browser?.delegate = self
@@ -165,9 +162,7 @@ extension ConnectionManager{
      
         listVC.updateTable()
     }
-    
-    
-    
+
     @available(*, deprecated, message: "No longer in use")
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
         
@@ -176,6 +171,4 @@ extension ConnectionManager{
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
         
     }
-    
-    
 }

@@ -52,9 +52,7 @@ class DeviceListViewController: NSViewController {
             connectionManager?.sendInviteToPeer(index: selectedIndex)
             self.dismiss(true)
         }
-
     }
-    
 }
 
 extension DeviceListViewController: NSTableViewDataSource, NSTableViewDelegate {
@@ -66,7 +64,6 @@ extension DeviceListViewController: NSTableViewDataSource, NSTableViewDelegate {
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
      
       guard let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
-      print(row)
       if row <= (connectionManager?.peerList.count)! - 1 {
           
           let device = connectionManager?.peerList[row]
@@ -79,9 +76,5 @@ extension DeviceListViewController: NSTableViewDataSource, NSTableViewDelegate {
       } else {
           return nil
       }
-    
-
   }
-    
-
 }
