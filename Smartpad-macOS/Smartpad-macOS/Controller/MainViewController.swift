@@ -1,72 +1,77 @@
 //
-//  ViewController.swift
-//  desktop-client-mac
+//  MainViewController.swift
+//  Smartpad-macOS
 //
-//  Created by alireza azimi on 2022-01-14.
+//  Created by Alireza Azimi on 2022-03-19.
 //
 
+import Foundation
 import Cocoa
-import MultipeerConnectivity
 import CoreGraphics
 
+class MainViewController: NSViewController {
 
-
-class ViewController: NSViewController{
-   
-    @IBOutlet weak var deviceName: NSTextField!
+    @IBOutlet weak var pairingLabel: NSTextField!
+    var connectionManager: ConnectionManager!
+    var deviceList: [String] = []
+    var selectedDevice = ""
     var connData: ConnectionData!
-    var peerID: MCPeerID!
-    var p2pSession: MCSession?
-    var mcAdvertiserAssistant: MCAdvertiserAssistant?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connData = ConnectionData()        
+        connectionManager = ConnectionManager(mainVC: self)
+        connData = ConnectionData()
+
+        /* Now that we are in the main view controller, the settings button should be enabled */
+        if #available(macOS 12.0, *) {
+            (NSApp.delegate as! AppDelegate).setSettingsEnabled(isEnabled: true)
+        }
     }
-    
-    override func viewDidAppear() {
+    func setPairLabel(label: String){
+        pairingLabel.stringValue = label
+    }
 
-        self.view.window?.title = "Smartpad"
+    /**
+     * @brief Called by ConnectionManager whenever the ConnStatus changes. This updates all UI elements to reflect
+     *        the current connection status.
+     */
+    func updateConnStatus(status: ConnStatus, peerName: String) {
+        DispatchQueue.main.async {
+            switch status {
+                case .PairedAndConnected:
+                    self.setPairLabel(label: "Connected: \(peerName)")
 
-        /* Don't allow resizing the window */
-        super.view.window?.styleMask.remove(.resizable)
+                case .PairedAndDisconnected:
+                    self.setPairLabel(label: "Disconnected, attempting to reconnect...")
 
-        /* If an identifier was already set, transition to the main view */
-        if (connData.getDeviceName() != "") {
-            print("Device name: ", connData.getDeviceName())
-            if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? PairViewController {
-                self.view.window?.contentViewController = controller
+                case .Unpaired:
+                    self.setPairLabel(label: "No device connected")
             }
+
+            if #available(macOS 12.0, *) {
+                (NSApp.delegate as! AppDelegate).updateConnMenuStatus(status: status)
+            }
+
+            (self.view as! MainView).status = status
+            self.view.setNeedsDisplay(NSRect(x: 0,y: 0,width: 500,height: 500))
         }
     }
     
-    @IBAction func submitDeviceName(_ sender: NSButton) {
-        let val = deviceName.stringValue
-        print(val)
-        if val != ""{
-            self.connData.setDeviceName(name: val)
-            if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? PairViewController {
-        self.view.window?.contentViewController = controller
-        }
-        } else {
-            let alert = NSAlert()
-
-            alert.messageText = "Name cannot be empty"
-
-            alert.addButton(withTitle: "OK")
-            alert.alertStyle = .warning
-            alert.runModal()
-        }
-        
-    }
-    
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    @IBAction func pairButtonSelected(_ sender: NSButton) {
+        /* The "pair" button was pressed */
+        connectionManager.startJoining()
     }
 
+    @IBAction func settingsButtonSelected(_ sender: NSButton) {
+        /* The "settings" button was pressed */
+        showSettingsPage()
+    }
 
+    func showSettingsPage() {
+        /* This is triggered either by the settings button or through the settings menu option in the Mac menu bar */
+        let settingsVc = storyboard?.instantiateController(withIdentifier: "settings") as! SettingsViewController
+
+        self.presentAsSheet(settingsVc)
+    }
 }
 

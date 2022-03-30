@@ -9,14 +9,16 @@ import Foundation
 import MultipeerConnectivity
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDelegate{
-    weak var pairVC: PairViewController?
-    var peerID: MCPeerID!
-    var p2pSession: MCSession?
-    var peerList: [MCPeerID] = []
+    private weak var mainVC: MainViewController?
+    private var peerID: MCPeerID!
+    private var p2pSession: MCSession?
+    private var peerList: [MCPeerID] = []
 
-    override init(){
-        super.init()        
-      
+    init(mainVC: MainViewController) {
+        super.init()
+
+        self.mainVC = mainVC
+
         startP2PSession()
     }
 
@@ -34,7 +36,7 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDele
     
     func startJoining(){
         guard let p2pSession = p2pSession else {return}
-        guard let listVC = pairVC else {return}
+        guard let listVC = mainVC else {return}
         let mcBrowser = MCBrowserViewController(serviceType: "smartpad", session: p2pSession)
 
         mcBrowser.delegate = self
@@ -59,24 +61,19 @@ extension ConnectionManager{
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         switch state {
             case .connected:
-                print("Connected: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    self.pairVC?.setPairLabel(label: "Connected: \(peerID.displayName)")
-                    self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndConnected)
-                }
+//                print("Connected: \(peerID.displayName)")
+                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: peerID.displayName)
             
             case .connecting:
-                print("Connecting: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    self.pairVC?.setPairLabel(label: "Connecting: \(peerID.displayName)")
-                    self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndDisconnected)
-                }
+                break
+                // Just stay in the same state, UI will be hidden while we are connected anyways.
+//                print("Connecting: \(peerID.displayName)")
+//                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
+
             case .notConnected:
-                print("notConnected: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    self.pairVC?.setPairLabel(label: "Disconnected: \(peerID.displayName)")
-                    self.pairVC?.updateConnectionView(status: ConnStatus.Unpaired)
-                }
+//                print("notConnected: \(peerID.displayName)")
+                /* We are still paired, just lost connection. Update the UI to indicate that we are attempting to reconnect */
+                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
         @unknown default:
             print("unknown state")
         }
@@ -101,10 +98,10 @@ extension ConnectionManager{
     }
     
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
-        pairVC!.dismiss(browserViewController)
+        mainVC!.dismiss(browserViewController)
     }
     
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-        pairVC!.dismiss(browserViewController)
+        mainVC!.dismiss(browserViewController)
     }
 }
