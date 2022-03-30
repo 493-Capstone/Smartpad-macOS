@@ -8,19 +8,21 @@
 import Foundation
 import MultipeerConnectivity
 
-class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDelegate{
+class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate{
     weak var pairVC: PairViewController?
+    weak var listVC: DeviceListViewController?
     var peerID: MCPeerID!
     var p2pSession: MCSession?
     var peerList: [MCPeerID] = []
+    var browser: MCNearbyServiceBrowser?
 
     override init(){
-        super.init()        
-      
+        super.init()
         startP2PSession()
     }
 
     func startP2PSession(){
+        print("start p2p session")
         let connData = ConnectionData()
         peerID = MCPeerID.init(displayName: connData.getDeviceName())
         p2pSession = MCSession.init(peer: peerID!, securityIdentity: nil, encryptionPreference: .required)
@@ -32,6 +34,10 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDele
         p2pSession.disconnect()
     }
     
+    /**
+     
+     */
+    @available(*, deprecated, message: "This method uses the old browser and is deprecated")
     func startJoining(){
         guard let p2pSession = p2pSession else {return}
         guard let listVC = pairVC else {return}
@@ -41,6 +47,47 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCBrowserViewControllerDele
         mcBrowser.maximumNumberOfPeers = 1
         listVC.presentAsSheet(mcBrowser)
     }
+    
+
+    /**
+     Method beings browsing for other peers
+     */
+    func searchForDevices(){
+        guard let p2pSession = p2pSession else {return}
+        browser = MCNearbyServiceBrowser(peer: peerID, serviceType: "smartpad")
+//        print("start browsing for peers")
+        browser?.delegate = self
+        browser?.startBrowsingForPeers()
+    }
+    
+    /**
+     Method stops browsing for other peers
+     */
+    func stopSearch(){
+
+        browser?.stopBrowsingForPeers()
+//        print("stop browsing for peers")
+        clearPeerList()
+        listVC!.dismiss(true)
+        
+        
+    }
+    
+    
+    func sendInviteToPeer(index: Int){
+        if (index <= peerList.count - 1){
+            let peer = peerList[index]
+            guard let p2pSession = self.p2pSession else {return}
+            browser?.invitePeer(peer, to: p2pSession, withContext: nil, timeout: 30)
+            browser?.stopBrowsingForPeers()
+            clearPeerList()
+        }
+    }
+    
+    private func clearPeerList(){
+        self.peerList = []
+    }
+
 }
 
 extension ConnectionManager{
@@ -57,6 +104,9 @@ extension ConnectionManager{
     }
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
+        // clear peer list once connection status changes
+        // indicates pairing attempt
+        clearPeerList()
         switch state {
             case .connected:
                 print("Connected: \(peerID.displayName)")
@@ -71,12 +121,16 @@ extension ConnectionManager{
                     self.pairVC?.setPairLabel(label: "Connecting: \(peerID.displayName)")
                     self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndDisconnected)
                 }
+                
             case .notConnected:
                 print("notConnected: \(peerID.displayName)")
                 DispatchQueue.main.async {
                     self.pairVC?.setPairLabel(label: "Disconnected: \(peerID.displayName)")
                     self.pairVC?.updateConnectionView(status: ConnStatus.Unpaired)
+                
                 }
+                p2pSession?.disconnect()
+            
         @unknown default:
             print("unknown state")
         }
@@ -99,12 +153,28 @@ extension ConnectionManager{
             GestureGenerator.getGesture(type: packet.touchType)
                             .performGesture(packet: packet)
     }
+
     
-    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
-        pairVC!.dismiss(browserViewController)
+    // Callbacks for the peer browser
+    
+    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
+
+        peerList.append(peerID)
+
+        // update view with new peer
+        guard let listVC = self.listVC else {return}
+        
+        listVC.updateTable()
+    }
+
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer lostPeerID: MCPeerID) {
+        
+        peerList = peerList.filter {$0.displayName != lostPeerID.displayName}
+        
+        // update view with new list
+        guard let listVC = self.listVC else {return}
+        listVC.updateTable()
     }
     
-    func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-        pairVC!.dismiss(browserViewController)
-    }
+    
 }

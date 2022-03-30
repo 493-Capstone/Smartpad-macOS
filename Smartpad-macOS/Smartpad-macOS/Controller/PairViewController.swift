@@ -13,18 +13,14 @@ class PairViewController: NSViewController{
 
     
     @IBOutlet weak var pairingLabel: NSTextField!
-    var connectionManager: ConnectionManager!
     var deviceList: [String] = []
     var selectedDevice = ""
-    var connData: ConnectionData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectionManager = ConnectionManager()
-        connData = ConnectionData()
-        connectionManager.pairVC = self
-
+        ConnectionManagerAccess.connectionManager.pairVC = self
     }
+    
     func setPairLabel(label: String){
         pairingLabel.stringValue = label
     }
@@ -34,8 +30,6 @@ class PairViewController: NSViewController{
         self.view.setNeedsDisplay(NSRect(x: 0,y: 0,width: 500,height: 500))
     }
     
-    @IBAction func pairButtonSelected(_ sender: NSButton) {
-        connectionManager.startJoining()
-    }
+
 }
 
