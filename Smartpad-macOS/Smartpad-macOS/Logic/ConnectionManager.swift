@@ -10,13 +10,13 @@ import MultipeerConnectivity
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate{
 
-    
-    weak var pairVC: PairViewController?
+
     weak var listVC: DeviceListViewController?
     var peerID: MCPeerID!
     var p2pSession: MCSession?
     var peerList: [MCPeerID] = []
     var browser: MCNearbyServiceBrowser?
+    weak var mainVC: MainViewController?
 
     override init(){
         super.init()
@@ -42,7 +42,7 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
     @available(*, deprecated, message: "This method uses the old browser and is deprecated")
     func startJoining(){
         guard let p2pSession = p2pSession else {return}
-        guard let listVC = pairVC else {return}
+        guard let listVC = mainVC else {return}
         let mcBrowser = MCBrowserViewController(serviceType: "smartpad", session: p2pSession)
 
         mcBrowser.delegate = self
@@ -109,28 +109,19 @@ extension ConnectionManager{
         clearPeerList()
         switch state {
             case .connected:
-                print("Connected: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    self.pairVC?.setPairLabel(label: "Connected: \(peerID.displayName)")
-                    self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndConnected)
-                }
+//                print("Connected: \(peerID.displayName)")
+                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: peerID.displayName)
             
             case .connecting:
-                print("Connecting: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    self.pairVC?.setPairLabel(label: "Connecting: \(peerID.displayName)")
-                    self.pairVC?.updateConnectionView(status: ConnStatus.PairedAndDisconnected)
-                }
-                
+                break
+                // Just stay in the same state, UI will be hidden while we are connected anyways.
+//                print("Connecting: \(peerID.displayName)")
+//                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
+
             case .notConnected:
-                print("notConnected: \(peerID.displayName)")
-                DispatchQueue.main.async {
-                    self.pairVC?.setPairLabel(label: "Disconnected: \(peerID.displayName)")
-                    self.pairVC?.updateConnectionView(status: ConnStatus.Unpaired)
-                
-                }
-                p2pSession?.disconnect()
-            
+//                print("notConnected: \(peerID.displayName)")
+                /* We are still paired, just lost connection. Update the UI to indicate that we are attempting to reconnect */
+                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
         @unknown default:
             print("unknown state")
         }

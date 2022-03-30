@@ -1,5 +1,5 @@
 //
-//  SettingViewController.swift
+//  SettingsViewController.swift
 //  Smartpad-macOS
 //
 //  Created by Arthur Chan on 2022-03-22.
@@ -9,7 +9,7 @@ import Foundation
 import Cocoa
 import CoreGraphics
 
-class SettingViewController: NSViewController{
+class SettingsViewController: NSViewController{
     
     @IBOutlet weak var reverseScrollingCheckbox: NSButton!
     @IBOutlet weak var trackingSpeedSlider: NSSlider!
