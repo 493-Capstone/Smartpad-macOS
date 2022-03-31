@@ -22,12 +22,18 @@ class MainViewController: NSViewController {
         connectionManager = ConnectionManagerAccess.connectionManager
         connectionManager.mainVC = self
         connData = ConnectionData()
-
+        let peerName = connData.getSelectedPeer()
+        if(peerName  != ""){
+            connectionManager.searchForDevices()
+            self.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerName )
+        }
         /* Now that we are in the main view controller, the settings button should be enabled */
         if #available(macOS 12.0, *) {
             (NSApp.delegate as! AppDelegate).setSettingsEnabled(isEnabled: true)
         }
     }
+    
+    
     func setPairLabel(label: String){
         pairingLabel.stringValue = label
     }

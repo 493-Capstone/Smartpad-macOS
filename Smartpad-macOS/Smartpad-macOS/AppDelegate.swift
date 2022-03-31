@@ -31,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        ConnectionManagerAccess.connectionManager.stopP2PSession()
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {

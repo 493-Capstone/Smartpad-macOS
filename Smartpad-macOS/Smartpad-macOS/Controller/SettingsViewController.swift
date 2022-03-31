@@ -13,9 +13,20 @@ class SettingsViewController: NSViewController{
     
     @IBOutlet weak var reverseScrollingCheckbox: NSButton!
     @IBOutlet weak var trackingSpeedSlider: NSSlider!
-
+    @IBOutlet weak var settingsLabel: NSTextField!
+    @IBOutlet weak var unpairButton: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let connData = ConnectionData()
+        
+        if (connData.getSelectedPeer() != ""){
+            print(connData.getSelectedPeer())
+            setUIToPairedStatus()
+
+        } else {
+            setUIToUnpairedStatus()
+        }
         if (UserDefaults.standard.bool(forKey: "reverseScrollingEnabled")) {
             reverseScrollingCheckbox.state = .on
         } else {
@@ -27,6 +38,22 @@ class SettingsViewController: NSViewController{
             trackingSpeedSlider.doubleValue = 50.0
         }
         trackingSpeedSlider.doubleValue = (UserDefaults.standard.double(forKey: "trackingSpeed") - 1) * 50
+    }
+    
+    private func setUIToUnpairedStatus(){
+        settingsLabel.stringValue = "Device is unpaired"
+        unpairButton.isHidden = true
+    }
+    
+    private func setUIToPairedStatus(){
+        settingsLabel.stringValue = "Device is paired"
+        unpairButton.isHidden = false
+    }
+    
+    @IBAction func unpairDevice(_ sender: NSButton) {
+        ConnectionManagerAccess.connectionManager.unpairDevice()
+        setUIToUnpairedStatus()
+        
     }
     
     @IBAction func reverseScrollingSelected(_ sender: NSButton) {
