@@ -52,8 +52,7 @@ class SettingsViewController: NSViewController{
     
     @IBAction func unpairDevice(_ sender: NSButton) {
         ConnectionManagerAccess.connectionManager.unpairDevice()
-        settingsLabel.stringValue = "Device is unpaired"
-        unpairButton.isHidden = true
+        setUIToUnpairedStatus()
         
     }
     

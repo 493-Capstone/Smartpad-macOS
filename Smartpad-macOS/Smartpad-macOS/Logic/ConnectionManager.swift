@@ -93,6 +93,8 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
         let connData = ConnectionData()
         connData.setSelectedPeer(name: "")
         p2pSession.disconnect()
+        browser?.stopBrowsingForPeers()
+        self.mainVC?.updateConnStatus(status: .Unpaired, peerName: "")
     }
     private func clearPeerList(){
         self.peerList = []
