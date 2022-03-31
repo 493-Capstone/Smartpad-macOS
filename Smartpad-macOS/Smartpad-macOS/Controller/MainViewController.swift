@@ -22,7 +22,11 @@ class MainViewController: NSViewController {
         connectionManager = ConnectionManagerAccess.connectionManager
         connectionManager.mainVC = self
         connData = ConnectionData()
-
+        if(connData.getSelectedPeer() != ""){
+            print("view did load")
+            connectionManager.searchForDevices()
+            self.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: connData.getSelectedPeer())
+        }
         /* Now that we are in the main view controller, the settings button should be enabled */
         if #available(macOS 12.0, *) {
             (NSApp.delegate as! AppDelegate).setSettingsEnabled(isEnabled: true)
