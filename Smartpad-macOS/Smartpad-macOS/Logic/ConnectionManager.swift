@@ -27,6 +27,7 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
         print("start p2p session")
         let connData = ConnectionData()
         peerID = MCPeerID.init(displayName: connData.getDeviceName())
+    
         p2pSession = MCSession.init(peer: peerID!, securityIdentity: nil, encryptionPreference: .required)
         p2pSession?.delegate = self
     }
@@ -84,6 +85,12 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
         }
     }
     
+    func unpairDevice(){
+        guard let p2pSession = self.p2pSession else {return}
+        let connData = ConnectionData()
+        connData.setSelectedPeer(name: "")
+        p2pSession.disconnect()
+    }
     private func clearPeerList(){
         self.peerList = []
     }
@@ -109,7 +116,8 @@ extension ConnectionManager{
         clearPeerList()
         switch state {
             case .connected:
-//                print("Connected: \(peerID.displayName)")
+                self.mainVC?.connData.setSelectedPeer(name: peerID.displayName)
+//                print("Connected: \(String(describing: self.mainVC?.connData.getDeviceName()))")
                 self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: peerID.displayName)
             
             case .connecting:
@@ -121,9 +129,15 @@ extension ConnectionManager{
             case .notConnected:
 //                print("notConnected: \(peerID.displayName)")
                 /* We are still paired, just lost connection. Update the UI to indicate that we are attempting to reconnect */
-                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
-        @unknown default:
-            print("unknown state")
+                let connData = ConnectionData()
+                if (connData.getSelectedPeer() != ""){
+                    self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
+                } else {
+                    self.mainVC?.updateConnStatus(status: ConnStatus.Unpaired, peerName: peerID.displayName)
+                }
+
+            @unknown default:
+                print("unknown state")
         }
     }
     

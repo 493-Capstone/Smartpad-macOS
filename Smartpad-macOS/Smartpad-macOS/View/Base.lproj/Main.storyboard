@@ -317,20 +317,15 @@ Gw
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-19-c3J">
-                                <rect key="frame" x="207" y="264" width="37" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BAv-8P-BGh">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J1m-E0-pJj">
                                 <rect key="frame" x="189" y="208" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="unpair" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q4Q-GE-ZgM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="unpairDevice:" target="8Ug-Lx-ZmC" id="X1q-GK-UeS"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TsJ-RS-x0X">
                                 <rect key="frame" x="170" y="117" width="108" height="18"/>
@@ -360,6 +355,14 @@ Gw
                                     <action selector="closeButtonClicked:" target="8Ug-Lx-ZmC" id="ycr-fT-U23"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-19-c3J">
+                                <rect key="frame" x="201" y="266" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BAv-8P-BGh">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="oum-bb-PHy" firstAttribute="centerX" secondItem="jJ7-TO-OPt" secondAttribute="centerX" constant="-174.5" id="0gF-cb-lZb"/>
@@ -374,7 +377,9 @@ Gw
                     </view>
                     <connections>
                         <outlet property="reverseScrollingCheckbox" destination="TsJ-RS-x0X" id="rtT-Xz-99W"/>
+                        <outlet property="settingsLabel" destination="Kc0-19-c3J" id="lEa-DD-LKX"/>
                         <outlet property="trackingSpeedSlider" destination="SGu-X3-Z8D" id="nAy-Ql-9cu"/>
+                        <outlet property="unpairButton" destination="J1m-E0-pJj" id="4lh-Cs-Jyr"/>
                     </connections>
                 </viewController>
                 <customObject id="SWa-S4-IDK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
