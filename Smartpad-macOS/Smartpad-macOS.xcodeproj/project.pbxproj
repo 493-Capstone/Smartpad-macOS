@@ -26,6 +26,7 @@
 		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
 		97DC466427E6F02B00242B36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC466327E6F02B00242B36 /* MainViewController.swift */; };
 		97DC46A427ECF24D00242B36 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC46A327ECF24D00242B36 /* MainView.swift */; };
+		9B017B7F27F65FC700533714 /* NameEmptyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B017B7E27F65FC700533714 /* NameEmptyAlert.swift */; };
 		9B211C3327E54380004D5DBE /* GestureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3227E54380004D5DBE /* GestureGenerator.swift */; };
 		9B211C3527E543A5004D5DBE /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3427E543A5004D5DBE /* Gesture.swift */; };
 		9B211C3727E54481004D5DBE /* ZoomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B211C3627E54481004D5DBE /* ZoomGesture.swift */; };
@@ -80,6 +81,7 @@
 		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
 		97DC466327E6F02B00242B36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		97DC46A327ECF24D00242B36 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9B017B7E27F65FC700533714 /* NameEmptyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEmptyAlert.swift; sourceTree = "<group>"; };
 		9B211C3227E54380004D5DBE /* GestureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureGenerator.swift; sourceTree = "<group>"; };
 		9B211C3427E543A5004D5DBE /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		9B211C3627E54481004D5DBE /* ZoomGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomGesture.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				97DC466327E6F02B00242B36 /* MainViewController.swift */,
 				97621F3F27EAC0950022588D /* SettingsViewController.swift */,
 				970F19DA27F3C9960036CE5F /* DeviceListViewController.swift */,
+				9B017B7E27F65FC700533714 /* NameEmptyAlert.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				97621F4027EAC0950022588D /* SettingsViewController.swift in Sources */,
 				97621F3C27E584590022588D /* SingleTapGesture.swift in Sources */,
 				97DC46A427ECF24D00242B36 /* MainView.swift in Sources */,
+				9B017B7F27F65FC700533714 /* NameEmptyAlert.swift in Sources */,
 				97621F3227DE4E060022588D /* ConnStatus.swift in Sources */,
 				97621F4227EAC3CD0022588D /* TrackpadSetting.swift in Sources */,
 				973F64D727D798A70045571F /* InitialViewController.swift in Sources */,

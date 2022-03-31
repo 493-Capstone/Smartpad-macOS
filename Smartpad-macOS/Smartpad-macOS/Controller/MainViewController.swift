@@ -46,13 +46,13 @@ class MainViewController: NSViewController {
         DispatchQueue.main.async {
             switch status {
                 case .PairedAndConnected:
-                    self.setPairLabel(label: "Connected: \(peerName)")
+                    self.setPairLabel(label: "Paired to \(peerName)")
 
                 case .PairedAndDisconnected:
                     self.setPairLabel(label: "Disconnected, attempting to reconnect...")
 
                 case .Unpaired:
-                    self.setPairLabel(label: "No device connected")
+                    self.setPairLabel(label: "No device paired")
             }
 
             if #available(macOS 12.0, *) {

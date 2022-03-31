@@ -13,25 +13,25 @@ class SettingsViewController: NSViewController{
     
     @IBOutlet weak var reverseScrollingCheckbox: NSButton!
     @IBOutlet weak var trackingSpeedSlider: NSSlider!
-    @IBOutlet weak var settingsLabel: NSTextField!
+    @IBOutlet weak var isPairedLabel: NSTextField!
     @IBOutlet weak var unpairButton: NSButton!
+    @IBOutlet weak var changeNameLabel: NSTextField!
+    @IBOutlet weak var changeNameField: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let connData = ConnectionData()
-        
-        if (connData.getSelectedPeer() != ""){
-            print(connData.getSelectedPeer())
-            setUIToPairedStatus()
 
-        } else {
-            setUIToUnpairedStatus()
-        }
+        /* Show the current device name */
+        changeNameField.stringValue = ConnectionData().getDeviceName()
+
+        updateConnUI()
+
         if (UserDefaults.standard.bool(forKey: "reverseScrollingEnabled")) {
             reverseScrollingCheckbox.state = .on
         } else {
             reverseScrollingCheckbox.state = .off
         }
+
         let storedTrackingSpeed: Double!
         storedTrackingSpeed = UserDefaults.standard.double(forKey: "trackingSpeed")
         if (storedTrackingSpeed == nil) {
@@ -39,21 +39,43 @@ class SettingsViewController: NSViewController{
         }
         trackingSpeedSlider.doubleValue = (UserDefaults.standard.double(forKey: "trackingSpeed") - 1) * 50
     }
-    
-    private func setUIToUnpairedStatus(){
-        settingsLabel.stringValue = "Device is unpaired"
-        unpairButton.isHidden = true
+
+    /**
+     * Called when the view is about to disapear.
+     */
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+
+        /* Disable the name field when closing to prevent auto-submitting the device name field on close */
+        changeNameField.isEnabled = false
     }
-    
-    private func setUIToPairedStatus(){
-        settingsLabel.stringValue = "Device is paired"
-        unpairButton.isHidden = false
+
+    /**
+     * @brief Update the portions of the UI that are dependent on whether we are paired or not
+     */
+    private func updateConnUI() {
+        let connData = ConnectionData()
+
+        /* If we have a peer, show the paired UI, otherwise treat as unpaired */
+        if (connData.getSelectedPeer() == "") {
+            isPairedLabel.stringValue = "Device is unpaired"
+            unpairButton.isHidden = true
+
+            changeNameLabel.stringValue = "Change device name:"
+            changeNameField.isEnabled = true
+        }
+        else {
+            isPairedLabel.stringValue = "Paired to \(connData.getSelectedPeer())"
+            unpairButton.isHidden = false
+
+            changeNameLabel.stringValue = "Changing name is not available when paired"
+            changeNameField.isEnabled = false
+        }
     }
     
     @IBAction func unpairDevice(_ sender: NSButton) {
         ConnectionManagerAccess.connectionManager.unpairDevice()
-        setUIToUnpairedStatus()
-        
+        updateConnUI()
     }
     
     @IBAction func reverseScrollingSelected(_ sender: NSButton) {
@@ -70,6 +92,19 @@ class SettingsViewController: NSViewController{
 
     @IBAction func closeButtonClicked(_ sender: NSButton) {
         dismiss(true)
+    }
+
+    @IBAction func deviceNameSubmitted(_ sender: NSTextField) {
+        let name = sender.stringValue
+
+        if (name != "") {
+            /* Update the name */
+            ConnectionData().setDeviceName(name: name)
+        }
+        else {
+            /* Empty name, show a warning */
+            NameEmptyAlert().runModal()
+        }
     }
 }
 
