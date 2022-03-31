@@ -10,7 +10,6 @@ import MultipeerConnectivity
 
 class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate{
 
-
     weak var listVC: DeviceListViewController?
     var peerID: MCPeerID!
     var p2pSession: MCSession?
