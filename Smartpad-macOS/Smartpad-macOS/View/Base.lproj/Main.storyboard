@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -254,7 +254,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="9ML-2F-CNf">
-                                    <rect key="frame" x="1" y="205" width="241" height="15"/>
+                                    <rect key="frame" x="1" y="204" width="241" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="4OT-rT-veC">
@@ -318,7 +318,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J1m-E0-pJj">
-                                <rect key="frame" x="189" y="208" width="72" height="32"/>
+                                <rect key="frame" x="189" y="223" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="unpair" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q4Q-GE-ZgM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -328,7 +328,7 @@ Gw
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TsJ-RS-x0X">
-                                <rect key="frame" x="170" y="117" width="108" height="18"/>
+                                <rect key="frame" x="170" y="66" width="108" height="18"/>
                                 <buttonCell key="cell" type="check" title="reverse scroll" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qSO-Tl-lZj">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -338,7 +338,7 @@ Gw
                                 </connections>
                             </button>
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-X3-Z8D">
-                                <rect key="frame" x="119" y="33" width="226" height="28"/>
+                                <rect key="frame" x="119" y="20" width="226" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="5" sliderType="linear" id="i21-ir-YR3"/>
                                 <connections>
@@ -355,29 +355,53 @@ Gw
                                     <action selector="closeButtonClicked:" target="8Ug-Lx-ZmC" id="ycr-fT-U23"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-19-c3J">
-                                <rect key="frame" x="201" y="266" width="37" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BAv-8P-BGh">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-19-c3J">
+                                <rect key="frame" x="167" y="266" width="116" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Device is unpaired" id="BAv-8P-BGh">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t05-AZ-4Zd">
+                                <rect key="frame" x="156" y="162" width="139" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Change Device Name:" id="XE5-1A-f1W">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" id="E7r-3y-KFP">
+                                <rect key="frame" x="150" y="133" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="gMs-Ke-CdD">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="deviceNameSubmitted:" target="8Ug-Lx-ZmC" id="KC6-q0-gxK"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="t05-AZ-4Zd" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="-20" id="0Ni-f3-08f"/>
                             <constraint firstItem="oum-bb-PHy" firstAttribute="centerX" secondItem="jJ7-TO-OPt" secondAttribute="centerX" constant="-174.5" id="0gF-cb-lZb"/>
                             <constraint firstItem="TsJ-RS-x0X" firstAttribute="centerX" secondItem="jJ7-TO-OPt" secondAttribute="centerX" id="8wb-y9-Ypp"/>
-                            <constraint firstItem="Kc0-19-c3J" firstAttribute="centerX" secondItem="jJ7-TO-OPt" secondAttribute="centerX" id="AV5-Wb-fYj"/>
-                            <constraint firstItem="Kc0-19-c3J" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="-122" id="BmQ-Rl-XyQ"/>
-                            <constraint firstItem="TsJ-RS-x0X" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="24" id="PSZ-so-8ct"/>
+                            <constraint firstItem="Kc0-19-c3J" firstAttribute="centerX" secondItem="jJ7-TO-OPt" secondAttribute="centerX" id="AQc-hq-us7"/>
+                            <constraint firstItem="t05-AZ-4Zd" firstAttribute="centerX" secondItem="jJ7-TO-OPt" secondAttribute="centerX" id="HEN-Fe-6kf"/>
+                            <constraint firstItem="Kc0-19-c3J" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="-124" id="HQa-Nk-7lm"/>
+                            <constraint firstItem="TsJ-RS-x0X" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="75" id="PSZ-so-8ct"/>
                             <constraint firstItem="J1m-E0-pJj" firstAttribute="centerX" secondItem="jJ7-TO-OPt" secondAttribute="centerX" id="YnC-t6-qwv"/>
                             <constraint firstItem="oum-bb-PHy" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="-122" id="hHZ-HM-eW5"/>
-                            <constraint firstItem="J1m-E0-pJj" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="-75" id="lHg-X7-s4z"/>
+                            <constraint firstItem="J1m-E0-pJj" firstAttribute="centerY" secondItem="jJ7-TO-OPt" secondAttribute="centerY" constant="-90" id="lHg-X7-s4z"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changeNameField" destination="E7r-3y-KFP" id="cWj-vY-Bff"/>
+                        <outlet property="changeNameLabel" destination="t05-AZ-4Zd" id="WWZ-m8-VmD"/>
+                        <outlet property="isPairedLabel" destination="Kc0-19-c3J" id="bos-uj-vq9"/>
                         <outlet property="reverseScrollingCheckbox" destination="TsJ-RS-x0X" id="rtT-Xz-99W"/>
-                        <outlet property="settingsLabel" destination="Kc0-19-c3J" id="lEa-DD-LKX"/>
                         <outlet property="trackingSpeedSlider" destination="SGu-X3-Z8D" id="nAy-Ql-9cu"/>
                         <outlet property="unpairButton" destination="J1m-E0-pJj" id="4lh-Cs-Jyr"/>
                     </connections>

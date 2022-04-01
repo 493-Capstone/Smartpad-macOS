@@ -17,12 +17,12 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
     var browser: MCNearbyServiceBrowser?
     weak var mainVC: MainViewController?
 
-    override init(){
+    override init() {
         super.init()
         startP2PSession()
     }
 
-    func startP2PSession(){
+    func startP2PSession() {
         print("start p2p session")
         let connData = ConnectionData()
         peerID = MCPeerID.init(displayName: connData.getDeviceName())
@@ -31,17 +31,23 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
         p2pSession?.delegate = self
     }
     
-    func stopP2PSession(){
+    func stopP2PSession() {
         guard let p2pSession = p2pSession else {return}
         print("stop p2p session")
         p2pSession.disconnect()
     }
-    
+
     /**
-     
+     * Restart the peer-to-peer session. Since the display name cannot be changed while the session
+     * is running, this is required whenever we wish to update our display name.
      */
+    func restartP2PSession() {
+        stopP2PSession()
+        startP2PSession()
+    }
+
     @available(*, deprecated, message: "This method uses the old browser and is deprecated")
-    func startJoining(){
+    func startJoining() {
         guard let p2pSession = p2pSession else {return}
         guard let listVC = mainVC else {return}
         let mcBrowser = MCBrowserViewController(serviceType: "smartpad", session: p2pSession)
@@ -50,13 +56,14 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
         mcBrowser.maximumNumberOfPeers = 1
         listVC.presentAsSheet(mcBrowser)
     }
-    
 
     /**
      Method beings browsing for other peers
      */
     func searchForDevices(){
-        guard let p2pSession = p2pSession else {return}
+        /* Restart the session to update our display name */
+        restartP2PSession()
+
         browser = MCNearbyServiceBrowser(peer: peerID, serviceType: "smartpad")
 //        print("start browsing for peers")
         browser?.delegate = self
