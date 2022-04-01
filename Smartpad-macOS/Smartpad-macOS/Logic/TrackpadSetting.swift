@@ -11,13 +11,13 @@ class TrackpadSetting {
     static private var reverseScrollingEnabled: Bool! = UserDefaults.standard.bool(forKey: "reverseScrollingEnabled")
     static private var trackingSpeed: Float! = UserDefaults.standard.float(forKey: "trackingSpeed")
     
-    static public func enableTrackpadSetting() {
+    static public func enableReverseScrolling() {
         TrackpadSetting.reverseScrollingEnabled = true
         UserDefaults.standard.set(true, forKey: "reverseScrollingEnabled")
         UserDefaults.standard.synchronize()
     }
     
-    static public func disableTrackpadSetting() {
+    static public func disableReverseScrolling() {
         TrackpadSetting.reverseScrollingEnabled = false
         UserDefaults.standard.set(false, forKey: "reverseScrollingEnabled")
         UserDefaults.standard.synchronize()
