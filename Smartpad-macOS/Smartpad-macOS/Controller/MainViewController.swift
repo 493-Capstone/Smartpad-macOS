@@ -19,14 +19,21 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectionManager = ConnectionManager(mainVC: self)
+        connectionManager = ConnectionManagerAccess.connectionManager
+        connectionManager.mainVC = self
         connData = ConnectionData()
-
+        let peerName = connData.getSelectedPeer()
+        if(peerName  != ""){
+            connectionManager.searchForDevices()
+            self.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerName )
+        }
         /* Now that we are in the main view controller, the settings button should be enabled */
         if #available(macOS 12.0, *) {
             (NSApp.delegate as! AppDelegate).setSettingsEnabled(isEnabled: true)
         }
     }
+    
+    
     func setPairLabel(label: String){
         pairingLabel.stringValue = label
     }
@@ -39,13 +46,13 @@ class MainViewController: NSViewController {
         DispatchQueue.main.async {
             switch status {
                 case .PairedAndConnected:
-                    self.setPairLabel(label: "Connected: \(peerName)")
+                    self.setPairLabel(label: "Paired to \(peerName)")
 
                 case .PairedAndDisconnected:
                     self.setPairLabel(label: "Disconnected, attempting to reconnect...")
 
                 case .Unpaired:
-                    self.setPairLabel(label: "No device connected")
+                    self.setPairLabel(label: "No device paired")
             }
 
             if #available(macOS 12.0, *) {
@@ -57,10 +64,6 @@ class MainViewController: NSViewController {
         }
     }
     
-    @IBAction func pairButtonSelected(_ sender: NSButton) {
-        /* The "pair" button was pressed */
-        connectionManager.startJoining()
-    }
 
     @IBAction func settingsButtonSelected(_ sender: NSButton) {
         /* The "settings" button was pressed */

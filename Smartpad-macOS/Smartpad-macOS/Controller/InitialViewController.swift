@@ -50,18 +50,11 @@ class InitialViewController: NSViewController{
         if val != ""{
             self.connData.setDeviceName(name: val)
             if let controller = self.storyboard?.instantiateController(withIdentifier: "PairView") as? MainViewController {
-        self.view.window?.contentViewController = controller
-        }
+                self.view.window?.contentViewController = controller
+            }
         } else {
-            let alert = NSAlert()
-
-            alert.messageText = "Name cannot be empty"
-
-            alert.addButton(withTitle: "OK")
-            alert.alertStyle = .warning
-            alert.runModal()
+            NameEmptyAlert().runModal()
         }
-        
     }
 
     override var representedObject: Any? {
