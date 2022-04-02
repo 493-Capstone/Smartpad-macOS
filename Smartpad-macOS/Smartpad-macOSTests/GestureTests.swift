@@ -10,14 +10,6 @@ import XCTest
 
 class GestureTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testZoomGesture() throws {
         var result = ZoomGesture.handlesGesture(gestureType: GestureType.PinchStarted)
         XCTAssertEqual(result, true)
