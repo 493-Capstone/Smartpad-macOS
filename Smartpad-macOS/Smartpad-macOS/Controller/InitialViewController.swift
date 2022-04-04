@@ -23,6 +23,7 @@ class InitialViewController: NSViewController, NSTextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         connData = ConnectionData()
+        connData.setDeviceName(name: "")
         // set the device uuid upon initial setup
         if (connData.getCurrentDeviceUUID() == ""){
             connData.setCurrentDeviceUUID(uuid: UUID().uuidString)
@@ -38,22 +39,6 @@ class InitialViewController: NSViewController, NSTextFieldDelegate{
         self.deviceName.stringValue =  (self.deviceName.stringValue.components(separatedBy: allowedCharacters as CharacterSet) as NSArray).componentsJoined(by: "")
    }
     
-    func textField(_ textField: NSTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("i got called")
-        let allowedCharacters = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: " '")).inverted // append white space and apostrophe
-        let components = string.components(separatedBy: allowedCharacters)
-        let filtered = components.joined(separator: "")
-        
-        if string == filtered {
-            
-            return true
-
-        } else {
-            
-            return false
-        }
-    }
-
     override func viewDidAppear() {
         self.view.window?.title = "Smartpad"
 
