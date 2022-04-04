@@ -80,9 +80,9 @@ class SettingsViewController: NSViewController{
     
     @IBAction func reverseScrollingSelected(_ sender: NSButton) {
         if sender.state == .on {
-            TrackpadSetting.enableTrackpadSetting()
+            TrackpadSetting.enableReverseScrolling()
         } else {
-            TrackpadSetting.disableTrackpadSetting()
+            TrackpadSetting.disableReverseScrolling()
         }
     }
     

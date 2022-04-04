@@ -13,7 +13,6 @@
 		973F64D727D798A70045571F /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64D627D798A70045571F /* InitialViewController.swift */; };
 		973F64D927D798A70045571F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973F64D827D798A70045571F /* Assets.xcassets */; };
 		973F64DC27D798A70045571F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 973F64DA27D798A70045571F /* Main.storyboard */; };
-		973F64E727D798A70045571F /* Smartpad_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64E627D798A70045571F /* Smartpad_macOSTests.swift */; };
 		973F64F127D798A70045571F /* Smartpad_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F027D798A70045571F /* Smartpad_macOSUITests.swift */; };
 		973F64F327D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */; };
 		973F650327D7998C0045571F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F650227D7998C0045571F /* ConnectionManager.swift */; };
@@ -23,6 +22,8 @@
 		97621F4027EAC0950022588D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F3F27EAC0950022588D /* SettingsViewController.swift */; };
 		97621F4227EAC3CD0022588D /* TrackpadSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F4127EAC3CD0022588D /* TrackpadSetting.swift */; };
 		97621F4627EBE53C0022588D /* SingleTapDoubleClickGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F4527EBE53C0022588D /* SingleTapDoubleClickGesture.swift */; };
+		97621F4827F6C5C10022588D /* TrackpadSettingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F4727F6C5C10022588D /* TrackpadSettingTests.swift */; };
+		97621F4A27F743DB0022588D /* GestureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97621F4927F743DB0022588D /* GestureTests.swift */; };
 		97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */; };
 		97DC466427E6F02B00242B36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC466327E6F02B00242B36 /* MainViewController.swift */; };
 		97DC46A427ECF24D00242B36 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC46A327ECF24D00242B36 /* MainView.swift */; };
@@ -66,7 +67,6 @@
 		973F64DB27D798A70045571F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		973F64DD27D798A70045571F /* Smartpad_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smartpad_macOS.entitlements; sourceTree = "<group>"; };
 		973F64E227D798A70045571F /* Smartpad-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smartpad-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		973F64E627D798A70045571F /* Smartpad_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSTests.swift; sourceTree = "<group>"; };
 		973F64EC27D798A70045571F /* Smartpad-macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smartpad-macOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		973F64F027D798A70045571F /* Smartpad_macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSUITests.swift; sourceTree = "<group>"; };
 		973F64F227D798A70045571F /* Smartpad_macOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smartpad_macOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		97621F3F27EAC0950022588D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		97621F4127EAC3CD0022588D /* TrackpadSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadSetting.swift; sourceTree = "<group>"; };
 		97621F4527EBE53C0022588D /* SingleTapDoubleClickGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTapDoubleClickGesture.swift; sourceTree = "<group>"; };
+		97621F4727F6C5C10022588D /* TrackpadSettingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadSettingTests.swift; sourceTree = "<group>"; };
+		97621F4927F743DB0022588D /* GestureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTests.swift; sourceTree = "<group>"; };
 		97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataTest.swift; sourceTree = "<group>"; };
 		97DC466327E6F02B00242B36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		97DC46A327ECF24D00242B36 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -157,8 +159,9 @@
 		973F64E527D798A70045571F /* Smartpad-macOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				973F64E627D798A70045571F /* Smartpad_macOSTests.swift */,
 				97DC461827DDB9BA00242B36 /* ConnectionDataTest.swift */,
+				97621F4727F6C5C10022588D /* TrackpadSettingTests.swift */,
+				97621F4927F743DB0022588D /* GestureTests.swift */,
 			);
 			path = "Smartpad-macOSTests";
 			sourceTree = "<group>";
@@ -393,8 +396,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				973F64E727D798A70045571F /* Smartpad_macOSTests.swift in Sources */,
+				97621F4827F6C5C10022588D /* TrackpadSettingTests.swift in Sources */,
 				97DC461927DDB9BA00242B36 /* ConnectionDataTest.swift in Sources */,
+				97621F4A27F743DB0022588D /* GestureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
@@ -587,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Smartpad-macOS/Info.plist";
@@ -651,7 +655,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOSUITests";
@@ -668,7 +672,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T46R4T879;
+				DEVELOPMENT_TEAM = 39Q7V34K3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alirezaazimi.Smartpad-macOSUITests";
