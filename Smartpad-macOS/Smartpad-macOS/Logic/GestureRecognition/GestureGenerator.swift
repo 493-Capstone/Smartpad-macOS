@@ -8,9 +8,13 @@
 import Foundation
 
 class GestureGenerator {
+#if LATENCY_TEST_SUITE
+    /* For latency testing, we only expect to receive latency packets */
+    static let gestures: [Gesture.Type] = [LatencyGesture.self]
+#else
     // Array of all classes that implement Gesture
-    static let gestures: [Gesture.Type] = [ZoomGesture.self, SingleTapGesture.self, SingleTapDoubleClickGesture.self, DoubleTapGesture.self, SinglePanGesture.self, DoublePanGesture.self,
-        DragPanGesture.self]
+    static let gestures: [Gesture.Type] = [ZoomGesture.self, SingleTapGesture.self, SingleTapDoubleClickGesture.self, DoubleTapGesture.self, SinglePanGesture.self, DoublePanGesture.self, DragPanGesture.self]
+#endif // LATENCY_TEST_SUITE
 
     static func getGesture(type: GestureType) -> Gesture.Type {
         for gesture in gestures {
