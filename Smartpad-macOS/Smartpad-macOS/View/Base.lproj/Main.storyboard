@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -188,7 +188,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pairButton" destination="CkE-Te-BLp" id="9Qd-0R-Lny"/>
                         <outlet property="pairingLabel" destination="0Vb-JH-whY" id="9pa-t6-aay"/>
+                        <outlet property="settingsXConstraint" destination="DpU-yn-s3B" id="BbC-0G-T4S"/>
                     </connections>
                 </viewController>
                 <customObject id="AdW-iu-Qva" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -254,7 +256,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="9ML-2F-CNf">
-                                    <rect key="frame" x="1" y="204" width="241" height="16"/>
+                                    <rect key="frame" x="1" y="205" width="241" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="4OT-rT-veC">

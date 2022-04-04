@@ -12,6 +12,11 @@ import CoreGraphics
 class MainViewController: NSViewController {
 
     @IBOutlet weak var pairingLabel: NSTextField!
+    @IBOutlet weak var pairButton: NSButton!
+    
+    @IBOutlet weak var settingsXConstraint: NSLayoutConstraint!
+    var originalConstraint: CGFloat!
+    var centeredConstraint: CGFloat!
     var connectionManager: ConnectionManager!
     var deviceList: [String] = []
     var selectedDevice = ""
@@ -19,6 +24,8 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        originalConstraint = settingsXConstraint.constant
+        centeredConstraint = originalConstraint - 54
         connectionManager = ConnectionManagerAccess.connectionManager
         connectionManager.mainVC = self
         connData = ConnectionData()
@@ -40,6 +47,11 @@ class MainViewController: NSViewController {
     func setPairLabel(label: String){
         pairingLabel.stringValue = label
     }
+    
+    private func centerSettingsButton(){
+        self.pairButton.isHidden = true
+        self.settingsXConstraint.constant = self.centeredConstraint
+    }
 
     /**
      * @brief Called by ConnectionManager whenever the ConnStatus changes. This updates all UI elements to reflect
@@ -50,12 +62,17 @@ class MainViewController: NSViewController {
             switch status {
                 case .PairedAndConnected:
                     self.setPairLabel(label: "Paired to \(peerName)")
-
+                    self.centerSettingsButton()
+            
+                                    
                 case .PairedAndDisconnected:
                     self.setPairLabel(label: "Disconnected, attempting to reconnect...")
+                    self.centerSettingsButton()
 
                 case .Unpaired:
                     self.setPairLabel(label: "No device paired")
+                    self.pairButton.isHidden = false
+                    self.settingsXConstraint.constant = self.originalConstraint
             }
 
             if #available(macOS 12.0, *) {

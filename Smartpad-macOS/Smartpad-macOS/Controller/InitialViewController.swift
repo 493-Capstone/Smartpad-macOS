@@ -11,7 +11,7 @@ import CoreGraphics
 
 
 
-class InitialViewController: NSViewController{
+class InitialViewController: NSViewController, NSTextFieldDelegate{
    
     @IBOutlet weak var deviceName: NSTextField!
     var connData: ConnectionData!
@@ -26,6 +26,31 @@ class InitialViewController: NSViewController{
         // set the device uuid upon initial setup
         if (connData.getCurrentDeviceUUID() == ""){
             connData.setCurrentDeviceUUID(uuid: UUID().uuidString)
+        }
+        deviceName.delegate = self
+    }
+    
+    /**
+      Method restricts the available textfield characters
+     */
+    func controlTextDidChange(_ obj: Notification) {
+        let allowedCharacters = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: " '")).inverted // append white space and
+        self.deviceName.stringValue =  (self.deviceName.stringValue.components(separatedBy: allowedCharacters as CharacterSet) as NSArray).componentsJoined(by: "")
+   }
+    
+    func textField(_ textField: NSTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("i got called")
+        let allowedCharacters = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: " '")).inverted // append white space and apostrophe
+        let components = string.components(separatedBy: allowedCharacters)
+        let filtered = components.joined(separator: "")
+        
+        if string == filtered {
+            
+            return true
+
+        } else {
+            
+            return false
         }
     }
 
