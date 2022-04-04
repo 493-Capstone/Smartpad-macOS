@@ -65,7 +65,7 @@ class SettingsViewController: NSViewController{
             changeNameField.isEnabled = true
         }
         else {
-            isPairedLabel.stringValue = "Paired to \(connData.getSelectedPeer())"
+            isPairedLabel.stringValue = "Paired to \(connData.getSelectedPeer(formatString: true))"
             unpairButton.isHidden = false
 
             changeNameLabel.stringValue = "Changing name is not available when paired"

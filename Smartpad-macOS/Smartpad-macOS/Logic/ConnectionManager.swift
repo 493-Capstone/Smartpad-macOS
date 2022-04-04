@@ -25,7 +25,7 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
     func startP2PSession() {
         print("start p2p session")
         let connData = ConnectionData()
-        peerID = MCPeerID.init(displayName: connData.getDeviceName())
+        peerID = MCPeerID.init(displayName: connData.getDeviceName() + "|" + connData.getCurrentDeviceUUID())
     
         p2pSession = MCSession.init(peer: peerID!, securityIdentity: nil, encryptionPreference: .required)
         p2pSession?.delegate = self
@@ -130,9 +130,10 @@ extension ConnectionManager{
             case .connected:
                 print("connected")
                 self.stopSearch()
-                self.mainVC?.connData.setSelectedPeer(name: peerID.displayName)
+                let connData = ConnectionData()
+                connData.setSelectedPeer(name: peerID.displayName)
 //                print("Connected: \(String(describing: self.mainVC?.connData.getDeviceName()))")
-                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: peerID.displayName)
+                self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: connData.getSelectedPeer(formatString: true))
             
             case .connecting:
                 break

@@ -22,7 +22,7 @@ class MainViewController: NSViewController {
         connectionManager = ConnectionManagerAccess.connectionManager
         connectionManager.mainVC = self
         connData = ConnectionData()
-        let peerName = connData.getSelectedPeer()
+        let peerName = connData.getSelectedPeer(formatString: true)
         if(peerName  != ""){
             connectionManager.searchForDevices()
             self.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerName )
@@ -32,6 +32,9 @@ class MainViewController: NSViewController {
             (NSApp.delegate as! AppDelegate).setSettingsEnabled(isEnabled: true)
         }
     }
+    
+    
+    
     
     
     func setPairLabel(label: String){

@@ -18,10 +18,15 @@ class InitialViewController: NSViewController{
     var peerID: MCPeerID!
     var p2pSession: MCSession?
     var mcAdvertiserAssistant: MCAdvertiserAssistant?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        connData = ConnectionData()        
+        connData = ConnectionData()
+        // set the device uuid upon initial setup
+        if (connData.getCurrentDeviceUUID() == ""){
+            connData.setCurrentDeviceUUID(uuid: UUID().uuidString)
+        }
     }
 
     override func viewDidAppear() {
