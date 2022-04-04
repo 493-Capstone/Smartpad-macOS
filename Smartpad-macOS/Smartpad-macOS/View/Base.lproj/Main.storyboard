@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -99,6 +99,7 @@
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="Welcome to smartpad label" help="Welcome Message" identifier="welcomeMessage"/>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6HV-0g-cAo">
                                 <rect key="frame" x="116" y="114" width="249" height="21"/>
@@ -110,6 +111,7 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="Enter device name input" help="enter your device name" identifier="deviceNameInput"/>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UaT-BK-tIi">
                                 <rect key="frame" x="202" y="47" width="77" height="32"/>
@@ -117,6 +119,7 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="Submit entered device name" help="For setting device name" identifier="submitName"/>
                                 <connections>
                                     <action selector="submitDeviceName:" target="XfG-lQ-9wD" id="Jsc-vX-GGR"/>
                                 </connections>
@@ -154,6 +157,7 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="settings" help="opens settings view" identifier="settingsButton"/>
                                 <connections>
                                     <action selector="settingsButtonSelected:" target="Jhh-Bn-vsO" id="isT-g7-8Bs"/>
                                     <segue destination="8Ug-Lx-ZmC" kind="sheet" id="9hw-eP-yLA"/>
@@ -165,6 +169,7 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="pair" help="opens pairing browser" identifier="pairButton"/>
                                 <connections>
                                     <segue destination="fl2-zU-nxf" kind="sheet" id="Ouj-fd-h97"/>
                                 </connections>
@@ -176,6 +181,7 @@
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="Connection status label" help="displays connection status" identifier="connStatusLabel"/>
                             </textField>
                         </subviews>
                         <constraints>
@@ -254,13 +260,14 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="9ML-2F-CNf">
-                                    <rect key="frame" x="1" y="204" width="241" height="16"/>
+                                    <rect key="frame" x="1" y="205" width="241" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="4OT-rT-veC">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
+                                <accessibility description="available pairing devices list" help="displays available nearby devices" identifier="deviceList"/>
                             </scrollView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mrC-zM-rJS">
                                 <rect key="frame" x="130" y="5" width="102" height="32"/>
@@ -269,6 +276,7 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="send invite" help="sends invite to selected device" identifier="sendInvite"/>
                                 <connections>
                                     <action selector="sendInvite:" target="fl2-zU-nxf" id="ju4-It-C5M"/>
                                 </connections>
@@ -283,6 +291,7 @@
 Gw
 </string>
                                 </buttonCell>
+                                <accessibility description="cancel" help="closes browser view" identifier="cancelButton"/>
                                 <connections>
                                     <action selector="dismissWindow:" target="fl2-zU-nxf" id="SnT-Q0-QM2"/>
                                 </connections>
@@ -294,6 +303,7 @@ Gw
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="select a device label" help="prompt for selecting a device" identifier="selectDeviceLabel"/>
                             </textField>
                         </subviews>
                         <constraints>
@@ -323,6 +333,7 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="unpair" help="unpairs device" identifier="unpairButton"/>
                                 <connections>
                                     <action selector="unpairDevice:" target="8Ug-Lx-ZmC" id="X1q-GK-UeS"/>
                                 </connections>
@@ -333,6 +344,7 @@ Gw
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="reverse scrolling toggle" help="toggle reverse scrolling on or off" identifier="reverseScrollToggle"/>
                                 <connections>
                                     <action selector="reverseScrollingSelected:" target="8Ug-Lx-ZmC" id="hH4-uh-GDj"/>
                                 </connections>
@@ -341,6 +353,7 @@ Gw
                                 <rect key="frame" x="119" y="20" width="226" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" numberOfTickMarks="5" sliderType="linear" id="i21-ir-YR3"/>
+                                <accessibility description="tracking speed" help="sets tracking speed" identifier="speedSlider"/>
                                 <connections>
                                     <action selector="trackSpeedChanged:" target="8Ug-Lx-ZmC" id="a4A-3I-Z3P"/>
                                 </connections>
@@ -351,6 +364,7 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="close" help="closes settings view" identifier="closeButton"/>
                                 <connections>
                                     <action selector="closeButtonClicked:" target="8Ug-Lx-ZmC" id="ycr-fT-U23"/>
                                 </connections>
@@ -362,6 +376,7 @@ Gw
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="pair status label" help="displays device's pairing status" identifier="pairStatus"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t05-AZ-4Zd">
                                 <rect key="frame" x="156" y="162" width="139" height="16"/>
@@ -370,6 +385,7 @@ Gw
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="change device name label" help="prompt for device name change" identifier="changeNameLabel"/>
                             </textField>
                             <textField verticalHuggingPriority="750" id="E7r-3y-KFP">
                                 <rect key="frame" x="150" y="133" width="150" height="21"/>
@@ -379,6 +395,7 @@ Gw
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="change device name" help="takes input for device name" identifier="changeNameInput"/>
                                 <connections>
                                     <action selector="deviceNameSubmitted:" target="8Ug-Lx-ZmC" id="KC6-q0-gxK"/>
                                 </connections>
