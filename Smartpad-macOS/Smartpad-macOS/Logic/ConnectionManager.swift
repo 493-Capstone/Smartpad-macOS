@@ -157,7 +157,7 @@ extension ConnectionManager{
 //                print("Connected: \(String(describing: self.mainVC?.connData.getDeviceName()))")
                 self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: connData.getSelectedPeer(formatString: true))
 #if LATENCY_TEST_SUITE
-                /* Kick of latency tests */
+                /* Kick off latency tests */
                 LatencyGesture.self.startTest()
 #endif // LATENCY_TEST_SUITE
 
