@@ -194,7 +194,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pairButton" destination="CkE-Te-BLp" id="9Qd-0R-Lny"/>
                         <outlet property="pairingLabel" destination="0Vb-JH-whY" id="9pa-t6-aay"/>
+                        <outlet property="settingsXConstraint" destination="DpU-yn-s3B" id="BbC-0G-T4S"/>
                     </connections>
                 </viewController>
                 <customObject id="AdW-iu-Qva" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

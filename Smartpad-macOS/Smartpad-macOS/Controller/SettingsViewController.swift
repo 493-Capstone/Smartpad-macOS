@@ -9,7 +9,7 @@ import Foundation
 import Cocoa
 import CoreGraphics
 
-class SettingsViewController: NSViewController{
+class SettingsViewController: NSViewController, NSTextFieldDelegate{
     
     @IBOutlet weak var reverseScrollingCheckbox: NSButton!
     @IBOutlet weak var trackingSpeedSlider: NSSlider!
@@ -38,6 +38,7 @@ class SettingsViewController: NSViewController{
             trackingSpeedSlider.doubleValue = 50.0
         }
         trackingSpeedSlider.doubleValue = (UserDefaults.standard.double(forKey: "trackingSpeed") - 1) * 50
+        changeNameField.delegate = self
     }
 
     /**
@@ -48,6 +49,14 @@ class SettingsViewController: NSViewController{
 
         /* Disable the name field when closing to prevent auto-submitting the device name field on close */
         changeNameField.isEnabled = false
+    }
+    
+    /**
+      Method restricts the available textfield characters
+     */
+    func controlTextDidChange(_ obj: Notification) {
+        let allowedCharacters = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: " '")).inverted // append white space and
+        self.changeNameField.stringValue =  (self.changeNameField.stringValue.components(separatedBy: allowedCharacters as CharacterSet) as NSArray).componentsJoined(by: "")
     }
 
     /**
@@ -65,7 +74,7 @@ class SettingsViewController: NSViewController{
             changeNameField.isEnabled = true
         }
         else {
-            isPairedLabel.stringValue = "Paired to \(connData.getSelectedPeer())"
+            isPairedLabel.stringValue = "Paired to \(connData.getSelectedPeer(formatString: true))"
             unpairButton.isHidden = false
 
             changeNameLabel.stringValue = "Changing name is not available when paired"
@@ -104,6 +113,7 @@ class SettingsViewController: NSViewController{
         else {
             /* Empty name, show a warning */
             NameEmptyAlert().runModal()
+            self.changeNameField.stringValue = ConnectionData().getDeviceName()
         }
     }
 }
