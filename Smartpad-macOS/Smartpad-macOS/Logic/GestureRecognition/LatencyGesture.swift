@@ -32,8 +32,8 @@ class LatencyGesture : Gesture {
     /* Timestamp of the previously sent message */
     private static var lastTime = TimeInterval(0)
 
-    /* Watchdog for missed packets. Fires after 1s of no packet received back. */
-    private static var timer: Timer?
+    /* Work to be run asynchronously after some time (for watchdog) */
+    private static var work: DispatchWorkItem?
 
     /* Called to start the test */
     static func startTest() {
@@ -46,20 +46,29 @@ class LatencyGesture : Gesture {
         min = TimeInterval(0xFFFFFFFF)
         lastTime = TimeInterval(0)
 
+        /* In case it was not cleanly restarted, clear any work */
+        work?.cancel()
+
         sendNextPacket()
     }
 
     /* Called whenever a packet did not make it back to us */
-    @objc static func packetWasMissed() {
+    static func packetWasMissed() {
         numMissedPackets += 1
         sendNextPacket()
     }
 
     /* Send the next test packet */
     static private func sendNextPacket() {
-        /* Arm watchdog */
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: LatencyGesture.self, selector: #selector(packetWasMissed), userInfo: nil, repeats: false)
+        /* Re-arm watchdog */
+        work?.cancel()
+
+        work = DispatchWorkItem(block: {
+            LatencyGesture.packetWasMissed()
+        })
+
+        /* After 1s consider the packet to be missed */
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: work!);
 
         let encoder = JSONEncoder()
 
