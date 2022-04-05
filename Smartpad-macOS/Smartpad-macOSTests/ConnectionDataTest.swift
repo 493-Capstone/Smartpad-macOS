@@ -31,25 +31,74 @@ class ConnectionDataTest: XCTestCase {
     }
 
     
-    func testSetName() {
+    func testSetCurrentDeviceName(){
         // Arrange
         let data = ConnectionData()
         // Act
-        let name = "my macbook"
+        let name = "my mac"
         data.setDeviceName(name: name)
         //Assert
-        XCTAssertEqual(UserDefaults.standard.string(forKey: ConnectionKeys.currDeviceName), "my macbook")
+        XCTAssertEqual(UserDefaults.standard.string(forKey: ConnectionKeys.currDeviceName), name)
+    }
+    
+    func testGetCurrentDeviceName(){
+        //Arrange
+        resetDefaults()
+        let data = ConnectionData()
+        // Act
+        let name = "my mac"
+        data.setDeviceName(name: name)
+        //Assert
+        XCTAssertEqual(data.getDeviceName(), name)
         
     }
     
-    func testGetName(){
+    func testSetCurrentDeviceUUID(){
         // Arrange
+        resetDefaults()
+        let uuidString = UUID().uuidString
         let data = ConnectionData()
         // Act
-        let name = "my macbook"
-        data.setDeviceName(name: name)
-        //Assert
-        XCTAssertEqual(data.getDeviceName(), "my macbook")
+        data.setCurrentDeviceUUID(uuid: uuidString)
+        // Assert
+        XCTAssertEqual(UserDefaults.standard.string(forKey: ConnectionKeys.currDeviceUUID), uuidString)
+        
+        
+    }
+    
+    func testGetCurrentDeviceUUID(){
+        // Arrange
+        resetDefaults()
+        let uuidString = UUID().uuidString
+        let data = ConnectionData()
+        // Act
+        data.setCurrentDeviceUUID(uuid: uuidString)
+        // Assert
+        XCTAssertEqual(data.getCurrentDeviceUUID(), uuidString)
+        
+    }
+    
+    func testSetPeerName(){
+        // Arrange
+        resetDefaults()
+        let data = ConnectionData()
+        let peerName = "Ali's phone"
+        // Act
+        data.setSelectedPeer(name: peerName)
+        // Assert
+        XCTAssertEqual(UserDefaults.standard.string(forKey: ConnectionKeys.selectedPeerName), peerName)
+        
+    }
+    
+    func testGetPeerName(){
+        // Arrange
+        resetDefaults()
+        let data = ConnectionData()
+        let peerName = "Ali's phone"
+        // Act
+        data.setSelectedPeer(name: peerName)
+        // Assert
+        XCTAssertEqual(data.getSelectedPeer(), peerName)
         
     }
 
