@@ -51,7 +51,6 @@ class LatencyGesture : Gesture {
 
     /* Called whenever a packet did not make it back to us */
     @objc static func packetWasMissed() {
-        print("Missed packet!")
         numMissedPackets += 1
         sendNextPacket()
     }
@@ -88,6 +87,9 @@ class LatencyGesture : Gesture {
 
         /* We can't have received a packet from the future */
         assert(currentTime >= lastTime)
+
+        /* We should have received the same packet we sent */
+        assert(lastPacketId == payload.packetId)
 
         /* Divde latency by 2 because we are sending then receiving back the same packet */
         updateStats(latency: (currentTime - lastTime) / 2, packetId: payload.packetId)
