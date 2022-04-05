@@ -68,7 +68,7 @@ extension DeviceListViewController: NSTableViewDataSource, NSTableViewDelegate {
           
           let device = connectionManager?.peerList[row]
           if (tableColumn?.identifier)!.rawValue == "deviceName" {
-              cell.textField?.stringValue = device!.displayName
+              cell.textField?.stringValue = device!.displayName.components(separatedBy: "|")[0]
           }
           
           return cell
