@@ -22,6 +22,28 @@ class ConnectionManager:NSObject, MCSessionDelegate, MCNearbyServiceBrowserDeleg
         startP2PSession()
     }
 
+#if LATENCY_TEST_SUITE
+    /* We only send packets to the phone for the latency test */
+    func sendMotion(gesture: GesturePacket) {
+        guard let p2pSession = p2pSession else {return}
+        guard !p2pSession.connectedPeers.isEmpty else {
+            return
+        }
+
+        DispatchQueue.main.async {
+            let encoder = JSONEncoder()
+            guard let command = try? encoder.encode(gesture)
+            else {
+                print("[ConnectionManager] Failed to encode packet!")
+                return
+            }
+
+            guard let p2pSession = self.p2pSession else {return}
+            try? p2pSession.send(command, toPeers: p2pSession.connectedPeers, with: MCSessionSendDataMode.unreliable)
+        }
+    }
+#endif // LATENCY_TEST_SUITE
+
     func startP2PSession() {
         print("start p2p session")
         let connData = ConnectionData()
@@ -134,7 +156,11 @@ extension ConnectionManager{
                 connData.setSelectedPeer(name: peerID.displayName)
 //                print("Connected: \(String(describing: self.mainVC?.connData.getDeviceName()))")
                 self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndConnected, peerName: connData.getSelectedPeer(formatString: true))
-            
+#if LATENCY_TEST_SUITE
+                /* Kick off latency tests */
+                LatencyGesture.self.startTest()
+#endif // LATENCY_TEST_SUITE
+
             case .connecting:
                 break
 

@@ -38,6 +38,7 @@
 		9BA2A70827EC245C00F67CB3 /* GestureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA2A70427EC245C00F67CB3 /* GestureType.swift */; };
 		9BA2A70927EC245C00F67CB3 /* ConnectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA2A70527EC245C00F67CB3 /* ConnectionData.swift */; };
 		9BA2A70A27EC245C00F67CB3 /* GesturePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA2A70627EC245C00F67CB3 /* GesturePacket.swift */; };
+		9BE4234827FB6BC000A5DD07 /* LatencyGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4234727FB6BC000A5DD07 /* LatencyGesture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		9BA2A70427EC245C00F67CB3 /* GestureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureType.swift; sourceTree = "<group>"; };
 		9BA2A70527EC245C00F67CB3 /* ConnectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionData.swift; sourceTree = "<group>"; };
 		9BA2A70627EC245C00F67CB3 /* GesturePacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GesturePacket.swift; sourceTree = "<group>"; };
+		9BE4234727FB6BC000A5DD07 /* LatencyGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatencyGesture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				9B211C3827E66121004D5DBE /* SinglePanGesture.swift */,
 				9B211C3A27E6D127004D5DBE /* DoublePanGesture.swift */,
 				9B8F2AC127EA9A95009CDDF4 /* DragPanGesture.swift */,
+				9BE4234727FB6BC000A5DD07 /* LatencyGesture.swift */,
 			);
 			path = GestureRecognition;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				9B211C3527E543A5004D5DBE /* Gesture.swift in Sources */,
 				97DC466427E6F02B00242B36 /* MainViewController.swift in Sources */,
 				973F64D527D798A70045571F /* AppDelegate.swift in Sources */,
+				9BE4234827FB6BC000A5DD07 /* LatencyGesture.swift in Sources */,
 				970F19DB27F3C9960036CE5F /* DeviceListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
