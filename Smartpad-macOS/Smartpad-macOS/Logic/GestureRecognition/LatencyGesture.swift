@@ -27,6 +27,7 @@ class LatencyGesture : Gesture {
     /* Sum of total latency (used for calcluating running average */
     private static var totalLatency = TimeInterval(0)
     private static var average = TimeInterval(0)
+    private static var samples: [TimeInterval] = []
     private static var max = TimeInterval(0)
     private static var min = TimeInterval(0xFFFFFFFF)
     /* Timestamp of the previously sent message */
@@ -41,6 +42,7 @@ class LatencyGesture : Gesture {
         lastPacketId = 0
         numMissedPackets = 0
         totalLatency = TimeInterval(0)
+        samples = []
         average = TimeInterval(0)
         max = TimeInterval(0)
         min = TimeInterval(0xFFFFFFFF)
@@ -54,6 +56,7 @@ class LatencyGesture : Gesture {
 
     /* Called whenever a packet did not make it back to us */
     static func packetWasMissed() {
+        print("Warning: Packet missed!")
         numMissedPackets += 1
         sendNextPacket()
     }
@@ -98,7 +101,9 @@ class LatencyGesture : Gesture {
         assert(currentTime >= lastTime)
 
         /* We should have received the same packet we sent */
-        assert(lastPacketId == payload.packetId)
+        if (lastPacketId != payload.packetId) {
+            print("Warning: Expected packet with ID: ", lastPacketId, ", but got: ", payload.packetId!)
+        }
 
         /* Divde latency by 2 because we are sending then receiving back the same packet */
         updateStats(latency: (currentTime - lastTime) / 2, packetId: payload.packetId)
@@ -118,11 +123,17 @@ class LatencyGesture : Gesture {
             min = latency
         }
 
+        samples.append(latency)
         totalLatency += latency
         average = totalLatency / Double(lastPacketId)
 
+
         if (lastPacketId % printInterval == 0 && lastPacketId != 0) {
             /* Print results periodically */
+            samples = samples.sorted()
+
+            let kPercent = Int(ceil(Double(samples.count) * 0.99))
+
             print("Num packets received: ", lastPacketId)
             print("Num packets missed: ", numMissedPackets)
             print("===========================================")
@@ -131,7 +142,8 @@ class LatencyGesture : Gesture {
 
             print("===========================================")
             print("Latency stats: ")
-            print("Average latency (s): ", average)
+            print("99th percentile latency (s): ", samples[kPercent])
+            print("Average latency (s):", average)
             print("Max latency (s): ", max)
             print("Min latency (s): ", min)
             print("===========================================")
