@@ -23,7 +23,6 @@ class InitialViewController: NSViewController, NSTextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         connData = ConnectionData()
-        connData.setDeviceName(name: "")
         // set the device uuid upon initial setup
         if (connData.getCurrentDeviceUUID() == ""){
             connData.setCurrentDeviceUUID(uuid: UUID().uuidString)
