@@ -5,6 +5,12 @@
 //  Created by Arthur Chan on 2022-03-18.
 //
 
+/**
+ * Gesture handler for single tap. Causes a single mouse left click to occur.
+ *
+ * Required for the single tap/left click functional requirement FR5
+ */
+
 import Cocoa
 import Foundation
 import CoreGraphics
@@ -15,8 +21,6 @@ class SingleTapGesture : Gesture {
 
     static func performGesture(packet: GesturePacket) {
         assert(packet.touchType == type)
-
-//        print("SingleTap")
         
         if let screen = NSScreen.main {
             let rect = screen.frame

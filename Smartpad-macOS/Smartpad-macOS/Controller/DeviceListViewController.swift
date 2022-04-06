@@ -5,6 +5,8 @@
 //  Created by Alireza Azimi on 2022-03-29.
 //
 
+// TODO: Ali can you document this and include an FR header
+
 import Foundation
 import Cocoa
 import CoreGraphics

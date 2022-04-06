@@ -5,7 +5,12 @@
 //  Created by Alireza Azimi on 2022-03-30.
 //
 
-import Foundation
+/**
+ * Creates singleton access to the connection manager.
+ *
+ * Required for connectivity functional requirements (FR1-FR4)
+ */
+
 struct ConnectionManagerAccess {
     static var connectionManager = ConnectionManager()
 }

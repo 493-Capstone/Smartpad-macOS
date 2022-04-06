@@ -1,9 +1,17 @@
 //
-//  File.swift
+//  MainView.swift
 //  Smartpad-macOS
 //
 //  Created by Alireza Azimi on 2022-03-24.
 //
+
+/**
+ * Draws the connection status circle.
+ *
+ * Required for connection status functional requirement FR16
+ *
+ * Required for user interface requirement UIR-5 (device reconnect UI)
+ */
 
 import Foundation
 import AppKit
@@ -16,7 +24,7 @@ class MainView: NSView {
     }
 
     /**
-     * @brief: Draws the connection indicator in the center of the screen
+     * @brief: Draws the connection indicator in the center of the window
      */
     func drawConnStatus() {
         var path = NSBezierPath()
@@ -40,6 +48,5 @@ class MainView: NSView {
         path.lineWidth = 5
         path.stroke()
         path.fill()
-        
     }
 }

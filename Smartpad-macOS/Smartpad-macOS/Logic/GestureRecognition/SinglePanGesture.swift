@@ -5,6 +5,12 @@
 //  Created by Hudson Shykowski on 2022-03-19.
 //
 
+/**
+ * Gesture handler for two-finger-tap. Causes a single mouse right click to occur.
+ *
+ * Required for the two-finger-tap/right click functional requirement FR6
+ */
+
 import Foundation
 import AppKit
 
@@ -13,6 +19,7 @@ class SinglePanGesture : Gesture {
     static let types = [GestureType.SinglePanStarted,
                         GestureType.SinglePanChanged,
                         GestureType.SinglePanEnded]
+
     // Initial position when the "Started" packet is received
     static var initialPos: NSPoint?
 
@@ -24,8 +31,6 @@ class SinglePanGesture : Gesture {
             print("[SinglePanGesture] Failed to decode payload!")
             return
         }
-
-//        print(packet.touchType!, " - xTrans: ", payload.xTranslation!, " yTrans: ", payload.yTranslation!)
 
         // Store the initial mouse position when we start panning
         // The conditions for starting panning are:

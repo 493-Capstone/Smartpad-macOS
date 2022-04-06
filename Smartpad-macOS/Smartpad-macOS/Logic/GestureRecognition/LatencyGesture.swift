@@ -5,6 +5,12 @@
 //  Created by Hudson Shykowski on 2022-04-04.
 //
 
+/**
+ * Latency tester. Used to validate our wireless connectivity performance.
+ *
+ * See the test plans for instructions on enabling the latency tester.
+ */
+
 #if LATENCY_TEST_SUITE
 
 import Foundation

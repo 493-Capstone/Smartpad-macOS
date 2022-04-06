@@ -5,8 +5,13 @@
 //  Created by Hudson Shykowski on 2022-03-22.
 //
 
-import Foundation
+/**
+ * Gesture handler for finger hold then pan. Causes mouse click-and-drag to occur.
+ *
+ * Required for the drag pan functional requirement FR7
+ */
 
+import Foundation
 import AppKit
 import CoreGraphics
 
@@ -15,6 +20,7 @@ class DragPanGesture : Gesture {
     static let types = [GestureType.DragPanStarted,
                         GestureType.DragPanChanged,
                         GestureType.DragPanEnded]
+
     // Initial position when the "Started" packet is received
     static var initialPos: NSPoint?
 
@@ -26,8 +32,6 @@ class DragPanGesture : Gesture {
             print("[SinglePanGesture] Failed to decode payload!")
             return
         }
-
-//        print(packet.touchType!, " - xTrans: ", payload.xTranslation!, " yTrans: ", payload.yTranslation!)
 
         // Store the initial mouse position when we start panning
         // The conditions for starting panning are:

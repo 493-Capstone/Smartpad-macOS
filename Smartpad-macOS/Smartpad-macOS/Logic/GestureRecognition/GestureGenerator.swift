@@ -5,6 +5,12 @@
 //  Created by Hudson Shykowski on 2022-03-18.
 //
 
+/**
+ * Class for returning gesture handlers for a given gesture packet type. Part of the generator pattern.
+ *
+ * Required for all gesture functional requirements (FR5 - FR10)
+ */
+
 import Foundation
 
 class GestureGenerator {
