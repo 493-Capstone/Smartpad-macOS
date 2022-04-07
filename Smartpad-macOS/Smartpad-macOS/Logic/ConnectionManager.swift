@@ -185,7 +185,12 @@ extension ConnectionManager{
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-   
+            let str = String(decoding: data, as: UTF8.self)
+            print(str)
+            if(str == "a"){
+                print("activation recieved")
+                return
+            }
             let decoder = JSONDecoder()
             guard let packet = try? decoder.decode(GesturePacket.self, from: data)
             else {
