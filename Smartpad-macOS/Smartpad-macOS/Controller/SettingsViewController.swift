@@ -9,7 +9,7 @@
  *
  * Required for functional requirements FR1 (changing device identifier), FR3 (forgetting device)
  * FR12 (reverse scrollling setting), and FR13 (adjust speed setting)
- * Required for user interface requirement UIR-2 (unpairing UI).
+ * Required for user interface requirements UIR-1 (settings change), and UIR-2 (unpairing UI).
  */
 
 import Foundation
