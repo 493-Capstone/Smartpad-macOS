@@ -9,7 +9,7 @@ import XCTest
 @testable import Smartpad_macOS
 
 class ConnectionDataTest: XCTestCase {
-    override func tearDown(){
+    override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         resetDefaults()
