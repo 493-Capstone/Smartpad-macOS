@@ -185,21 +185,18 @@ extension ConnectionManager{
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-   
-            let decoder = JSONDecoder()
-            guard let packet = try? decoder.decode(GesturePacket.self, from: data)
-            else {
-                print("[ConnectionManager] Failed to decode packet!")
-                return
-            }
-    
-    //          UNCOMMENT TO SEE ENCODED PACKET AS STRING :-)
-    //            print(String(data: command, encoding: String.Encoding.utf8))
-    
-//             print("Packet - Type: ", packet.touchType!)
+        DispatchQueue(label:"dataReceive.concurrent.queue", attributes: .concurrent).sync {
+                let decoder = JSONDecoder()
+                guard let packet = try? decoder.decode(GesturePacket.self, from: data)
+                else {
+                    print("[ConnectionManager] Failed to decode packet!")
+                    return
+                }
 
-            GestureGenerator.getGesture(type: packet.touchType)
-                            .performGesture(packet: packet)
+                GestureGenerator.getGesture(type: packet.touchType)
+                                .performGesture(packet: packet)
+                
+        }
     }
 
     // Callbacks for the peer browser
