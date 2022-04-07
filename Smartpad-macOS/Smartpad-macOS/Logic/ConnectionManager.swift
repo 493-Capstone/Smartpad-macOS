@@ -28,7 +28,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
     
 #if LATENCY_TEST_SUITE
     /**
-     * Function handles sending messages to device. Here it's only used for testing.
+     * method handles sending messages to device. Here it's only used for testing.
      * Parameter GesturePacket: Value of type GesturePacket to send
      */
     func sendMotion(gesture: GesturePacket) {
@@ -53,7 +53,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
 #endif // LATENCY_TEST_SUITE
     
     /**
-     * function initializss MCSession objects
+     * method initializss MCSession objects
      */
     func startP2PSession() {
         print("start p2p session")
@@ -65,7 +65,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
     }
     
     /**
-     * @brief function disconnects peer from session
+     * method disconnects peer from session
      */
     func stopP2PSession() {
         guard let p2pSession = p2pSession else {return}
@@ -83,7 +83,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
     }
     
     /**
-     * @brief function uses default
+     * method uses default
      */
     @available(*, deprecated, message: "This method uses the old browser and is deprecated")
     func startJoining() {
