@@ -178,7 +178,6 @@ extension ConnectionManager{
         clearPeerList()
         switch state {
         case .connected:
-            print("connected")
             self.stopSearch()
             let connData = ConnectionData()
             connData.setSelectedPeer(name: peerID.displayName)
@@ -193,7 +192,6 @@ extension ConnectionManager{
             
         case .notConnected:
             // We are still paired, just lost connection. Update the UI to indicate that we are attempting to reconnect
-            print("not connected")
             let connData = ConnectionData()
             if (connData.getSelectedPeer() != ""){
                 if self.p2pSession?.connectedPeers.count == 0 {
