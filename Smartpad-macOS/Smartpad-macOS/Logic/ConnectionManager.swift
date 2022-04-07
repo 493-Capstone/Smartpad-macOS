@@ -12,15 +12,15 @@ import MultipeerConnectivity
  *
  * Required for Device Pairing (FR1-FR4), and required for Connection Status (FR15 & FR16)
  */
-class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate {
+class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate {
     
     weak var listVC: DeviceListViewController?
-    var peerID: MCPeerID!
-    var p2pSession: MCSession?
-    var peerList: [MCPeerID] = []
-    var browser: MCNearbyServiceBrowser?
     weak var mainVC: MainViewController?
-    
+    private var peerID: MCPeerID!
+    private var p2pSession: MCSession?
+    var peerList: [MCPeerID] = []
+    private var browser: MCNearbyServiceBrowser?
+
     override init() {
         super.init()
         startP2PSession()
@@ -81,21 +81,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         stopP2PSession()
         startP2PSession()
     }
-    
-    /**
-     * method uses default
-     */
-    @available(*, deprecated, message: "This method uses the old browser and is deprecated")
-    func startJoining() {
-        guard let p2pSession = p2pSession else {return}
-        guard let listVC = mainVC else {return}
-        let mcBrowser = MCBrowserViewController(serviceType: "smartpad", session: p2pSession)
-        
-        mcBrowser.delegate = self
-        mcBrowser.maximumNumberOfPeers = 1
-        listVC.presentAsSheet(mcBrowser)
-    }
-    
+
     /**
      * Method beings browsing for other peers
      */
@@ -257,24 +243,5 @@ extension ConnectionManager{
         
         listVC.updateTable()
     }
-    
-    /**
-     * Delegate for handling default browser for peers.
-     * Now deprecated.
-     */
-    @available(*, deprecated, message: "No longer in use")
-    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
-        
-    }
-    
-    /**
-     * Delegate for handling default browser for peers.
-     * Now deprecated.
-     */
-    @available(*, deprecated, message: "No longer in use")
-    func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-        
-    }
-    
     
 }
