@@ -83,7 +83,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
     }
 
     /**
-     * Method beings browsing for other peers
+     * Method begins browsing for other peers
      */
     func searchForDevices(){
         /* Restart the session to update our display name */
