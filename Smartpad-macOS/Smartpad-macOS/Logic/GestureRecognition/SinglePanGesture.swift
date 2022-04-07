@@ -44,7 +44,8 @@ class SinglePanGesture : Gesture {
         // TODO: A bit janky on a secondary screen, but works fine on primary screen
         let newPos = CGPoint(x: initialPos!.x + CGFloat(payload.xTranslation * TrackpadSetting.getTrackingSpeed()),
                              y: NSScreen.main!.frame.height - initialPos!.y + CGFloat(payload.yTranslation * TrackpadSetting.getTrackingSpeed()))
-        CGDisplayMoveCursorToPoint(CGMainDisplayID(), newPos)
+
+        moveMouse(position: newPos)
 
         // Reset the initialPos to nil when ending a pan
         if (packet.touchType == GestureType.SinglePanEnded) {
@@ -54,5 +55,15 @@ class SinglePanGesture : Gesture {
 
     static func handlesGesture(gestureType: GestureType) -> Bool {
         return types.contains(gestureType)
+    }
+
+    /**
+     * @brief Move the mouse.
+     */
+    static private func moveMouse(position: CGPoint) {
+        let mouseEvent = CGEvent(mouseEventSource: CGEventSource(stateID: .hidSystemState),
+                                 mouseType: CGEventType.mouseMoved,
+                                 mouseCursorPosition: position, mouseButton: .left)
+        mouseEvent?.post(tap: .cghidEventTap)
     }
 }
