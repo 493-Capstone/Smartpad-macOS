@@ -32,6 +32,8 @@ class SingleTapGesture : Gesture {
             leftMouseDownEvent?.post(tap: .cghidEventTap)
 
             let leftMouseUpEvent = CGEvent(mouseEventSource: source, mouseType: .leftMouseUp, mouseCursorPosition: mouseLocation, mouseButton: .left)
+            // don't unclick too fast! Wait a bit
+            usleep(2000)
             leftMouseUpEvent?.post(tap: .cghidEventTap)
         }
     }

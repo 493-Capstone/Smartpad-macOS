@@ -84,6 +84,12 @@ class ZoomGesture : Gesture {
         plusDown?.post(tap: .cghidEventTap)
         // Release CMD+
         plusUp?.post(tap: .cghidEventTap)
+        
+        // clean up
+        // don't forget to unpress command!
+        let commandUp = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
+                                    virtualKey: CGKeyCode(kVK_Command), keyDown: false)
+        commandUp?.post(tap: .cghidEventTap)
     }
 
     /**
@@ -103,5 +109,13 @@ class ZoomGesture : Gesture {
         minusDown?.post(tap: .cghidEventTap)
         // Release CMD-
         minusUp?.post(tap: .cghidEventTap)
+        
+        // clean up
+        // don't forget to unpress command!
+        let commandUp = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
+                                    virtualKey: CGKeyCode(kVK_Command), keyDown: false)
+        commandUp?.post(tap: .cghidEventTap)
+
     }
+    
 }
