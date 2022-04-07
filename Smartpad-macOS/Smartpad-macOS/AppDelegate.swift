@@ -5,6 +5,13 @@
 //  Created by Alireza Azimi on 2022-03-08.
 //
 
+/**
+ * AppDelegate is reponsible for handling application open/close events, as well as setting
+ * up and updating the MacOS smartpad menu items (top icon next to wifi, spotlight, etc).
+ *
+ * Required in general for making the application work correctly, as well as FR16 (showing the connection status)
+ */
+
 import Cocoa
 import SwiftUI
 
@@ -20,6 +27,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var settingsButton = NSMenuItem(title: "Settings", action: #selector(openSettings), keyEquivalent: "2")
     @State private var connStatus: ConnStatus = ConnStatus.Unpaired
 
+    /**
+     * @brief Called when the application finishes launching
+     */
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         /* Set the status to initially unpaired: We will update whenever a message is recevied from MainView */
         updateConnMenuStatus(status: .Unpaired)
@@ -29,15 +39,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupMenus()
     }
 
+    /**
+     * @brief Called when the application is closing
+     */
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
         ConnectionManagerAccess.connectionManager.stopP2PSession()
     }
 
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
-    }
-
+    /**
+     * @brief Setup the MacOS menu items for smartpad
+     */
     func setupMenus() {
         let menu = NSMenu()
         menu.autoenablesItems = false
@@ -53,6 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.menu = menu
     }
 
+    /**
+     * @brief Callback to be run when the "settings" menu item is clicked
+     */
     @objc func openSettings() {
         /* Show settings page */
         let mainWindow = NSApplication.shared.orderedWindows.first!
@@ -60,6 +74,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         (mainWindow.contentViewController as? MainViewController)?.showSettingsPage()
     }
 
+    /**
+     * @brief Called whenever the smartpad application logo is clicked in the dock. This makes
+     * the smartpad view to re-appear if it was closed
+     */
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         for window in NSApplication.shared.windows {
             window.makeKeyAndOrderFront(self)
@@ -72,7 +90,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         settingsButton.isEnabled = isEnabled
     }
 
-    /* Initial the connection status circle */
+    /* Initialize the connection status circle */
     func initConnMenuStatus() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 

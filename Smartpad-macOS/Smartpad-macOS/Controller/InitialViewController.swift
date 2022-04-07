@@ -9,7 +9,11 @@ import Cocoa
 import MultipeerConnectivity
 import CoreGraphics
 
-
+/**
+ * View controller for the setup page.
+ *
+ * Required for functional requirement FR1 (allow settings a device unique identifier)
+ */
 
 class InitialViewController: NSViewController, NSTextFieldDelegate{
    
@@ -18,7 +22,6 @@ class InitialViewController: NSViewController, NSTextFieldDelegate{
     var peerID: MCPeerID!
     var p2pSession: MCSession?
     var mcAdvertiserAssistant: MCAdvertiserAssistant?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,7 @@ class InitialViewController: NSViewController, NSTextFieldDelegate{
     func controlTextDidChange(_ obj: Notification) {
         let allowedCharacters = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: " '")).inverted // append white space and
         self.deviceName.stringValue =  (self.deviceName.stringValue.components(separatedBy: allowedCharacters as CharacterSet) as NSArray).componentsJoined(by: "")
-   }
+    }
     
     override func viewDidAppear() {
         self.view.window?.title = "Smartpad"
@@ -58,6 +61,9 @@ class InitialViewController: NSViewController, NSTextFieldDelegate{
         }
     }
 
+    /**
+     * @brief Callback method for when the "set name" button is pressed
+     */
     @IBAction func submitDeviceName(_ sender: NSButton) {
         let val = deviceName.stringValue
         print(val)
@@ -68,12 +74,6 @@ class InitialViewController: NSViewController, NSTextFieldDelegate{
             }
         } else {
             NameEmptyAlert().runModal()
-        }
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
         }
     }
 }

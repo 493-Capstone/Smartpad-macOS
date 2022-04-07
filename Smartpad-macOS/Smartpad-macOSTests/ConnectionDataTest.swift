@@ -9,13 +9,6 @@ import XCTest
 @testable import Smartpad_macOS
 
 class ConnectionDataTest: XCTestCase {
-    override func setUp(){
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        super.setUp()
-
-        
-    }
-
     override func tearDown(){
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
@@ -30,7 +23,6 @@ class ConnectionDataTest: XCTestCase {
         }
     }
 
-    
     func testSetCurrentDeviceName(){
         // Arrange
         let data = ConnectionData()
@@ -50,7 +42,6 @@ class ConnectionDataTest: XCTestCase {
         data.setDeviceName(name: name)
         //Assert
         XCTAssertEqual(data.getDeviceName(), name)
-        
     }
     
     func testSetCurrentDeviceUUID(){
@@ -62,8 +53,6 @@ class ConnectionDataTest: XCTestCase {
         data.setCurrentDeviceUUID(uuid: uuidString)
         // Assert
         XCTAssertEqual(UserDefaults.standard.string(forKey: ConnectionKeys.currDeviceUUID), uuidString)
-        
-        
     }
     
     func testGetCurrentDeviceUUID(){
@@ -75,7 +64,6 @@ class ConnectionDataTest: XCTestCase {
         data.setCurrentDeviceUUID(uuid: uuidString)
         // Assert
         XCTAssertEqual(data.getCurrentDeviceUUID(), uuidString)
-        
     }
     
     func testSetPeerName(){
@@ -87,7 +75,6 @@ class ConnectionDataTest: XCTestCase {
         data.setSelectedPeer(name: peerName)
         // Assert
         XCTAssertEqual(UserDefaults.standard.string(forKey: ConnectionKeys.selectedPeerName), peerName)
-        
     }
     
     func testGetPeerName(){
@@ -99,9 +86,5 @@ class ConnectionDataTest: XCTestCase {
         data.setSelectedPeer(name: peerName)
         // Assert
         XCTAssertEqual(data.getSelectedPeer(), peerName)
-        
     }
-
-
-
 }

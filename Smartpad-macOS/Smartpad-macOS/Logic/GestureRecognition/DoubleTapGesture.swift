@@ -5,6 +5,12 @@
 //  Created by Arthur Chan on 2022-03-19.
 //
 
+/**
+ * Gesture handler for two-finger-tap. Causes a single mouse right click to occur.
+ *
+ * Required for the two-finger-tap/right click functional requirement FR6
+ */
+
 import Cocoa
 import Foundation
 import CoreGraphics
@@ -15,8 +21,6 @@ class DoubleTapGesture : Gesture {
 
     static func performGesture(packet: GesturePacket) {
         assert(packet.touchType == type)
-
-//        print("DoubleTap")
         
         if let screen = NSScreen.main {
             let rect = screen.frame

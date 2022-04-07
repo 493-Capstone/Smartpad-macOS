@@ -4,6 +4,13 @@
 //
 //  Created by Arthur Chan on 2022-03-22.
 //
+/**
+ * Settings view controller. Controls the settings application view.
+ *
+ * Required for functional requirements FR1 (changing device identifier), FR3 (forgetting device)
+ * FR12 (reverse scrollling setting), and FR13 (adjust speed setting)
+ * Required for user interface requirement UIR-2 (unpairing UI).
+ */
 
 import Foundation
 import Cocoa
@@ -81,12 +88,18 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate{
             changeNameField.isEnabled = false
         }
     }
-    
+
+    /**
+     * @brief Callback for when the "unpair device" button is pressed
+     */
     @IBAction func unpairDevice(_ sender: NSButton) {
         ConnectionManagerAccess.connectionManager.unpairDevice()
         updateConnUI()
     }
-    
+
+    /**
+     * @brief Callback for when the "reverse scrolling" checkbox is clicked
+     */
     @IBAction func reverseScrollingSelected(_ sender: NSButton) {
         if sender.state == .on {
             TrackpadSetting.enableReverseScrolling()
@@ -94,15 +107,24 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate{
             TrackpadSetting.disableReverseScrolling()
         }
     }
-    
+
+    /**
+     * @brief Callback for when the "change tracking speed" slider is changed
+     */
     @IBAction func trackSpeedChanged(_ sender: NSSlider) {
         TrackpadSetting.setTrackingSpeed(speed: sender.floatValue)
     }
 
+    /**
+     * @brief Callback for when the "close" button is clicked
+     */
     @IBAction func closeButtonClicked(_ sender: NSButton) {
         dismiss(true)
     }
 
+    /**
+     * @brief Callback for when the device name field is submitted
+     */
     @IBAction func deviceNameSubmitted(_ sender: NSTextField) {
         let name = sender.stringValue
 

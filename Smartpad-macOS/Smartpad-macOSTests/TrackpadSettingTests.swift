@@ -9,7 +9,6 @@ import XCTest
 @testable import Smartpad_macOS
 
 class TrackpadSettingTests: XCTestCase {
-    
     func testEnableReverseScrolling() throws {
         TrackpadSetting.disableReverseScrolling()
         let result = TrackpadSetting.isReverseScrollingEnabled()

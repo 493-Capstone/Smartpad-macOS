@@ -5,8 +5,13 @@
 //  Created by Hudson Shykowski on 2022-03-19.
 //
 
-import Foundation
+/**
+ * Gesture handler for two-finger-pan. Causes mouse scrolls to occur.
+ *
+ * Required for the two-finger-tap/right click functional requirement FR9
+ */
 
+import Foundation
 import AppKit
 import CoreGraphics
 
@@ -27,9 +32,6 @@ class DoublePanGesture : Gesture {
             print("[DoublePanGesture] Failed to decode payload!")
             return
         }
-
-        // We allow both X and Y scrolls, so track them both
-//        print(packet.touchType!, " - xTrans: ", payload.xTranslation!, " yTrans: ", payload.yTranslation!)
 
         // Set the initial distance travelled when we start panning
         // The conditions for starting panning are:
@@ -65,8 +67,11 @@ class DoublePanGesture : Gesture {
         return types.contains(gestureType)
     }
 
-    // TODO: Add momentum to scrolls to make it feel more natural
-    // https://stackoverflow.com/questions/51519281/simulate-mouse-wheel-on-macos-swift-or-objc
+    /**
+     * @brief cause a mouse scroll event
+     * @param[in] xPixels: Number of pixels in the x direction to scroll
+     * @param[in] yPixels: Number of pixels in the y direction to scroll
+     */
     static private func mouseScroll(xPixels: Int32, yPixels: Int32) {
         guard let scrollEvent = CGEvent(scrollWheelEvent2Source: nil, units: .pixel, wheelCount: 2, wheel1: yPixels, wheel2: xPixels, wheel3: 0) else {
             print("Failed to scroll mouse")

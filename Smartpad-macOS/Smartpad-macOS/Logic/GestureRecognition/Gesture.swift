@@ -5,6 +5,12 @@
 //  Created by Hudson Shykowski on 2022-03-18.
 //
 
+/**
+ * Protocol (interface) for gesture handlers to implement. Part of the generator pattern.
+ *
+ * Required for all gesture functional requirements (FR5 - FR10)
+ */
+
 import Foundation
 
 protocol Gesture {

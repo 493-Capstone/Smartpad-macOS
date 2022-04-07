@@ -9,7 +9,6 @@ import XCTest
 @testable import Smartpad_macOS
 
 class GestureTests: XCTestCase {
-
     func testZoomGesture() throws {
         var result = ZoomGesture.handlesGesture(gestureType: GestureType.PinchStarted)
         XCTAssertEqual(result, true)

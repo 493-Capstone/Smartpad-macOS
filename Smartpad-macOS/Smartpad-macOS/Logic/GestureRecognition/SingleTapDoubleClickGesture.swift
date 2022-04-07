@@ -5,6 +5,12 @@
 //  Created by Arthur Chan on 2022-03-23.
 //
 
+/**
+ * Gesture handler for two concurrent single taps. Causes a mouse double left click to occur.
+ *
+ * Required for the single tap/left click functional requirement FR5
+ */
+
 import Cocoa
 import Foundation
 import CoreGraphics
@@ -15,8 +21,6 @@ class SingleTapDoubleClickGesture : Gesture {
 
     static func performGesture(packet: GesturePacket) {
         assert(packet.touchType == type)
-
-//        print("DoubleTap")
         
         if let screen = NSScreen.main {
             let rect = screen.frame

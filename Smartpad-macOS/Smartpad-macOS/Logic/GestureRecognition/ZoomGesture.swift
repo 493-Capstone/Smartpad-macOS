@@ -5,6 +5,12 @@
 //  Created by Hudson Shykowski on 2022-03-18.
 //
 
+/**
+ * Gesture handler for pinch. Causes zoom events to occur in the current window.
+ *
+ * Required for the pinch/zoom gesture functional requirement FR10
+ */
+
 import Foundation
 import CoreGraphics
 import Carbon.HIToolbox
@@ -61,6 +67,9 @@ class ZoomGesture : Gesture {
         return types.contains(gestureType)
     }
 
+    /**
+     * @brief Zoom in on the current window via the CMD+ keyboard shortcut
+     */
     static private func zoomIn() {
         let plusDown = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
                                     virtualKey: CGKeyCode(kVK_ANSI_KeypadPlus), keyDown: true)
@@ -77,6 +86,9 @@ class ZoomGesture : Gesture {
         plusUp?.post(tap: .cghidEventTap)
     }
 
+    /**
+     * @brief Zoom out on the current window via the CMD- keyboard shortcut
+     */
     static private func zoomOut() {
         let minusDown = CGEvent.init(keyboardEventSource: CGEventSource(stateID: .hidSystemState),
                                     virtualKey: CGKeyCode(kVK_ANSI_KeypadMinus), keyDown: true)
