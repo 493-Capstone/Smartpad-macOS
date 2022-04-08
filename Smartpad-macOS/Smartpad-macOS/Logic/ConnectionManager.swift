@@ -25,7 +25,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         super.init()
         startP2PSession()
     }
-    
+
 #if LATENCY_TEST_SUITE
     /**
      * method handles sending messages to device. Here it's only used for testing.
@@ -45,13 +45,13 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
                 print("[ConnectionManager] Failed to encode packet!")
                 return
             }
-            
+
             guard let p2pSession = self.p2pSession else {return}
             try? p2pSession.send(command, toPeers: p2pSession.connectedPeers, with: MCSessionSendDataMode.unreliable)
         }
     }
 #endif // LATENCY_TEST_SUITE
-    
+
     /**
      * method initializss MCSession objects
      */
@@ -63,7 +63,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         p2pSession = MCSession.init(peer: peerID!, securityIdentity: nil, encryptionPreference: .required)
         p2pSession?.delegate = self
     }
-    
+
     /**
      * method disconnects peer from session
      */
@@ -72,7 +72,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         print("stop p2p session")
         p2pSession.disconnect()
     }
-    
+
     /**
      * Restart the peer-to-peer session. Since the display name cannot be changed while the session
      * is running, this is required whenever we wish to update our display name.
@@ -93,7 +93,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         browser?.delegate = self
         browser?.startBrowsingForPeers()
     }
-    
+
     /**
      * Method stops browsing for other peers
      */
@@ -106,7 +106,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         }
         listVC.dismiss(true)
     }
-    
+
     /**
      * Sends invite to peer at an index in the list.
      * @param[in] index: The index at which the peer is.
@@ -120,7 +120,7 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
             clearPeerList()
         }
     }
-    
+
     /**
      * Disconnects and unpairs the devices
      */
@@ -132,29 +132,29 @@ class ConnectionManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDele
         browser?.stopBrowsingForPeers()
         self.mainVC?.updateConnStatus(status: .Unpaired, peerName: "")
     }
+
     /**
      * empties peerList
      */
     private func clearPeerList(){
         self.peerList = []
     }
-    
 }
 
-extension ConnectionManager{
-    
+extension ConnectionManager {
+
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         // Not used
     }
-    
+
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
         // Not used
     }
-    
+
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         // Not used
     }
-    
+
     /**
      * Session delegate for handling connection status
      */
@@ -175,7 +175,7 @@ extension ConnectionManager{
             
         case .connecting:
             break
-            
+
         case .notConnected:
             // We are still paired, just lost connection. Update the UI to indicate that we are attempting to reconnect
             let connData = ConnectionData()
@@ -184,16 +184,15 @@ extension ConnectionManager{
                     self.mainVC?.updateConnStatus(status: ConnStatus.PairedAndDisconnected, peerName: peerID.displayName)
                     self.searchForDevices()
                 }
-                
             } else {
                 self.mainVC?.updateConnStatus(status: ConnStatus.Unpaired, peerName: peerID.displayName)
             }
-            
+
         @unknown default:
             print("unknown state")
         }
     }
-    
+
     /**
      * session delegate for handling received data packets
      */
@@ -205,17 +204,17 @@ extension ConnectionManager{
                 print("[ConnectionManager] Failed to decode packet!")
                 return
             }
-            
+
             GestureGenerator.getGesture(type: packet.touchType)
                 .performGesture(packet: packet)
         }
     }
-    
+
     /**
      * browser delegate for scanning and finding nearby peers
      */
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        
+
         // update view with new peer
         guard let p2pSession = self.p2pSession else {return}
         let connData = ConnectionData()
@@ -225,13 +224,13 @@ extension ConnectionManager{
                 return
             }
         }
-        
+
         guard let listVC = self.listVC else {return}
         peerList.append(peerID)
         
         listVC.updateTable()
     }
-    
+
     /**
      * browser delegate to detect when a peer is no longer available
      */
@@ -243,5 +242,4 @@ extension ConnectionManager{
         
         listVC.updateTable()
     }
-    
 }
