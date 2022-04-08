@@ -44,10 +44,23 @@ class DragPanGesture : Gesture {
 
         // Calculate the new mouse position (from the original position)
         // TODO: A bit janky on a secondary screen, but works fine on primary screen
-        let newPos = CGPoint(x: initialPos!.x +
+        var newPos = CGPoint(x: initialPos!.x +
                                 CGFloat(payload.xTranslation * TrackpadSetting.getTrackingSpeed()),
                              y: NSScreen.main!.frame.height - initialPos!.y +
                                 CGFloat(payload.yTranslation * TrackpadSetting.getTrackingSpeed()))
+        
+        // restrict coordinates to screen size
+        if newPos.y > NSScreen.main!.frame.height {
+            newPos.y = NSScreen.main!.frame.height
+        } else if newPos.y < 0 {
+            newPos.y = 0
+        }
+        // restrict coordinates to screen size
+        if newPos.x > NSScreen.main!.frame.width {
+            newPos.x = NSScreen.main!.frame.width
+        } else if newPos.x < 0 {
+            newPos.x = 0
+        }
 
         dragMouse(position: newPos)
 
